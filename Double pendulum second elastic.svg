@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="265.53726mm"
+   height="253.55107mm"
+   viewBox="0 0 265.53726 253.55107"
+   version="1.1"
+   id="svg1"
+   sodipodi:docname="Double pendulum second elastic.svg"
+   inkscape:version="1.4 (86a8ad7, 2024-10-11)"
+   inkscape:export-filename="Double pendulum second elastic.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.73851712"
+     inkscape:cx="760.30736"
+     inkscape:cy="297.21721"
+     inkscape:window-width="1920"
+     inkscape:window-height="1009"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1">
+    <marker
+       style="overflow:visible"
+       id="Triangle"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Triangle arrow"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.5)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path135" />
+    </marker>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(66.145833,-11.641666)">
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-dasharray:none;marker-end:url(#Triangle)"
+       d="m -66.145833,141.49436 c 250.000003,0 250.000003,0 250.000003,0"
+       id="path2" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-dasharray:none;marker-start:url(#Triangle)"
+       d="m 58.854167,15.192741 c 0,249.999999 0,249.999999 0,249.999999"
+       id="path2-8" />
+    <text
+       xml:space="preserve"
+       style="font-size:21.8722px;font-family:'Cambria Math';-inkscape-font-specification:'Cambria Math';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-dasharray:none"
+       x="175.94791"
+       y="156.63332"
+       id="text11"><tspan
+         sodipodi:role="line"
+         id="tspan11"
+         style="stroke-width:1"
+         x="175.94791"
+         y="156.63332">x</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:21.8722px;font-family:'Cambria Math';-inkscape-font-specification:'Cambria Math';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-dasharray:none"
+       x="63.896877"
+       y="23.283333"
+       id="text12"><tspan
+         sodipodi:role="line"
+         id="tspan12"
+         style="stroke-width:1"
+         x="63.896877"
+         y="23.283333">y</tspan></text>
+    <path
+       style="fill:#000000;stroke:#000000;stroke-width:1"
+       d="M 58.889476,141.46909 111.41978,105.32931"
+       id="path1" />
+    <path
+       style="fill:#000000;stroke:#000000;stroke-width:1"
+       d="m 117.82829,100.9984 2.36982,-11.96764"
+       id="path3" />
+    <path
+       style="fill:#000000;stroke:#000000;stroke-width:1"
+       d="m 119.69677,88.982022 11.96763,2.369813"
+       id="path3-1" />
+    <path
+       style="fill:#000000;stroke:#000000;stroke-width:1"
+       d="m 145.442,81.662937 -2.36981,11.967637"
+       id="path3-2" />
+    <path
+       style="fill:#000000;stroke:#000000;stroke-width:1"
+       d="M 143.57353,93.679313 131.60589,91.309499"
+       id="path3-1-2" />
+    <path
+       style="fill:#000000;stroke:#000000;stroke-width:1"
+       d="m 145.41038,81.839923 2.36981,-11.967637"
+       id="path3-5" />
+    <path
+       style="fill:#000000;stroke:#000000;stroke-width:1"
+       d="m 147.27885,69.823548 11.96764,2.369813"
+       id="path3-1-7" />
+    <path
+       style="fill:#000000;stroke:#000000;stroke-width:1"
+       d="m 173.02409,62.504463 -2.36982,11.967638"
+       id="path3-2-6" />
+    <path
+       style="fill:#000000;stroke:#000000;stroke-width:1"
+       d="M 171.15561,74.520839 159.18798,72.151026"
+       id="path3-1-2-1" />
+    <text
+       xml:space="preserve"
+       style="font-size:21.8722px;font-family:'Cambria Math';-inkscape-font-specification:'Cambria Math';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#000000;stroke:#000000;stroke-width:1"
+       x="64.029167"
+       y="119.32708"
+       id="text3"><tspan
+         sodipodi:role="line"
+         id="tspan3"
+         style="stroke-width:1"
+         x="64.029167"
+         y="119.32708">r<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan4">1</tspan></tspan></text>
+    <circle
+       style="fill:#000000;stroke:#000000;stroke-width:1.28814"
+       id="path4"
+       cx="114.61674"
+       cy="103.35154"
+       r="3.8559318" />
+    <circle
+       style="fill:#000000;stroke:#000000;stroke-width:1.28814"
+       id="path4-7"
+       cx="173.62129"
+       cy="59.79287"
+       r="3.8559318" />
+    <text
+       xml:space="preserve"
+       style="font-size:21.8722px;font-family:'Cambria Math';-inkscape-font-specification:'Cambria Math';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#000000;stroke:#000000;stroke-width:1"
+       x="109.26543"
+       y="71.840538"
+       id="text5"><tspan
+         sodipodi:role="line"
+         id="tspan5"
+         style="stroke-width:1"
+         x="109.26543"
+         y="71.840538">l+x</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:21.8722px;font-family:'Cambria Math';-inkscape-font-specification:'Cambria Math';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#000000;stroke:#000000;stroke-width:1"
+       x="62.528328"
+       y="96.709854"
+       id="text6"><tspan
+         sodipodi:role="line"
+         id="tspan6"
+         style="stroke-width:1"
+         x="62.528328"
+         y="96.709854">Bob 1</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:21.8722px;font-family:'Cambria Math';-inkscape-font-specification:'Cambria Math';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#000000;stroke:#000000;stroke-width:1"
+       x="146.77408"
+       y="52.243729"
+       id="text6-3"><tspan
+         sodipodi:role="line"
+         id="tspan6-1"
+         style="stroke-width:1"
+         x="146.77408"
+         y="52.243729">Bob 2</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1"
+       d="m 83.857294,124.05693 c 5.167896,3.96339 8.180345,8.49985 6.681584,17.41645 v 0"
+       id="path5"
+       sodipodi:nodetypes="ccc" />
+    <text
+       xml:space="preserve"
+       style="font-size:21.8722px;font-family:'Cambria Math';-inkscape-font-specification:'Cambria Math';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:none;stroke:#000000;stroke-width:1"
+       x="91.579437"
+       y="135.42152"
+       id="text7"><tspan
+         sodipodi:role="line"
+         id="tspan7"
+         style="fill:#000000;fill-opacity:1;stroke-width:1"
+         x="91.579437"
+         y="135.42152">θ<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan8">1</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:21.8722px;font-family:'Cambria Math';-inkscape-font-specification:'Cambria Math';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:none;stroke:#000000;stroke-width:1"
+       x="146.33972"
+       y="98.118576"
+       id="text7-5"><tspan
+         sodipodi:role="line"
+         id="tspan7-5"
+         style="fill:#000000;fill-opacity:1;stroke-width:1"
+         x="146.33972"
+         y="98.118576">θ<tspan
+   style="font-size:65%;baseline-shift:sub"
+   id="tspan9">2</tspan></tspan></text>
+    <path
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-dasharray:1, 1;stroke-dashoffset:0"
+       d="m 118.00133,103.89438 h 57.50121 v 0"
+       id="path8" />
+    <path
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1.17631;stroke-dasharray:1.17631, 1.17631;stroke-dashoffset:0"
+       d="m 117.52458,102.36423 54.62838,-39.885316 v 0"
+       id="path8-8" />
+    <path
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-dasharray:none;stroke-dashoffset:0"
+       d="m 132.04076,91.713438 c 8.13732,6.214405 4.69442,11.668472 4.65742,12.539202"
+       id="path9"
+       sodipodi:nodetypes="cc" />
+  </g>
+</svg>
