@@ -64,7 +64,7 @@
 \renewcommand{\baselinestretch}{1.05}
 \usepackage[margin=0.2cm]{geometry}
 \date{}
-\title{Elastic pendulum}
+\title{Elastic pendulums}
 \author{Brenton Horne}
 
 \begin{document}
@@ -254,13 +254,12 @@ Let $k'=\dfrac{k}{m}$, $b'=\dfrac{b}{m}$ and $c'=\dfrac{c}{m}$.
 	\ddot{z} &= \dot{\theta}^2(l_0+z) - k'z - g\sin{\theta} -\dot{z}\left(b'+c'\sqrt{\dot{z}^2+(l_0+z)^2\dot{\theta}^2}\right).
 \end{align*}
 
+
 \section{Double pendulum with an elastic second pendulum}
 Below we will analyse the double pendulum where the second pendulum is elastic. The rest length of the elastic pendulum is $l$ and its displacement from rest is $x$. Let the masses of the pendulum bobs be $m_1$ and $m_2$, respectively. We will assume the rod/string have no mass. I have tried accounting for it, using a centre of mass approach, in my double pendulum calculation and my experience with simulations is that it does not really make things any more interesting and just adds complexity. 
 \begin{figure}[H]
 	\includegraphics[width=300px]{Double pendulum second elastic.png}
 \end{figure}
-
-\tableofcontents
 
 \subsection{Positions and velocities}
 \begin{align*}
@@ -337,5 +336,21 @@ The total potential energy is therefore:
 	\mathcal{L} &= T - V \\
 	&= \dfrac{m_1+m_2}{2}r_1^2\dot{\theta}_1^2 + \dfrac{m_2(\dot{z}^2 + (l_0+z)^2\dot{\theta}_2^2 + 2r_1\dot{\theta}_1[ \dot{z} \sin{(\theta_2-\theta_1)} + (l_0+z)\dot{\theta}_2\cos{(\theta_2 - \theta_1)}])}{2} - m_1 gr_1\sin{\theta_1} \\
 	&- m_2 g(r_1\sin{\theta_1} + (l_0+z)\sin{\theta_2}) - \dfrac{kz^2}{2}.
+\end{align*}
+
+\subsection{Euler-Lagrange equations}
+\begin{align*}
+	p_{\theta_1} &= \dfrac{\partial \mathcal{L}}{\partial \dot{\theta}_1} \\
+	&= (m_1+m_2)r_1^2 \dot{\theta}_1 + m_2r_1[ \dot{z} \sin{(\theta_2-\theta_1)} + (l_0+z)\dot{\theta}_2\cos{(\theta_2 - \theta_1)}] \\
+	\dot{p}_{\theta_1} &= (m_1+m_2)r_1^2 \ddot{\theta}_1 +  m_2r_1[ \ddot{z} \sin{(\theta_2-\theta_1)} + \dot{z}(\dot{\theta}_2-\dot{\theta}_1)\cos{(\theta_2-\theta_1)}+ (l_0+z)\ddot{\theta}_2\cos{(\theta_2 - \theta_1)} \\
+	&- (l_0+z)\dot{\theta}_2(\dot{\theta}_2-\dot{\theta}_1)\sin{(\theta_2 - \theta_1)}+\dot{z}\dot{\theta}_2\cos{(\theta_2 - \theta_1)}]\\
+	&= (m_1+m_2)r_1^2 \ddot{\theta}_1 +  m_2r_1[(\ddot{z} -(l_0+z)\dot{\theta}_2(\dot{\theta}_2-\dot{\theta}_1))\sin{(\theta_2 - \theta_1)}+(\dot{z}(2\dot{\theta}_2-\dot{\theta}_1)+(l_0+z)\ddot{\theta}_2)\cos{(\theta_2-\theta_1)}]
+\end{align*}
+
+Calculating the generalized force for $\theta_1$ (a term taken from \href{https://phys.libretexts.org/Bookshelves/Classical_Mechanics/Graduate_Classical_Mechanics_(Fowler)/04%3A_Hamilton's_Principle_and_Noether's_Theorem/4.05%3A_Generalized_Momenta_and_Forces}{Fowler's Graduate Classical Mechanics})
+\begin{align*}
+	 F_{\theta_1} &= \dfrac{\partial \mathcal{L}}{\partial \theta_1} \\
+	 &= m_2 r_1 \dot{\theta}_1(\dot{z}\cos{(\theta_2-\theta_1)}\cdot -1 -(l_0+z)\dot{\theta}_2 \sin{(\theta_2-\theta_1)}\cdot -1) - m_1gr_1 \cos{\theta_1} - m_2gr_1\cos{\theta_1} \\
+	 &= m_2 r_1\dot{\theta}_1((l_0+z)\dot{\theta}_2 \sin{(\theta_2-\theta_1)}-\dot{z}\cos{(\theta_2-\theta_1)}) -(m_1+m_2)gr_1\cos{\theta_1}
 \end{align*}
 \end{document}
