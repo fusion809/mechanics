@@ -350,7 +350,52 @@
 		\dfrac{m_{2r}+2m_{2b}}{2} l\left(\ddot{z}\sin{\theta} - g\cos{(\theta+\alpha)}\right) &= -\dfrac{l^2 \ddot{\theta}}{3}(m_{2r}+3m_{2b}) -\left(b_{rod} + c_{rod}\sqrt{\dot{z}^2+\dfrac{l^2\dot{\theta}^2}{4}+l\dot{z}\dot{\theta}\sin{\theta}}\right)\dfrac{l}{2}\left(\dot{z}\sin{\theta}+\dfrac{l\dot{\theta}}{2}\right) \\
 		&-\left(b_{bob} + c_{bob}\sqrt{\dot{z}^2+l^2\dot{\theta}^2+2l\dot{z}\dot{\theta}\sin{\theta}}\right)l(\dot{z}\sin{\theta}+l\dot{\theta})\\
 		\ddot{z} &= g\cos{(\theta+\alpha)}\csc{\theta}-\dfrac{2l \ddot{\theta}\csc{\theta}}{3(m_{2r}+2m_{2b})}(m_{2r}+3m_{2b}) -\dfrac{\csc{\theta}}{(m_{2r}+2m_{2b})}\left(b_{rod} + c_{rod}\sqrt{\dot{z}^2+\dfrac{l^2\dot{\theta}^2}{4}+l\dot{z}\dot{\theta}\sin{\theta}}\right)\left(\dot{z}\sin{\theta}+\dfrac{l\dot{\theta}}{2}\right) \\
-		&-\dfrac{2\csc{\theta}}{(m_{2r}+2m_{2b})}\left(b_{bob} + c_{bob}\sqrt{\dot{z}^2+l^2\dot{\theta}^2+2l\dot{z}\dot{\theta}\sin{\theta}}\right)(\dot{z}\sin{\theta}+l\dot{\theta})\\
+		&-\dfrac{2\csc{\theta}}{(m_{2r}+2m_{2b})}\left(b_{bob} + c_{bob}\sqrt{\dot{z}^2+l^2\dot{\theta}^2+2l\dot{z}\dot{\theta}\sin{\theta}}\right)(\dot{z}\sin{\theta}+l\dot{\theta})
+	\end{align*}
+	
+	\begin{align*}
+		&-g\sin{\alpha} - \dfrac{1}{m_1+m_{2r}+m_{2b}}\left[\dfrac{m_{2r}+2m_{2b}}{2}l\left(\ddot{\theta}\sin{\theta} + \dot{\theta}^2\cos{\theta}\right)-(b_{cart} + c_{cart}\dot{z})\dot{z} -\left(b_{rod} + c_{rod}\sqrt{\dot{z}^2+\dfrac{l^2\dot{\theta}^2}{4}+l\dot{z}\dot{\theta}\sin{\theta}}\right)\left(\dot{z}+\dfrac{l\dot{\theta}\sin{\theta}}{2}\right)\right. \\
+		&\left.-\left(b_{bob} + c_{bob}\sqrt{\dot{z}^2+l^2\dot{\theta}^2+2l\dot{z}\dot{\theta}\sin{\theta}}\right)(\dot{z}+l\dot{\theta}\sin{\theta})\right] = g\cos{(\theta+\alpha)}\csc{\theta}-\dfrac{2l \ddot{\theta}\csc{\theta}}{3(m_{2r}+2m_{2b})}(m_{2r}+3m_{2b})\\
+		&-\dfrac{\csc{\theta}}{(m_{2r}+2m_{2b})}\left(b_{rod} + c_{rod}\sqrt{\dot{z}^2+\dfrac{l^2\dot{\theta}^2}{4}+l\dot{z}\dot{\theta}\sin{\theta}}\right)\left(\dot{z}\sin{\theta}+\dfrac{l\dot{\theta}}{2}\right) -\dfrac{2\csc{\theta}}{(m_{2r}+2m_{2b})}\left(b_{bob} + c_{bob}\sqrt{\dot{z}^2+l^2\dot{\theta}^2+2l\dot{z}\dot{\theta}\sin{\theta}}\right)(\dot{z}\sin{\theta}+l\dot{\theta})\\\\
+		&\ddot{\theta}\left(\dfrac{2l\csc{\theta}}{3(m_{2r}+2m_{2b})}(m_{2r}+3m_{2b})-\dfrac{l(m_{2r}+2m_{2b})\sin{\theta}}{2(m_1+m_{2r}+m_{2b})}\right) = g\sin{\alpha} + \dfrac{1}{m_1+m_{2r}+m_{2b}}\left[\dfrac{m_{2r}+2m_{2b}}{2}l\dot{\theta}^2\cos{\theta}-(b_{cart} + c_{cart}\dot{z})\dot{z}\right. \\
+		&\left.-\left(b_{rod} + c_{rod}\sqrt{\dot{z}^2+\dfrac{l^2\dot{\theta}^2}{4}+l\dot{z}\dot{\theta}\sin{\theta}}\right)\left(\dot{z}+\dfrac{l\dot{\theta}\sin{\theta}}{2}\right)-\left(b_{bob} + c_{bob}\sqrt{\dot{z}^2+l^2\dot{\theta}^2+2l\dot{z}\dot{\theta}\sin{\theta}}\right)(\dot{z}+l\dot{\theta}\sin{\theta})\right] + g\cos{(\theta+\alpha)}\csc{\theta}\\
+		&-\dfrac{\csc{\theta}}{(m_{2r}+2m_{2b})}\left(b_{rod} + c_{rod}\sqrt{\dot{z}^2+\dfrac{l^2\dot{\theta}^2}{4}+l\dot{z}\dot{\theta}\sin{\theta}}\right)\left(\dot{z}\sin{\theta}+\dfrac{l\dot{\theta}}{2}\right) -\dfrac{2\csc{\theta}}{(m_{2r}+2m_{2b})}\left(b_{bob} + c_{bob}\sqrt{\dot{z}^2+l^2\dot{\theta}^2+2l\dot{z}\dot{\theta}\sin{\theta}}\right)(\dot{z}\sin{\theta}+l\dot{\theta})
+	\end{align*}
+	
+	Multiplying both sides by $\dfrac{\sin{\theta}}{l}$:
+	
+	\begin{align*}
+		&\ddot{\theta}\left(\dfrac{2}{3(m_{2r}+2m_{2b})}(m_{2r}+3m_{2b})-\dfrac{(m_{2r}+2m_{2b})\sin^2{\theta}}{2(m_1+m_{2r}+m_{2b})}\right) = \dfrac{g\sin{\alpha}\sin{\theta}}{l} + \dfrac{\sin{\theta}}{(m_1+m_{2r}+m_{2b})l}\left[\dfrac{m_{2r}+2m_{2b}}{2}\dot{\theta}^2l\cos{\theta}-(b_{cart} + c_{cart}\dot{z})\dot{z}\right. \\
+		&\left.-\left(b_{rod} + c_{rod}\sqrt{\dot{z}^2+\dfrac{l^2\dot{\theta}^2}{4}+l\dot{z}\dot{\theta}\sin{\theta}}\right)\left(\dot{z}+\dfrac{l\dot{\theta}\sin{\theta}}{2}\right)-\left(b_{bob} + c_{bob}\sqrt{\dot{z}^2+l^2\dot{\theta}^2+2l\dot{z}\dot{\theta}\sin{\theta}}\right)(\dot{z}+l\dot{\theta}\sin{\theta})\right] + \dfrac{g\cos{(\theta+\alpha)}}{l}\\
+		&-\dfrac{1}{l(m_{2r}+2m_{2b})}\left(b_{rod} + c_{rod}\sqrt{\dot{z}^2+\dfrac{l^2\dot{\theta}^2}{4}+l\dot{z}\dot{\theta}\sin{\theta}}\right)\left(\dot{z}\sin{\theta}+\dfrac{l\dot{\theta}}{2}\right) -\dfrac{2}{l(m_{2r}+2m_{2b})}\left(b_{bob} + c_{bob}\sqrt{\dot{z}^2+l^2\dot{\theta}^2+2l\dot{z}\dot{\theta}\sin{\theta}}\right)(\dot{z}\sin{\theta}+l\dot{\theta})
+	\end{align*}
+	
+	\begin{align*}
+		\dfrac{2}{3(m_{2r}+2m_{2b})}(m_{2r}+3m_{2b})-\dfrac{(m_{2r}+2m_{2b})\sin^2{\theta}}{2(m_1+m_{2r}+m_{2b})} &= \dfrac{1}{6(m_{2r}+2m_{2b})(m_1+m_{2r}+m_{2b})}\left[4(m_{2r}+3m_{2b})(m_1+m_{2r}+2m_{2b}) - 3(m_{2r}+2m_{2b})^2\sin^2{\theta}\right]\\
+		&= \dfrac{1}{6(m_{2r}+2m_{2b})(m_1+m_{2r}+m_{2b})}\left[4(m_1 m_{2r}+3m_1m_{2b}+m_{2r}^2+6m_{2b}^2+5m_{2r}m_{2b})\right.\\
+		\left.-3(m_{2r}^2+4m_{2b}^2+4m_{2r}m_{2b})\sin^2{\theta}\right]\\
+		&= \dfrac{1}{6(m_{2r}+2m_{2b})(m_1+m_{2r}+m_{2b})}\left[4m_1m_{2r} + 12m_1m_{2b} + 4m_{2r}^2+24m_{2b}^2+20m_{2r}m_{2b} - 3m_{2r}^2\sin^2{\theta}\right.\\
+		\left.-12m_{2b}^2\sin^2{\theta}-12m_{2r}m_{2b}\sin^2{\theta}\right]\\
+		&= \dfrac{1}{6(m_{2r}+2m_{2b})(m_1+m_{2r}+m_{2b})}\left[4m_1(m_{2r}+3m_{2b})+m_{2r}^2(1+3\cos^2{\theta})+12m_{2b}^2(1+\cos^2{\theta})\right.\\
+		\left.+4m_{2r}m_{2b}(2+3\cos^2{\theta})\right]
+	\end{align*}
+	
+	Hence:
+	
+	\begin{align*}
+		&\ddot{\theta}\left[4m_1(m_{2r}+3m_{2b})+m_{2r}^2(1+3\cos^2{\theta})+12m_{2b}^2(1+\cos^2{\theta})+4m_{2r}m_{2b}(2+3\cos^2{\theta})\right] = \dfrac{6g(m_{2r}+2m_{2b})(m_1+m_{2r}+m_{2b})(\sin{\alpha}\sin{\theta}+\cos{(\theta+\alpha)})}{l} \\
+		&+ \dfrac{6\sin{\theta}(m_{2r}+2m_{2b})}{l}\left[\dfrac{m_{2r}+2m_{2b}}{2}\dot{\theta}^2l\cos{\theta}-(b_{cart} + c_{cart}\dot{z})\dot{z}-\left(b_{rod} + c_{rod}\sqrt{\dot{z}^2+\dfrac{l^2\dot{\theta}^2}{4}+l\dot{z}\dot{\theta}\sin{\theta}}\right)\left(\dot{z}+\dfrac{l\dot{\theta}\sin{\theta}}{2}\right)\right.\\
+		&\left.-\left(b_{bob} + c_{bob}\sqrt{\dot{z}^2+l^2\dot{\theta}^2+2l\dot{z}\dot{\theta}\sin{\theta}}\right)(\dot{z}+l\dot{\theta}\sin{\theta})\right]-\dfrac{6(m_{1}+m_{2r}+m_{2b})}{l}\left[\left(b_{rod} + c_{rod}\sqrt{\dot{z}^2+\dfrac{l^2\dot{\theta}^2}{4}+l\dot{z}\dot{\theta}\sin{\theta}}\right)\left(\dot{z}\sin{\theta}+\dfrac{l\dot{\theta}}{2}\right) \right.\\
+		&\left.+2\left(b_{bob} + c_{bob}\sqrt{\dot{z}^2+l^2\dot{\theta}^2+2l\dot{z}\dot{\theta}\sin{\theta}}\right)(\dot{z}\sin{\theta}+l\dot{\theta})\right]
+	\end{align*}
+	
+	Hence
+	
+	\begin{align*}
+		&\ddot{\theta} = \dfrac{1}{4m_1(m_{2r}+3m_{2b})+m_{2r}^2(1+3\cos^2{\theta})+12m_{2b}^2(1+\cos^2{\theta})+4m_{2r}m_{2b}(2+3\cos^2{\theta})}\left[\dfrac{6g(m_{2r}+2m_{2b})(m_1+m_{2r}+m_{2b})(\sin{\alpha}\sin{\theta}+\cos{(\theta+\alpha)})}{l} \right.\\
+		&\left.+ \dfrac{6\sin{\theta}(m_{2r}+2m_{2b})}{l}\left[\dfrac{m_{2r}+2m_{2b}}{2}\dot{\theta}^2l\cos{\theta}-(b_{cart} + c_{cart}\dot{z})\dot{z}-\left(b_{rod} + c_{rod}\sqrt{\dot{z}^2+\dfrac{l^2\dot{\theta}^2}{4}+l\dot{z}\dot{\theta}\sin{\theta}}\right)\left(\dot{z}+\dfrac{l\dot{\theta}\sin{\theta}}{2}\right)\right.\right.\\
+		&\left.\left.-\left(b_{bob} + c_{bob}\sqrt{\dot{z}^2+l^2\dot{\theta}^2+2l\dot{z}\dot{\theta}\sin{\theta}}\right)(\dot{z}+l\dot{\theta}\sin{\theta})\right]-\dfrac{6(m_{1}+m_{2r}+m_{2b})}{l}\left[\left(b_{rod} + c_{rod}\sqrt{\dot{z}^2+\dfrac{l^2\dot{\theta}^2}{4}+l\dot{z}\dot{\theta}\sin{\theta}}\right)\left(\dot{z}\sin{\theta}+\dfrac{l\dot{\theta}}{2}\right) \right.\right.\\
+		&\left.\left.+2\left(b_{bob} + c_{bob}\sqrt{\dot{z}^2+l^2\dot{\theta}^2+2l\dot{z}\dot{\theta}\sin{\theta}}\right)(\dot{z}\sin{\theta}+l\dot{\theta})\right]\right]
 	\end{align*}
 	\end{landscape}
 \end{document}
