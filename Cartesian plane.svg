@@ -24,11 +24,11 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      inkscape:zoom="0.70710678"
-     inkscape:cx="875.39819"
-     inkscape:cy="661.85195"
+     inkscape:cx="1102.3795"
+     inkscape:cy="533.15851"
      inkscape:window-width="1150"
      inkscape:window-height="1000"
-     inkscape:window-x="764"
+     inkscape:window-x="754"
      inkscape:window-y="0"
      inkscape:window-maximized="0"
      inkscape:current-layer="layer1" />
@@ -61,33 +61,33 @@
      transform="translate(0,3.5510748)">
     <path
        style="fill:none;stroke:#000000;stroke-width:1;stroke-dasharray:none;marker-end:url(#Triangle)"
-       d="m 0,174.02662 c 350,0 350,0 350,0"
+       d="m 0,171.44912 c 350,0 350,0 350,0"
        id="path1" />
     <path
        style="fill:none;stroke:#000000;stroke-width:1;stroke-dasharray:none;marker-start:url(#Triangle)"
-       d="m 177.57769,0 c 0,350 0,350 0,350"
+       d="m 175.00069,0 c 0,350 0,350 0,350"
        id="path1-5" />
     <text
        xml:space="preserve"
        style="font-size:21.8722px;font-family:'Cambria Math';-inkscape-font-specification:'Cambria Math';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-dasharray:none"
-       x="341.9903"
-       y="191.30775"
+       x="342.12259"
+       y="187.60359"
        id="text1"><tspan
          sodipodi:role="line"
          id="tspan1"
          style="fill:#000000;fill-opacity:1;stroke-width:1"
-         x="341.9903"
-         y="191.30775">x</tspan></text>
+         x="342.12259"
+         y="187.60359">x</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:21.8722px;font-family:'Cambria Math';-inkscape-font-specification:'Cambria Math';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-dasharray:none"
-       x="182.11247"
+       x="180.24159"
        y="9.3291683"
        id="text2"><tspan
          sodipodi:role="line"
          id="tspan2"
          style="fill:#000000;fill-opacity:1;stroke-width:1"
-         x="182.11247"
+         x="180.24159"
          y="9.3291683">y</tspan></text>
   </g>
 </svg>
