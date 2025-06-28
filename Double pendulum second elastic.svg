@@ -132,16 +132,16 @@
     <text
        xml:space="preserve"
        style="font-size:21.8722px;font-family:'Cambria Math';-inkscape-font-specification:'Cambria Math';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#000000;stroke:#000000;stroke-width:1"
-       x="64.029167"
-       y="119.32708"
+       x="74.418793"
+       y="122.55145"
        id="text3"><tspan
          sodipodi:role="line"
          id="tspan3"
          style="stroke-width:1"
-         x="64.029167"
-         y="119.32708">r<tspan
+         x="74.418793"
+         y="122.55145">r<tspan
    style="font-size:65%;baseline-shift:sub"
-   id="tspan4">1</tspan></tspan></text>
+   id="tspan4" /></tspan></text>
     <circle
        style="fill:#000000;stroke:#000000;stroke-width:1.28814"
        id="path4"
@@ -164,7 +164,7 @@
          id="tspan5"
          style="stroke-width:1"
          x="109.26543"
-         y="71.840538">l+x</tspan></text>
+         y="71.840538">l+z</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:21.8722px;font-family:'Cambria Math';-inkscape-font-specification:'Cambria Math';text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#000000;stroke:#000000;stroke-width:1"
