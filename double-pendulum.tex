@@ -89,13 +89,13 @@
 	Figure 1 depicts the double pendulum system being analysed. Most physicists treat $\theta_1$ and $\theta_2$ as being relative to the negative y-axis instead of the positive x-axis. I, as primarily a mathematician, prefer the positive x-axis as the point of reference for angles as I find it more intuitive. 
 	
 	\section{Euler-Lagrange equations with generalized dissipation force}
-	To obtain our equations of motion, we must apply the Euler-Lagrange equations with generalized dissipation force ($Q_i$ which is on the right-hand side of the following equation):
+	To obtain our equations of motion, we must apply the Euler-Lagrange equations with generalized dissipation force ($Q_i$ which is on the right-hand side of the following equation)
 	
 	\begin{align}
 		\dfrac{d}{dt}\dfrac{\partial \mathcal{L}}{\partial \dot{q_i}} - \dfrac{\partial \mathcal{L}}{\partial q_i} &=  \sum_j \vec{F}_{D,j} \cdot \dfrac{\partial \vec{r}_j}{\partial q_i}. \label{ELD}
 	\end{align}
 	
-	Where:
+	Where
 	\begin{itemize}
 		\item $\mathcal{L}$ is the Lagrangian --- the difference between the kinetc energy and potential energy of the system. 
 		\item $(q_i)=(\theta_1,\theta_2)$ are the generalized coordinates of the system.
@@ -108,7 +108,7 @@
 	
 	\section{Position, velocity and generalized basis vector}
 	\subsection{Bob 1}
-	The first pendulum bob would have the coordinates, velocity and generalized basis vector:
+	The first pendulum bob would have the coordinates, velocity and generalized basis vector
 	\begin{align*}
 		x_{1b} &= r_1 \cos{\theta_1} &\implies \dot{x}_{1b} &= -r_1\dot{\theta}_1 \sin{\theta_1}\\
 		y_{1b} &= r_1 \sin{\theta_1} &\implies \dot{y}_{1b} &= r_1 \dot{\theta}_1 \cos{\theta_1} \\
@@ -229,24 +229,24 @@
 		T_{1b} &= \dfrac{m_{1b}v_{1b}^2}{2}.
 	\end{align*}
 	
-	Substituting in what we previously found $v_{1b}^2$ to be, we obtain:
+	Substituting in what we previously found $v_{1b}^2$ to be, we obtain
 	
 	\begin{align*}
 		T_{1b} &= \dfrac{m_{1b} r_1^2 \dot{\theta}_1^2}{2}.
 	\end{align*}
 	\subsection{Rod 1}
-	First we must determine the kinetic energy of the first rod, it is given by:
+	First we must determine the kinetic energy of the first rod, it is given by
 	\begin{align*}
 		T_{1r} &= \dfrac{1}{2} I_{\mathrm{cm}} \omega_{\mathrm{cm}}^2.
 	\end{align*}
-	Where $I_{\mathrm{cm}}$ is the moment of inertia around the centre of mass and $\omega_{\mathrm{cm}}$ is the angular velocity around the centre of mass. As we have a rod, $I_{\mathrm{cm}} = \dfrac{m_{1r}r_1^2}{12}$ and $\omega_{\mathrm{cm}} = \dot{\theta}_1$. This yields the following kinetic energy: 
+	Where $I_{\mathrm{cm}}$ is the moment of inertia around the centre of mass and $\omega_{\mathrm{cm}}$ is the angular velocity around the centre of mass. As we have a rod, $I_{\mathrm{cm}} = \dfrac{m_{1r}r_1^2}{12}$ and $\omega_{\mathrm{cm}} = \dot{\theta}_1$. This yields the following kinetic energy
 	\begin{align*}
 		T_{1r} &= \dfrac{1}{2}\dfrac{m_{1r} r_1^2}{12}\dot{\theta}_1^2 \\
 		&= \dfrac{m_{1r} r_1^2\dot{\theta}_1^2}{24}.
 	\end{align*}
 	
 	\subsection{Bob 2}
-	The kinetic energy of the second bob is:
+	The kinetic energy of the second bob is
 	
 	\begin{align*}
 		T_{2b} &= \dfrac{m_{2b} v_{2b}^2}{2} \\
@@ -254,13 +254,13 @@
 	\end{align*}
 	
 	\subsection{Rod 2}
-	The second rod should be the same except as rod 1 but with its own parameters:
+	The second rod should be the same except as rod 1 but with its own parameters
 	\begin{align*}
 		T_{2r} &= \dfrac{m_{2r} r_2^2\dot{\theta}_2^2}{24}.
 	\end{align*}
 	
 	\subsection{Total}
-	Hence the total kinetic energy is:
+	Hence the total kinetic energy is
 	
 	\begin{align*}
 		T &= \sum_j T_j \\
@@ -290,21 +290,21 @@
 	\end{align*}
 	
 	\subsection{Bob 2}
-	The potential energy of the second pendulum bob is:
+	The potential energy of the second pendulum bob is
 	\begin{align*}
 		V_{2b} &= m_{2b} gy_{2b} \\
 		&= m_{2b} g \left(r_1 \sin{\theta_1} + r_2 \sin{\theta_2}\right).
 	\end{align*}
 	
 	\subsection{Rod 2}
-	The potential energy of the second pendulum rod is:
+	The potential energy of the second pendulum rod is
 	\begin{align*}
 		V_{2r} &= m_{2r} gy_{2r} \\
 		 &= m_{2r}g \left(r_1 \sin{\theta_1} + \dfrac{r_2\sin{\theta_2}}{2}\right).
 	\end{align*}
 	
 	\subsection{Total}
-	Therefore, the total potential energy is:
+	Therefore, the total potential energy is
 	\begin{align*}
 		V &= \sum_j V_j \\
 		&= V_{1r} + V_{2r} + V_{1b} + V_{2b} \\
@@ -313,7 +313,7 @@
 	\end{align*}
 	
 	\section{Lagrangian}
-	Hence the Lagrangian is:
+	Hence the Lagrangian is
 	
 	\begin{align*}
 		\mathcal{L} &= T - V \\
@@ -324,19 +324,19 @@
 	\section{Applying the Euler-Lagrange equations with generalized dissipative force}
 	\subsection{$\theta_1$}
 	\subsubsection{Left-hand side}
-	Calculating the left-hand side terms of Equation \eqref{ELD} with regards to $\theta_1$. First we calculate the generalized momenta canonical to $\theta_1$:
+	Calculating the left-hand side terms of Equation \eqref{ELD} with regards to $\theta_1$. First we calculate the generalized momenta canonical to $\theta_1$
 	
 	\begin{align*}
 		p_{\theta_1} &= \dfrac{\partial \mathcal{L}}{\partial \dot{\theta}_1} \\
 		&= \dfrac{m_{1r}r_1^2 \dot{\theta}_1}{12} + (m_{1b}+m_{2b}) r_1^2 \dot{\theta}_1 + m_{2b}r_1 r_2 \dot{\theta}_2 \cos{\left(\theta_1-\theta_2\right)}.
 	\end{align*}
 	
-	Hence its time derivative is:
+	Hence its time derivative is
 	\begin{align*}
 		\dot{p}_{\theta_1} &= \dfrac{m_{1r} r_1^2 \ddot{\theta}_1}{12} + (m_{1b}+m_{2b})r_1^2 \ddot{\theta}_1 + m_{2b}r_1 r_2 \ddot{\theta}_2\cos{(\theta_1-\theta_2)} - m_{2b}r_1 r_2 \dot{\theta}_2\left(\dot{\theta}_1 - \dot{\theta}_2\right)\sin{(\theta_1-\theta_2)}.
 	\end{align*}
 	
-	As for the other term in Equation \eqref{ELD}:
+	As for the other term in Equation \eqref{ELD}
 	\begin{align*}		
 		F_{\theta_1} &= \dfrac{\partial \mathcal{L}}{\partial \theta_1} \\
 		&= -m_{2b}r_1r_2\dot{\theta}_1\dot{\theta}_2 \sin{(\theta_1-\theta_2)} - \dfrac{m_{1r}gr_1 \cos{\theta_1}}{2} -m_{2r}gr_1 \cos{\theta_1} -m_{1b}gr_1 \cos{\theta_1} -m_{2b}gr_1 \cos{\theta_1} \\
@@ -344,7 +344,7 @@
 	\end{align*}
 	
 	\begin{landscape}
-	Hence the LHS of Equation \eqref{ELD} for $\theta_1$ is:
+	Hence the LHS of Equation \eqref{ELD} for $\theta_1$ is
 	\begin{align*}
 		\dot{p}_{\theta_1} - F_{\theta_1} &= \dfrac{m_{1r} r_1^2 \ddot{\theta}_1}{12} + (m_{1b}+m_{2b})r_1^2 \ddot{\theta}_1 + m_{2b}r_1 r_2 \ddot{\theta}_2\cos{(\theta_1-\theta_2)} - m_{2b}r_1 r_2 \dot{\theta}_2\left(\dot{\theta}_1 - \dot{\theta}_2\right)\sin{(\theta_1-\theta_2)} + m_{2b}r_1r_2\dot{\theta}_1\dot{\theta}_2\sin{(\theta_1-\theta_2)} +gr_1\cos{\theta_1}\left(\dfrac{m_{1r}}{2}+m_{2r}+m_{1b} + m_{2b}\right) \\
 		&= \dfrac{m_{1r} r_1^2 \ddot{\theta}_1}{12} + (m_{1b}+m_{2b})r_1^2 \ddot{\theta}_1 + m_{2b}r_1 r_2 \ddot{\theta}_2\cos{(\theta_1-\theta_2)} + m_{2b}r_1 r_2 \dot{\theta}_2^2\sin{(\theta_1-\theta_2)} +gr_1\cos{\theta_1}\left(\dfrac{m_{1r}}{2}+m_{2r}+m_{1b} + m_{2b}\right) \\
@@ -352,25 +352,25 @@
 		&= r_1^2 \ddot{\theta}_1 \left(\dfrac{m_{1r}}{12} + m_{1b} + m_{2b}\right) + m_{2b}r_1 r_2\left( \ddot{\theta}_2\cos{(\theta_1-\theta_2)} + \dot{\theta}_2^2\sin{(\theta_1-\theta_2)}\right) +gr_1\cos{\theta_1}\left(\dfrac{m_{1r}}{2}+m_{2r}+m_{1b} + m_{2b}\right).
 	\end{align*}
 	
-	Hence $\ddot{\theta}_1$ is:
+	Hence $\ddot{\theta}_1$ is
 	\begin{align*}
 		\ddot{\theta}_1 &= \dfrac{1}{r_1^2\left(\dfrac{m_{1r}}{12} + m_{1b} + m_{2b}\right)}\left[Q_{\theta_1} - m_{2b}r_1 r_2\left( \ddot{\theta}_2\cos{(\theta_1-\theta_2)} + \dot{\theta}_2^2\sin{(\theta_1-\theta_2)}\right) -gr_1\cos{\theta_1}\left(\dfrac{m_{1r}}{2}+m_{2r}+m_{1b} + m_{2b}\right)\right].
 	\end{align*}
 	
 	\subsubsection{Right-hand side}
-	As for the generalized dissipation force:
+	As for the generalized dissipation force
 	
 	\begin{align*}
 		Q_{\theta_1} &= \vec{F}_{D, 1r} \cdot \dfrac{\partial \vec{r}_{1r}}{\partial \theta_1} + \vec{F}_{D, 1b} \cdot \dfrac{\partial \vec{r}_{1b}}{\partial \theta_1}+ \vec{F}_{D, 2r} \cdot \dfrac{\partial \vec{r}_{rod, 2}}{\partial \theta_1} + \vec{F}_{D, 2b} \cdot \dfrac{\partial \vec{r}_{2b}}{\partial \theta_1}
 	\end{align*}
 	
 	\paragraph{Bob 1\\}
-	The dissipation force applied to the first bob is:
+	The dissipation force applied to the first bob is
 	\begin{align*}
 		\vec{F}_{D,1b} &= -b_{1b}\vec{v}_{1b} - c_{1b}|\vec{v}_{1b}|\vec{v}_{1b}.
 	\end{align*}
 	
-	Hence the generalized dissipation force, canonical to $\theta_1$, applied to the first bob is:
+	Hence the generalized dissipation force, canonical to $\theta_1$, applied to the first bob is
 	\begin{align*}
 		\vec{F}_{D, 1b} \cdot \dfrac{\partial \vec{r}_{1b}}{\partial \theta_1}&= (-b_{1b} - c_{1b}r_1\dot{\theta}_1)\begin{bmatrix}
 			-r_1\dot{\theta}_1 \sin{\theta_1} \\
@@ -385,7 +385,7 @@
 	
 	\paragraph{Rod 1\\}
 	
-	Next we will calculate the dissipation force on the first rod. We will use a centre of mass approximation (as otherwise we would likely have to integrate over the rod, which would drastically complicate the calculation):
+	Next we will calculate the dissipation force on the first rod. We will use a centre of mass approximation (as otherwise we would likely have to integrate over the rod, which would drastically complicate the calculation)
 	
 	\begin{align*}
 		\vec{F}_{D,1r} &= -\left(b_{1r} + c_{1r}|\vec{v}_{1r}|\right)\vec{v}_{1r} \\
@@ -395,7 +395,7 @@
 		\end{bmatrix}.
 	\end{align*}
 	
-	Hence the generalized dissipation force, canonical to $\theta_1$, on the first rod is:
+	Hence the generalized dissipation force, canonical to $\theta_1$, on the first rod is
 	\begin{align*}
 		\vec{F}_{D,1r} \cdot \dfrac{\partial \vec{r}_{1r}}{\partial \theta_1} &= -\left(b_{1r} + \dfrac{c_{1r}r_1 \dot{\theta}_1}{2}\right)\dfrac{r_1 \dot{\theta}_1}{2} \begin{bmatrix}
 			-\sin{\theta_1} \\
@@ -407,7 +407,7 @@
 		&= -\left(b_{1r} + \dfrac{c_{1r}r_1 \dot{\theta}_1}{2}\right) \dfrac{r_1^2 \dot{\theta}_1}{4}.
 	\end{align*}
 	\paragraph{Bob 2\\}
-	The dissipation force on the second bob would be:
+	The dissipation force on the second bob would be
 	
 	\begin{align*}
 		\vec{F}_{D,2b} &= -b_{2b}\vec{v}_{2b} - c_{2b}|\vec{v}_{2b}|\vec{v}_{2b} \\
@@ -417,7 +417,7 @@
 		\end{bmatrix}.
 	\end{align*}
 	
-	Hence the generalized dissipation force, canonical to $\theta_1$, would be:
+	Hence the generalized dissipation force, canonical to $\theta_1$, would be
 	\begin{align*}
 		\vec{F}_{D, 2b} \cdot \dfrac{\partial \vec{r}_{2b}}{\partial \theta_1} &= -\left(b_{2b}+c_{2b}\sqrt{r_1^2 \dot{\theta}_1^2 + r_2^2 \dot{\theta}_2^2 +2r_1 r_2\dot{\theta}_1 \dot{\theta}_2 \cos{(\theta_1-\theta_2)}}\right) \begin{bmatrix}
 			-r_1\dot{\theta}_1 \sin{\theta_1}-r_2\dot{\theta}_2 \sin{\theta_2} \\
@@ -431,7 +431,7 @@
 	\end{align*}
 	
 	\paragraph{Rod 2\\}
-	The friction force applied to the second rod would be:
+	The friction force applied to the second rod would be
 	\begin{align*}
 		\vec{F}_{D,2r} &= -\left(b_{2r} + c_{2r}|\vec{v}_{2r}|\right)\vec{v}_{2r} \\
 		\vec{F}_{D,2r} &= -\left(b_{2r} + c_{2r}\sqrt{r_1^2 \dot{\theta}_1^2 + \dfrac{r_2^2 \dot{\theta}_2^2}{4} + r_1 r_2 \dot{\theta}_1 \dot{\theta}_2 \cos{(\theta_1 -\theta_2)}}\right)\begin{bmatrix}
@@ -440,21 +440,21 @@
 		\end{bmatrix}.
 	\end{align*}
 	
-	Therefore the generalized dissipation force, canonical to $\theta_1$, for the second rod would be: 
+	Therefore the generalized dissipation force, canonical to $\theta_1$, for the second rod would be 
 	\begin{align*}	
 		\vec{F}_{D,2r}\cdot \dfrac{\partial \vec{r}_{2r}}{\partial \theta_1} &= -\left(b_{2r} + c_{2r}\sqrt{r_1^2 \dot{\theta}_1^2 + \dfrac{r_2^2 \dot{\theta}_2^2}{4} + r_1 r_2 \dot{\theta}_1 \dot{\theta}_2 \cos{(\theta_1 -\theta_2)}}\right) \left(r_1^2 \dot{\theta}_1 \sin^2{\theta_1} + \dfrac{r_1 r_2 \dot{\theta}_2 \sin{\theta_1}\sin{\theta_2}}{2} +r_1^2 \dot{\theta}_1\cos^2{\theta_1} + \dfrac{r_1r_2 \dot{\theta}_2 \cos{\theta_1}\cos{\theta_2}}{2}\right) \\
 		&= -\left(b_{2r} + c_{2r}\sqrt{r_1^2 \dot{\theta}_1^2 + \dfrac{r_2^2 \dot{\theta}_2^2}{4} + r_1 r_2 \dot{\theta}_1 \dot{\theta}_2 \cos{(\theta_1 -\theta_2)}}\right)\left(r_1^2 \dot{\theta}_1^2 + \dfrac{r_1 r_2\dot{\theta}_2 \cos{\left(\theta_1 - \theta_2\right)}}{2}\right).
 	\end{align*}
 	
 	\paragraph{Final answer\\}
-	Hence $Q_{\theta_1}$ is:
+	Hence $Q_{\theta_1}$ is
 	\begin{align*}
 		Q_{\theta_1} &= -\left(b_{1b} + c_{1b} r_1 \dot{\theta}_1\right)r_1^2 \dot{\theta}_1 -\left(b_{2b}+c_{2b}\sqrt{r_1^2 \dot{\theta}_1^2 + r_2^2 \dot{\theta}_2^2 +2r_1 r_2\dot{\theta}_1 \dot{\theta}_2 \cos{(\theta_1-\theta_2)}}\right)\left(r_1^2 \dot{\theta}_1 + r_1r_2 \dot{\theta}_2 \cos{(\theta_1-\theta_2)}\right) -\left(b_{1r} + \dfrac{c_{1r}r_1 \dot{\theta}_1}{2}\right) \dfrac{r_1^2 \dot{\theta}_1}{4} \\
 		&-\left(b_{2r} + c_{2r}\sqrt{r_1^2 \dot{\theta}_1^2 + \dfrac{r_2^2 \dot{\theta}_2^2}{4} + r_1 r_2 \dot{\theta}_1 \dot{\theta}_2 \cos{(\theta_1 -\theta_2)}}\right)\left(r_1^2 \dot{\theta}_1^2 + \dfrac{r_1 r_2\dot{\theta}_2 \cos{\left(\theta_1 - \theta_2\right)}}{2}\right).
 	\end{align*}
 	
 	\subsubsection{Final equation for $\ddot{\theta}_1$}
-	The equation of motion for $\theta_1$ is therefore:
+	The equation of motion for $\theta_1$ is therefore
 	
 	\begin{align*}
 		\dot{p}_{\theta_1} - F_{\theta_1} &= Q_{\theta_1}
@@ -481,7 +481,7 @@
 	\end{align}
 	
 	\subsection{$\theta_2$}
-	Next, we will derive the equations for $\theta_2$:
+	Next, we will derive the equations for $\theta_2$
 	
 	\subsubsection{Left-hand side}
 	\begin{align*}
@@ -493,7 +493,7 @@
 		&= m_{2b} r_1 r_2 \dot{\theta}_1 \dot{\theta}_2 \sin{(\theta_1-\theta_2)}-\dfrac{m_{2r}gr_2 \cos{\theta_2}}{2} - m_{2b}gr_2\cos{\theta_2} \\
 		&= m_{2b} r_1 r_2 \dot{\theta}_1 \dot{\theta}_2 \sin{(\theta_1-\theta_2)}-gr_2\cos{\theta_2}\left(\dfrac{m_{2r}}{2} + m_{2b}\right).
 	\end{align*}
-	The LHS of our equation will be:
+	The LHS of our equation will be
 	
 	\begin{align*}
 		\dot{p}_{\theta_2} - F_{\theta_2} &= r_2^2 \left(\dfrac{m_{2r}}{12} + m_{2b}\right)\ddot{\theta}_2 + m_{2b}r_1r_2\left(\ddot{\theta}_1\cos{(\theta_1-\theta_2)}-\dot{\theta}_1(\dot{\theta}_1-\dot{\theta}_2)\sin{(\theta_1-\theta_2)}\right) - m_{2b} r_1 r_2 \dot{\theta}_1 \dot{\theta}_2 \sin{(\theta_1-\theta_2)}+gr_2\cos{\theta_2}\left(\dfrac{m_{2r}}{2} + m_{2b}\right) \\
@@ -506,17 +506,17 @@
 		&= \vec{F}_{D,1r} \cdot \dfrac{\partial \vec{r}_{1r}}{\partial \theta_2} + \vec{F}_{D,1b} \cdot \dfrac{\partial \vec{r}_{1b}}{\partial \theta_2} + \vec{F}_{D,2r} \cdot \dfrac{\partial \vec{r}_{2r}}{\partial \theta_2} + \vec{F}_{D,2b} \cdot \dfrac{\partial \vec{r}_{2b}}{\partial \theta_2}.
 	\end{align*}
 	
-	The terms corresponding to the first rod and first bob will be zero as their position and velocities are independent of $\theta_2$. The remaining terms are:
+	The terms corresponding to the first rod and first bob will be zero as their position and velocities are independent of $\theta_2$. The remaining terms are below.
 	
 	\paragraph{Rod 2\\}
-	The dissipation force applied to the second rod is:
+	The dissipation force applied to the second rod is
 	\begin{align*}
 		\vec{F}_{D,2r} &= -\left(b_{2r} + c_{2r}\sqrt{r_1^2 \dot{\theta}_1^2 + \dfrac{r_2^2 \dot{\theta}_2^2}{4} + r_1 r_2 \dot{\theta}_1 \dot{\theta}_2 \cos{(\theta_1 -\theta_2)}}\right)\begin{bmatrix}
 			-r_1 \dot{\theta}_1\sin{\theta_1} - \dfrac{r_2\dot{\theta}_2\sin{\theta_2}}{2}\\
 			r_1 \dot{\theta}_1 \cos{\theta_1} + \dfrac{r_2\dot{\theta}_2\cos{\theta_2}}{2}
 		\end{bmatrix}.
 	\end{align*}
-	Hence the generalized dissipation force, canonical to $\theta_2$, applied to the second rod is:
+	Hence the generalized dissipation force, canonical to $\theta_2$, applied to the second rod is
 	\begin{align*}
 		\vec{F}_{D,2r} \cdot \dfrac{\partial \vec{r}_{2r}}{\partial \theta_2} &= -\left(b_{2r} + c_{2r}\sqrt{r_1^2 \dot{\theta}_1^2 + \dfrac{r_2^2 \dot{\theta}_2^2}{4} + r_1 r_2 \dot{\theta}_1 \dot{\theta}_2 \cos{(\theta_1 -\theta_2)}}\right)\begin{bmatrix}
 			-r_1 \dot{\theta}_1\sin{\theta_1} - \dfrac{r_2\dot{\theta}_2\sin{\theta_2}}{2}\\
@@ -529,14 +529,14 @@
 		&= -\dfrac{1}{4}\left(b_{2r} + c_{2r}\sqrt{r_1^2 \dot{\theta}_1^2 + \dfrac{r_2^2 \dot{\theta}_2^2}{4} + r_1 r_2 \dot{\theta}_1 \dot{\theta}_2 \cos{(\theta_1 -\theta_2)}}\right)(2r_1r_2 \dot{\theta}_1 \cos{(\theta_1-\theta_2)} + r_2^2 \dot{\theta}_2).
 	\end{align*}
 	\paragraph{Bob 2\\}
-	The dissipation force applied to the second bob is:
+	The dissipation force applied to the second bob is
 	\begin{align*}
 		\vec{F}_{D,2b} &= -\left(b_{2b}+c_{2b}\sqrt{r_1^2 \dot{\theta}_1^2 + r_2^2 \dot{\theta}_2^2 +2r_1 r_2\dot{\theta}_1 \dot{\theta}_2 \cos{(\theta_1-\theta_2)}}\right) \begin{bmatrix}
 			-r_1\dot{\theta}_1 \sin{\theta_1}-r_2\dot{\theta}_2 \sin{\theta_2} \\
 			r_1\dot{\theta}_1 \cos{\theta_1}+r_2\dot{\theta}_2 \cos{\theta_2}
 		\end{bmatrix}.
 	\end{align*}
-	Therefore the generalized dissipation force, canonical to $\theta_2$, applied to the second bob is:
+	Therefore the generalized dissipation force, canonical to $\theta_2$, applied to the second bob is
 	\begin{align*}
 		\vec{F}_{D,2b} \cdot \dfrac{\partial \vec{r}_{2b}}{\partial \theta_2} &= -\left(b_{2b}+c_{2b}\sqrt{r_1^2 \dot{\theta}_1^2 + r_2^2 \dot{\theta}_2^2 +2r_1 r_2\dot{\theta}_1 \dot{\theta}_2 \cos{(\theta_1-\theta_2)}}\right) \begin{bmatrix}
 			-r_1\dot{\theta}_1 \sin{\theta_1}-r_2\dot{\theta}_2 \sin{\theta_2} \\
@@ -561,7 +561,7 @@
 		&= -\dfrac{1}{4}\left(b_{2r} + c_{2r}\sqrt{r_1^2 \dot{\theta}_1^2 + \dfrac{r_2^2 \dot{\theta}_2^2}{4} + r_1 r_2 \dot{\theta}_1 \dot{\theta}_2 \cos{(\theta_1 -\theta_2)}}\right)(2r_1r_2 \dot{\theta}_1 \cos{(\theta_1-\theta_2)} + r_2^2 \dot{\theta}_2) -\left(b_{2b}+c_{2b}\sqrt{r_1^2 \dot{\theta}_1^2 + r_2^2 \dot{\theta}_2^2 +2r_1 r_2\dot{\theta}_1 \dot{\theta}_2 \cos{(\theta_1-\theta_2)}}\right)\left(r_1r_2 \dot{\theta}_1 \cos{(\theta_1-\theta_2)}\right. \\
 		&\left.+ r_2^2 \dot{\theta}_2\right)
 	\end{align*}
-	Moving everything on the left-hand side except the $\ddot{\theta}_1$ term to the right-hand side yields:
+	Moving everything on the left-hand side except the $\ddot{\theta}_1$ term to the right-hand side yields
 	\begin{align*}
 		&m_{2b}r_1r_2\cos{(\theta_1-\theta_2)}\ddot{\theta}_1 = -r_2^2 \left(\dfrac{m_{2r}}{12} + m_{2b}\right)\ddot{\theta}_2 + m_{2b}r_2(r_1\dot{\theta}_1^2\sin{(\theta_1-\theta_2)}-g\cos{\theta_2})
 		-\dfrac{1}{4}\left(b_{2r} + c_{2r}\sqrt{r_1^2 \dot{\theta}_1^2 + \dfrac{r_2^2 \dot{\theta}_2^2}{4} + r_1 r_2 \dot{\theta}_1 \dot{\theta}_2 \cos{(\theta_1 -\theta_2)}}\right)(2r_1r_2 \dot{\theta}_1 \cos{(\theta_1-\theta_2)} \\
@@ -575,7 +575,7 @@
 	\end{align*}
 	
 	\subsection{Rewriting in terms of $\ddot{\theta}_2$}
-	Dividing both sides by $m_2r_1r_2\cos{(\theta_1-\theta_2)}$ and replacing $\ddot{\theta}_1$ on the LHS with the right-hand side of Equation \eqref{d2theta11} yields:
+	Dividing both sides by $m_2r_1r_2\cos{(\theta_1-\theta_2)}$ and replacing $\ddot{\theta}_1$ on the LHS with the right-hand side of Equation \eqref{d2theta11} yields
 	
 	\begin{align*}
 		&\dfrac{1}{\left(\dfrac{m_{1r}}{12} + m_{1b}+m_{2b}\right)r_1} [-m_{2b}r_2 ( \ddot{\theta}_2\cos{(\theta_1-\theta_2)} +\dot{\theta}_2^2\sin{(\theta_1-\theta_2)}) 
@@ -585,7 +585,7 @@
 		&(2r_1 \dot{\theta}_1 \cos{(\theta_1-\theta_2)}+ r_2 \dot{\theta}_2) -\left(b_{2b}+c_{2b}\sqrt{r_1^2 \dot{\theta}_1^2 + r_2^2 \dot{\theta}_2^2 +2r_1r_2\dot{\theta}_1 \dot{\theta}_2 \cos{(\theta_1-\theta_2)}}\right)(r_1 \dot{\theta}_1 \cos{(\theta_1-\theta_2)} + r_2 \dot{\theta}_2)]\\
 	\end{align*}
 	
-	Multiply both sides by $r_1m_{2b}\cos{(\theta_1-\theta_2)}$:
+	Multiply both sides by $r_1m_{2b}\cos{(\theta_1-\theta_2)}$
 	
 	\begin{align*}
 		&\dfrac{m_{2b}\cos{(\theta_1-\theta_2)}}{\left(\dfrac{m_{1r}}{12} + m_{1b}+m_{2b}\right)} \left[-m_{2b}r_2 \left( \ddot{\theta}_2\cos{(\theta_1-\theta_2)} +\dot{\theta}_2^2\sin{(\theta_1-\theta_2)}\right) 
@@ -595,7 +595,7 @@
 		&\left(2r_1 \dot{\theta}_1 \cos{(\theta_1-\theta_2)}+ r_2 \dot{\theta}_2\right) -\left(b_{2b}+c_{2b}\sqrt{r_1^2 \dot{\theta}_1^2 + r_2^2 \dot{\theta}_2^2 +2r_1r_2\dot{\theta}_1 \dot{\theta}_2 \cos{(\theta_1-\theta_2)}}\right)\left(r_1 \dot{\theta}_1 \cos{(\theta_1-\theta_2)} + r_2 \dot{\theta}_2\right)\\
 	\end{align*}
 	
-	Adding $r_2 \left(\dfrac{m_{2r}}{12} + m_{2b}\right)\ddot{\theta}_2$ to both sides:
+	Adding $r_2 \left(\dfrac{m_{2r}}{12} + m_{2b}\right)\ddot{\theta}_2$ to both sides
 	
 	\begin{align*}
 		&\ddot{\theta}_2\left(\left(\dfrac{m_{2r}}{12} + m_{2b}\right)r_2 - \dfrac{m_{2b}^2r_2\cos^2{(\theta_1-\theta_2)}}{\left(\dfrac{m_{1r}}{12} + m_{1b}+m_{2b}\right)}\right) + \dfrac{m_{2b}\cos{(\theta_1-\theta_2)}}{\left(\dfrac{m_{1r}}{12} + m_{1b}+m_{2b}\right)}\left[-m_{2b}r_2\dot{\theta}_2^2\sin{(\theta_1-\theta_2)} - g \cos{\theta_1}\left(\dfrac{m_{1r}}{2} +m_{2r} +m_{1b} + m_{2b}\right) -(b_{1b} + c_{1b} r_1 \dot{\theta}_1)r_1 \dot{\theta}_1\right. \\
@@ -627,19 +627,19 @@
 		&= \dfrac{r_2^2 \dot{\theta}_2}{12}\left(m_{2r} + 12m_{2b}\right) + m_{2b}r_1r_2 \dot{\theta}_1\cos{(\theta_2-\theta_1)}.
 	\end{align*}
 	
-	Based on $p_{\theta_1}$:
+	Based on $p_{\theta_1}$
 	
 	\begin{align}
 		\dot{\theta}_1 &= \dfrac{12}{r_1^2(m_{1r} + 12m_{1b} + 12m_{2b})} \left(p_{\theta_1} - m_{2b}r_1r_2 \dot{\theta}_2\cos{(\theta_2-\theta_1)}\right) \label{dtheta11}
 	\end{align}
 	
-	Based on $p_{\theta_2}$:
+	Based on $p_{\theta_2}$
 	
 	\begin{align*}
 		\dot{\theta}_1 &= \dfrac{\sec{(\theta_2-\theta_1)}}{m_{2b}r_1r_2} \left(p_{\theta_2} - \dfrac{r_2^2 \dot{\theta}_2}{12}(m_{2r}+12m_{2b})\right)
 	\end{align*}
 	
-	Equation $\dot{\theta}_1$ gives:
+	Equation $\dot{\theta}_1$ gives
 	
 	\begin{align*}
 		\dfrac{12}{r_1^2(m_{1r} + 12m_{1b} + 12m_{2b})} \left(p_{\theta_1} - m_{2b}r_1r_2 \dot{\theta}_2\cos{(\theta_2-\theta_1)}\right)&= \dfrac{\sec{(\theta_2-\theta_1)}}{m_{2b}r_1r_2} \left(p_{\theta_2} - \dfrac{r_2^2 \dot{\theta}_2}{12}(m_{2r}+12m_{2b})\right) \\
@@ -655,7 +655,7 @@
 	\begin{align*}
 		\dot{\theta}_2 &= \dfrac{-144p_{\theta_1}\cos{(\theta_2-\theta_1)}m_{2b}r_2 + 12p_{\theta_2}(m_{1r} + 12m_{1b} + 12m_{2b})r_1}{r_1r_2^2\left[(m_{1r} + 12m_{1b} + 12m_{2b})(m_{2r}+12m_{2b}) - 144\cos^2{(\theta_2-\theta_1)}m_{2b}^2\right]}
 	\end{align*}
-	Substituting into Equation \eqref{dtheta11}:
+	Substituting into Equation \eqref{dtheta11}
 	
 	\begin{align*}
 		\dot{\theta}_1 &= \dfrac{12}{r_1^2(m_{1r} + 12m_{1b} + 12m_{2b})} \left(p_{\theta_1} + \dfrac{144p_{\theta_1}\cos{(\theta_2-\theta_1)}m_{2b}^2r_2 - 12m_{2b}p_{\theta_2}(m_{1r} + 12m_{1b} + 12m_{2b})r_1}{r_2\left[(m_{1r} + 12m_{1b} + 12m_{2b})(m_{2r}+12m_{2b}) - 144\cos^2{(\theta_2-\theta_1)}m_{2b}^2\right]}\cos{(\theta_2-\theta_1)}\right)
