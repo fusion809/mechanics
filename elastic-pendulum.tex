@@ -327,6 +327,7 @@ and the generalized dissipative forces are
 Below we will analyse the double pendulum where the second pendulum is elastic. The rest length of the elastic pendulum is $l$ and its displacement from rest is $x$. Let the masses of the pendulum bobs be $m_1$ and $m_2$, respectively. We will assume the rod/string have no mass. I have tried accounting for it, using a centre of mass approach, in my double pendulum calculation and my experience with simulations is that it does not really make things any more interesting and just adds complexity. 
 \begin{figure}[H]
 	\includegraphics[width=300px]{Double pendulum second elastic.png}
+	\caption{Diagram of a double pendulum wherein the second pendulum is elastic.}
 \end{figure}
 
 \subsection{Positions and velocities}
@@ -979,11 +980,113 @@ Hence, substituting Equation \eqref{d2s} into \eqref{d2theta1} yields
 \end{align*}
 
 \section{Double elastic pendulum}
-\begin{landscape}
-\subsection{Lagrangian}
+\begin{figure}[H]
+	\includegraphics[width=\textwidth]{Double elastic pendulum.png}
+	\caption{Diagram showing the double elastic pendulum.}
+\end{figure}
+
+As can be seen, we have four degrees of freedom in this system. The angles the two pendulums make with the positive $x$-axis --- $\theta_1$ and $\theta_2$, respectively --- are among our degrees of freedom. We will also need degrees of freedom corresponding to the lengths of the pendulum rods. These degrees of freedom could either be the extent to which they are extended beyond their rest length or their total length. For the sake of simplicity, we will opt to use their total lengths --- $r_1$ and $r_2$, respectively. Hence
+
 \begin{align*}
-	\mathcal{L} &= \dfrac{m_1+m_2}{2}\left(\dot{z}_1^2+(l_1+z_1)^2\dot{\theta}_1^2-2g(l_1+z_1)\sin{\theta_1}\right) + \dfrac{m_2}{2}\left[\dot{z}_2^2+ (l_2+z_2)^2\dot{\theta}_2^2 + 2\dot{z}_1\dot{z}_2\cos{(\theta_2-\theta_1)} + 2\dot{\theta}_1\dot{z}_2(l_1+z_1)\sin{(\theta_2-\theta_1)} - 2\dot{z}_1(l_2+z_2)\dot{\theta}_2\sin{(\theta_2-\theta_1)}\right.\\
-	&\left.+2(l_1+z_1)(l_2+z_2)\dot{\theta}_1\dot{\theta}_2\cos{(\theta_2-\theta_1)}-2g(l_2+z_2)\sin{\theta_2}\right] - \dfrac{k_1 z_1^2}{2} - \dfrac{k_2z_2^2}{2}
+	x_1 &= r_1 \cos{\theta_1} & \dot{x}_1 &= \dot{r}_1 \cos{\theta_1} - r_1 \dot{\theta}_1 \sin{\theta_1}\\
+	y_1 &= r_1 \sin{\theta_1} & \dot{y}_1 &= \dot{r}_1\sin{\theta_1} + r_1\dot{\theta}_1 \cos{\theta_1} \\
+	x_2 &= x_1 + r_2\cos{\theta_2} & \dot{x}_2 &= \dot{x}_1 + \dot{r}_2\cos{\theta_2} - r_2\dot{\theta}_2 \sin{\theta_2} \\
+	y_2 &= y_1 + r_2\sin{\theta_2} & \dot{y}_2 &= \dot{y}_1 + \dot{r}_2\sin{\theta_2} + r_2\dot{\theta}_2 \cos{\theta_2}.
 \end{align*}
+
+This means that the velocity of the first pendulum bob is
+
+\begin{align*}
+	\vec{v}_1 &= \begin{bmatrix}
+		\dot{x}_1 \\
+		\dot{y}_1
+	\end{bmatrix} \\
+	&= \begin{bmatrix}
+		\dot{r}_1 \cos{\theta_1} - r_1 \dot{\theta}_1 \sin{\theta_1} \\
+		\dot{r}_1\sin{\theta_1} + r_1\dot{\theta}_1 \cos{\theta_1}
+	\end{bmatrix} \\
+	\therefore |\vec{v}_1|^2 &= \dot{r}_1^2 + r_1^2 \dot{\theta}_1^2. 
+\end{align*}
+
+As for the velocity of the second pendulum bob, it is
+\begin{align*}
+	\vec{v}_2 &= \begin{bmatrix}
+		\dot{r}_1 \cos{\theta_1} - r_1 \dot{\theta}_1 \sin{\theta_1} + \dot{r}_2\cos{\theta_2} - r_2\dot{\theta}_2 \sin{\theta_2} \\
+		\dot{r}_1\sin{\theta_1} + r_1\dot{\theta}_1 \cos{\theta_1} + \dot{r}_2\sin{\theta_2} + r_2\dot{\theta}_2 \cos{\theta_2}
+	\end{bmatrix}
+\end{align*}
+
+\begin{landscape}
+Let $\Delta = \theta_2-\theta_1$, then square of the velocity is
+
+\begin{align*}
+	|\vec{v}_2|^2 &= \dot{r}_1^2 \cos^2{\theta_1} + r_1^2 \dot{\theta}_1^2\sin^2{\theta_1} + \dot{r}_2^2\cos^2{\theta_2} + r_2^2\dot{\theta}_2^2\sin^2{\theta_2} -2r_1\dot{r}_1\dot{\theta}_1 \cos{\theta}_1\sin{\theta_1} + 2\dot{r}_1\dot{r}_2\cos{\theta_1}\cos{\theta_2} - 2\dot{r}_1r_2\dot{\theta}_2\cos{\theta_1}\sin{\theta_2} - 2r_1\dot{r}_2 \dot{\theta}_1 \sin{\theta_1}\cos{\theta_2} + 2r_1r_2 \dot{\theta}_1\dot{\theta}_2\sin{\theta_1}\sin{\theta_2}\\
+	&-2\dot{r}_2r_2\dot{\theta}_2\cos{\theta_2}\sin{\theta_2} + \dot{r}_1^2\sin^2{\theta_1} + r_1^2\dot{\theta}_1^2\cos^2{\theta_1} + \dot{r}_2^2\sin^2{\theta_2} + r_2^2\dot{\theta}_2^2\cos^2{\theta_2} + 2r_1\dot{r}_1\dot{\theta}_1\sin{\theta_1}\cos{\theta_1} + 2\dot{r}_1\dot{r}_2\sin{\theta_1}\sin{\theta_2} + 2\dot{r}_1r_2\dot{\theta}_2\sin{\theta_1}\cos{\theta_2} + 2r_1\dot{r}_2\dot{\theta}_1 \cos{\theta_1}\sin{\theta_2}\\
+	&+2r_1r_2\dot{\theta}_1\dot{\theta}_2\cos{\theta_1}\cos{\theta_2} + 2r_2\dot{r}_2\dot{\theta}_2\sin{\theta_2}\cos{\theta_2} \\
+	&= \dot{r}_1^2 + r_1^2 \dot{\theta}_1^2 + \dot{r}_2^2 + r_2^2\dot{\theta}_2^2 + 2r_1\dot{r}_1\dot{\theta}_1(-\cos{\theta_1}\sin{\theta_1} + \cos{\theta_1}\sin{\theta_1}) + 2\dot{r}_1\dot{r}_2(\cos{\theta_1}\cos{\theta_2}+\sin{\theta_1}\sin{\theta_2})+2\dot{r}_1r_2\dot{\theta}_2(-\cos{\theta_1}\sin{\theta_2} + \sin{\theta_1}\cos{\theta_2}) \\
+	&+ 2r_1\dot{r}_2\dot{\theta}_1(-\sin{\theta_1}\cos{\theta_2}+\cos{\theta_1}\sin{\theta_2}) + 2r_1r_2\dot{\theta}_1\dot{\theta}_2(\sin{\theta_1}\sin{\theta_2} + \cos{\theta_1}\cos{\theta_2}) + 2r_2\dot{r}_2\dot{\theta}_2 (-\cos{\theta_2}\sin{\theta_2} + \sin{\theta_2}\cos{\theta_2}) \\
+	&= \dot{r}_1^2 + r_1^2 \dot{\theta}_1^2 + \dot{r}_2^2 + r_2^2\dot{\theta}_2^2 + 2\dot{r}_1\dot{r}_2 \cos{(\theta_2-\theta_1)} - 2\dot{r}_1r_2\dot{\theta_2}\sin{(\theta_2-\theta_1)} + 2r_1\dot{r}_2 \dot{\theta}_1 \sin{(\theta_2-\theta_1)} + 2r_1r_2\dot{\theta}_1\dot{\theta}_2\cos{(\theta_2-\theta_1)} \\
+	&= \dot{r}_1^2 + r_1^2 \dot{\theta}_1^2 + \dot{r}_2^2 + r_2^2\dot{\theta}_2^2 + 2\dot{r}_1\dot{r}_2 \cos{\Delta} - 2\dot{r}_1r_2\dot{\theta_2}\sin{\Delta} + 2r_1\dot{r}_2 \dot{\theta}_1 \sin{\Delta} + 2r_1r_2\dot{\theta}_1\dot{\theta}_2\cos{\Delta} \\
+	&= \dot{r}_1^2 + r_1^2 \dot{\theta}_1^2 + \dot{r}_2^2 + r_2^2\dot{\theta}_2^2 + 2\cos{\Delta}(\dot{r}_1\dot{r}_2 + r_1r_2\dot{\theta}_1\dot{\theta}_2) + 2\sin{\Delta}(r_1\dot{r}_2\dot{\theta}_1-\dot{r}_1r_2\dot{\theta}_2).
+\end{align*}
+
+Let us define $|\Delta \vec{v}_{21}|^2 = |\vec{v}_2|^2 - |\vec{v}_1|^2$, as this will simplify our Lagrangian later.
+
+\begin{align*}
+	|\Delta \vec{v}_{21}|^2 &= \dot{r}_2^2 + r_2^2\dot{\theta}_2^2 + 2\cos{\Delta}(\dot{r}_1\dot{r}_2 + r_1r_2\dot{\theta}_1\dot{\theta}_2) + 2\sin{\Delta}(r_1\dot{r}_2\dot{\theta}_1-\dot{r}_1r_2\dot{\theta}_2).
+\end{align*}
+
+\subsection{Kinetic energy}
+The kinetic energy of the system is given by
+
+\begin{align*}
+	T &= \dfrac{m_1}{2}|\vec{v}_1|^2 + \dfrac{m_2}{2}|\vec{v}_2|^2 \\
+	&= \dfrac{m_1+m_2}{2}|\vec{v}_1|^2 + \dfrac{m_2}{2}|\Delta \vec{v}_{21}|^2.
+\end{align*}
+
+\subsection{Potential energy}
+The potential energy of the system is given by
+
+\begin{align*}
+	V &= m_1 gy_1 + m_2gy_2 \\
+	&= m_1 gr_1\sin{\theta_1} + m_2g(r_1\sin{\theta_1} + r_2\sin{\theta_2}) \\
+	&= (m_1+m_2)gr_1\sin{\theta_1} + m_2gr_2\sin{\theta_2}.
+\end{align*}
+
+\subsection{Lagrangian}
+Hence the Lagrangian of the system is
+
+\begin{align*}
+	\lag &= T - V \\
+	&= \dfrac{m_1+m_2}{2}|\vec{v}_1|^2 + \dfrac{m_2}{2}|\Delta \vec{v}_{21}|^2 - \left[(m_1+m_2)gr_1\sin{\theta_1} + m_2gr_2\sin{\theta_2}\right] \\
+	&= (m_1+m_2)\left[\dfrac{|\vec{v}_1|^2}{2} - gr_1\sin{\theta_1}\right] + m_2\left[\dfrac{|\Delta \vec{v}_{21}|^2}{2} - gr_2\sin{\theta_2}\right].
+\end{align*}
+
+We will not expand this Lagrangian, as doing so just adds to its complexity. Instead, we will calculate the derivatives of each of its components. 
+
+\begin{align*}
+	\dfrac{\partial |\vec{v}_1|^2}{\partial r_1} &= 2r_1\dot{\theta}_1^2 & \dfrac{\partial |\vec{v}_1|^2}{\partial r_2} &= 0 & \dfrac{\partial |\vec{v}_1|^2}{\partial \theta_1} &= 0 & \dfrac{\partial |\vec{v}_1|^2}{\partial \theta_2} &= 0\\
+	\dfrac{\partial |\vec{v}_1|^2}{\partial \dot{r}_1} &= 2\dot{r}_1 & \dfrac{\partial |\vec{v}_1|^2}{\partial \dot{r}_2} &= 0 & \dfrac{\partial |\vec{v}_1|^2}{\partial \dot{\theta}_1} &= 2r_1^2\dot{\theta}_1 & \dfrac{\partial |\vec{v}_1|^2}{\partial \dot{\theta}_2} &= 0\\
+	\dfrac{d}{dt} \dfrac{\partial |\vec{v}_1|^2}{\partial \dot{r}_1} &= 2\ddot{r}_1 & \dfrac{d}{dt}\dfrac{\partial |\vec{v}_1|^2}{\partial \dot{r}_2} &= 0 & \dfrac{d}{dt}\dfrac{\partial |\vec{v}_1|^2}{\partial \dot{\theta}_1} &= 2r_1^2 \ddot{\theta}_1 + 4r_1\dot{r}_1\dot{\theta}_1 & \dfrac{d}{dt}\dfrac{\partial |\vec{v}_1|^2}{\partial \dot{\theta}_2} &= 0
+\end{align*}
+\begin{align*}
+	\dfrac{\partial |\Delta \vec{v}_{21}|^2}{\partial r_1} &= 2r_2\dot{\theta}_1\dot{\theta}_2\cos{\Delta} + 2\dot{r}_2\dot{\theta}_1\sin{\Delta} & \dfrac{\partial |\Delta \vec{v}_{21}|^2}{\partial r_2} &= 2r_2\dot{\theta}_2^2+2r_1\dot{\theta}_1\dot{\theta}_2\cos{\Delta}-2\dot{r}_1\dot{\theta}_2\sin{\Delta} \\
+	\dfrac{\partial |\Delta \vec{v}_{21}|^2}{\partial \theta_1} &= -2\sin{\Delta}\cdot -1(\dot{r}_1\dot{r}_2 + r_1r_2\dot{\theta}_1\dot{\theta}_2) + 2\cos{\Delta}\cdot -1(r_1\dot{r}_2\dot{\theta}_1-\dot{r}_1r_2\dot{\theta}_2) & \dfrac{\partial |\Delta \vec{v}_{21}|^2}{\partial \theta_2} &= -2\sin{\Delta}(\dot{r}_1\dot{r}_2 + r_1r_2\dot{\theta}_1\dot{\theta}_2) + 2\cos{\Delta}(r_1\dot{r}_2\dot{\theta}_1-\dot{r}_1r_2\dot{\theta}_2)  \\
+	&= 2\sin{\Delta}(\dot{r}_1\dot{r}_2 + r_1r_2\dot{\theta}_1\dot{\theta}_2) - 2\cos{\Delta}(r_1\dot{r}_2\dot{\theta}_1-\dot{r}_1r_2\dot{\theta}_2)\\
+	\dfrac{\partial |\Delta \vec{v}_{21}|^2}{\partial \dot{r}_1} &= 2\dot{r}_2\cos{\Delta} - 2r_2\dot{\theta}_2\sin{\Delta} & \dfrac{\partial |\Delta \vec{v}_{21}|^2}{\partial \dot{r}_2} &= 2\dot{r}_2 + 2\dot{r}_1\cos{\Delta} + 2r_1\dot{\theta}_1\sin{\Delta} \\
+	\dfrac{\partial |\Delta \vec{v}_{21}|^2}{\partial \dot{\theta}_1} &= 2r_1r_2\dot{\theta}_2\cos{\Delta} + 2r_1\dot{r}_2\sin{\Delta} & \dfrac{\partial |\Delta \vec{v}_{21}|^2}{\partial \dot{\theta}_2} &= 2r_1r_2\dot{\theta}_1\cos{\Delta} - 2\dot{r}_1r_2\sin{\Delta}
+\end{align*}
+\begin{align*}
+	\dfrac{d}{dt} \dfrac{\partial |\Delta \vec{v}_{21}|^2}{\partial \dot{r}_1} &= 2\ddot{r}_2\cos{\Delta} - 2\dot{r}_2\dot{\Delta}\sin{\Delta} - 2\dot{r}_2\dot{\theta}_2\sin{\Delta} - 2r_2\ddot{\theta}_2\sin{\Delta} - 2r_2\dot{\theta}_2\dot{\Delta}\cos{\Delta} \\
+	\dfrac{d}{dt}\dfrac{\partial |\Delta \vec{v}_{21}|^2}{\partial \dot{r}_2} &= 2\ddot{r}_2 + 2\ddot{r}_1 \cos{\Delta} -2\dot{r}_1\dot{\Delta}\sin{\Delta} + 2\dot{r}_1\dot{\theta}_1\sin{\theta} + 2r_1\ddot{\theta}_1\sin{\Delta} + 2r_1\dot{\theta}_1\dot{\Delta}\cos{\Delta} \\
+	\dfrac{d}{dt}\dfrac{\partial |\Delta \vec{v}_{21}|^2}{\partial \dot{\theta}_1} &= 2\dot{r}_1r_2\dot{\theta}_2\cos{\Delta} + 2r_1\dot{r}_2\dot{\theta}_2\cos{\Delta} + 2r_1r_2\ddot{\theta}_2\cos{\Delta} - 2r_1r_2\dot{\theta}_2\dot{\Delta}\sin{\Delta} + 2\dot{r}_1\dot{r}_2\sin{\Delta} + 2r_1\ddot{r}_2\sin{\Delta} + 2r_1\dot{r}_2\dot{\Delta}\cos{\Delta} \\
+	\dfrac{d}{dt}\dfrac{\partial |\Delta \vec{v}_{21}|^2}{\partial \dot{\theta}_2} &= 2\dot{r}_1r_2\dot{\theta}_1\cos{\Delta} + 2r_1\dot{r}_2\dot{\theta}_1\cos{\Delta} + 2r_1r_2\ddot{\theta}_1\cos{\Delta} - 2r_1r_2\dot{\theta}_1\dot{\Delta}\sin{\Delta} - 2\ddot{r}_1r_2\sin{\Delta} - 2\dot{r}_1\dot{r}_2\sin{\Delta} - 2\dot{r}_1r_2\dot{\Delta}\cos{\Delta}
+\end{align*}
+
+
+%\begin{align*}
+%	\mathcal{L} &= \dfrac{m_1+m_2}{2}\left(\dot{z}_1^2+(l_1+z_1)^2\dot{\theta}_1^2-2g(l_1+z_1)\sin{\theta_1}\right) + \dfrac{m_2}{2}\left[\dot{z}_2^2+ (l_2+z_2)^2\dot{\theta}_2^2 + 2\dot{z}_1\dot{z}_2\cos{(\theta_2-\theta_1)} + 2\dot{\theta}_1\dot{z}_2(l_1+z_1)\sin{(\theta_2-\theta_1)} - 2\dot{z}_1(l_2+z_2)\dot{\theta}_2\sin{(\theta_2-\theta_1)}\right.\\
+%	&\left.+2(l_1+z_1)(l_2+z_2)\dot{\theta}_1\dot{\theta}_2\cos{(\theta_2-\theta_1)}-2g(l_2+z_2)\sin{\theta_2}\right] - \dfrac{k_1 z_1^2}{2} - \dfrac{k_2z_2^2}{2}
+%\end{align*}
 \end{landscape}
 \end{document}
