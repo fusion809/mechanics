@@ -1074,7 +1074,7 @@ We will not expand this Lagrangian, as doing so just adds to its complexity. Ins
 	\dfrac{\partial |\Delta \vec{v}_{21}|^2}{\partial \theta_1} &= -2\sin{\Delta}\cdot -1(\dot{r}_1\dot{r}_2 + r_1r_2\dot{\theta}_1\dot{\theta}_2) + 2\cos{\Delta}\cdot -1(r_1\dot{r}_2\dot{\theta}_1-\dot{r}_1r_2\dot{\theta}_2) & \dfrac{\partial |\Delta \vec{v}_{21}|^2}{\partial \theta_2} &= -2\sin{\Delta}(\dot{r}_1\dot{r}_2 + r_1r_2\dot{\theta}_1\dot{\theta}_2) + 2\cos{\Delta}(r_1\dot{r}_2\dot{\theta}_1-\dot{r}_1r_2\dot{\theta}_2)  \\
 	&= 2\sin{\Delta}(\dot{r}_1\dot{r}_2 + r_1r_2\dot{\theta}_1\dot{\theta}_2) - 2\cos{\Delta}(r_1\dot{r}_2\dot{\theta}_1-\dot{r}_1r_2\dot{\theta}_2)\\
 	\dfrac{\partial |\Delta \vec{v}_{21}|^2}{\partial \dot{r}_1} &= 2\dot{r}_2\cos{\Delta} - 2r_2\dot{\theta}_2\sin{\Delta} & \dfrac{\partial |\Delta \vec{v}_{21}|^2}{\partial \dot{r}_2} &= 2\dot{r}_2 + 2\dot{r}_1\cos{\Delta} + 2r_1\dot{\theta}_1\sin{\Delta} \\
-	\dfrac{\partial |\Delta \vec{v}_{21}|^2}{\partial \dot{\theta}_1} &= 2r_1r_2\dot{\theta}_2\cos{\Delta} + 2r_1\dot{r}_2\sin{\Delta} & \dfrac{\partial |\Delta \vec{v}_{21}|^2}{\partial \dot{\theta}_2} &= 2r_1r_2\dot{\theta}_1\cos{\Delta} - 2\dot{r}_1r_2\sin{\Delta}
+	\dfrac{\partial |\Delta \vec{v}_{21}|^2}{\partial \dot{\theta}_1} &= 2r_1r_2\dot{\theta}_2\cos{\Delta} + 2r_1\dot{r}_2\sin{\Delta} & \dfrac{\partial |\Delta \vec{v}_{21}|^2}{\partial \dot{\theta}_2} &=2r_2^2\dot{\theta}_2 + 2r_1r_2\dot{\theta}_1\cos{\Delta} - 2\dot{r}_1r_2\sin{\Delta}
 \end{align*}
 
 Let us define $\dot{\Delta}_1 = 2\dot{\theta}_1 - \dot{\theta}_2$ and $\dot{\Delta}_2 = 2\dot{\theta}_2 - \dot{\theta}_1$.
@@ -1090,9 +1090,9 @@ Let us define $\dot{\Delta}_1 = 2\dot{\theta}_1 - \dot{\theta}_2$ and $\dot{\Del
 	\dfrac{d}{dt}\dfrac{\partial |\Delta \vec{v}_{21}|^2}{\partial \dot{\theta}_1} &= 2\dot{r}_1r_2\dot{\theta}_2\cos{\Delta} + 2r_1\dot{r}_2\dot{\theta}_2\cos{\Delta} + 2r_1r_2\ddot{\theta}_2\cos{\Delta} - 2r_1r_2\dot{\theta}_2\dot{\Delta}\sin{\Delta} + 2\dot{r}_1\dot{r}_2\sin{\Delta} + 2r_1\ddot{r}_2\sin{\Delta} + 2r_1\dot{r}_2\dot{\Delta}\cos{\Delta} \\
 	&= 2\cos{\Delta}(\dot{r}_1r_2\dot{\theta}_2 + r_1\dot{r}_2 (\dot{\theta}_2+\dot{\Delta})+r_1r_2\ddot{\theta}_2) +2\sin{\Delta}(\dot{r}_1\dot{r}_2+r_1\ddot{r}_2-r_1r_2\dot{\theta}_2\dot{\Delta})\\
 	&= 2\cos{\Delta}(\dot{r}_1r_2\dot{\theta}_2 + r_1\dot{r}_2 \dot{\Delta}_2+r_1r_2\ddot{\theta}_2) +2\sin{\Delta}(\dot{r}_1\dot{r}_2+r_1\ddot{r}_2-r_1r_2\dot{\theta}_2\dot{\Delta})\\
-	\dfrac{d}{dt}\dfrac{\partial |\Delta \vec{v}_{21}|^2}{\partial \dot{\theta}_2} &= 2\dot{r}_1r_2\dot{\theta}_1\cos{\Delta} + 2r_1\dot{r}_2\dot{\theta}_1\cos{\Delta} + 2r_1r_2\ddot{\theta}_1\cos{\Delta} - 2r_1r_2\dot{\theta}_1\dot{\Delta}\sin{\Delta} - 2\ddot{r}_1r_2\sin{\Delta} - 2\dot{r}_1\dot{r}_2\sin{\Delta} - 2\dot{r}_1r_2\dot{\Delta}\cos{\Delta} \\
-	&= 2\cos{\Delta}(\dot{r}_1r_2(\dot{\theta}_1-\dot{\Delta})+r_1\dot{r}_2\dot{\theta}_1+r_1r_2\ddot{\theta}_1)-2\sin{\Delta}(r_1r_2\dot{\theta}_1\dot{\Delta} + \ddot{r}_1r_2 + \dot{r}_1\dot{r}_2) \\
-	&= 2\cos{\Delta}(\dot{r}_1r_2\dot{\Delta}_1+r_1\dot{r}_2\dot{\theta}_1+r_1r_2\ddot{\theta}_1)-2\sin{\Delta}(r_1r_2\dot{\theta}_1\dot{\Delta} + \ddot{r}_1r_2 + \dot{r}_1\dot{r}_2).
+	\dfrac{d}{dt}\dfrac{\partial |\Delta \vec{v}_{21}|^2}{\partial \dot{\theta}_2} &= 4r_2\dot{r}_2\dot{\theta}_2 + 2r_2^2\ddot{\theta}_2 + 2\dot{r}_1r_2\dot{\theta}_1\cos{\Delta} + 2r_1\dot{r}_2\dot{\theta}_1\cos{\Delta} + 2r_1r_2\ddot{\theta}_1\cos{\Delta} - 2r_1r_2\dot{\theta}_1\dot{\Delta}\sin{\Delta} - 2\ddot{r}_1r_2\sin{\Delta} - 2\dot{r}_1\dot{r}_2\sin{\Delta} - 2\dot{r}_1r_2\dot{\Delta}\cos{\Delta} \\
+	&=4r_2\dot{r}_2\dot{\theta}_2 + 2r_2^2\ddot{\theta}_2 +2\cos{\Delta}(\dot{r}_1r_2(\dot{\theta}_1-\dot{\Delta})+r_1\dot{r}_2\dot{\theta}_1+r_1r_2\ddot{\theta}_1)-2\sin{\Delta}(r_1r_2\dot{\theta}_1\dot{\Delta} + \ddot{r}_1r_2 + \dot{r}_1\dot{r}_2) \\
+	&=4r_2\dot{r}_2\dot{\theta}_2 + 2r_2^2\ddot{\theta}_2 +2\cos{\Delta}(\dot{r}_1r_2\dot{\Delta}_1+r_1\dot{r}_2\dot{\theta}_1+r_1r_2\ddot{\theta}_1)-2\sin{\Delta}(r_1r_2\dot{\theta}_1\dot{\Delta} + \ddot{r}_1r_2 + \dot{r}_1\dot{r}_2).
 \end{align*}
 
 Therefore
@@ -1219,7 +1219,92 @@ As for $\theta_1$
 	\end{bmatrix} \cdot r_1\begin{bmatrix}
 	-\sin{\theta_1} \\
 	\cos{\theta_1}
-	\end{bmatrix}
+	\end{bmatrix} \\
+	&= -(b_1+c_1|\vec{v}_1|)\left[-r_1\dot{r}_1\cos{\theta_1}\sin{\theta_1}+r_1^2\dot{\theta}_1\sin^2{\theta_1} + r_1\dot{r}_1\sin{\theta_1}\cos{\theta_1}+r_1^2\dot{\theta}_1\cos^2{\theta_1}\right] - (b_2+c_2|\vec{v}_2|)\left[-r_1\dot{r}_1\cos{\theta_1}\sin{\theta_1} + r_1^2\dot{\theta_1}\sin^2{\theta_1} -r_1\dot{r}_2\sin{\theta_1}\cos{\theta_2} \right. \\
+	&\left.+r_1r_2\dot{\theta}_2\sin{\theta_1}\sin{\theta_2}+r_1\dot{r}_1\cos{\theta_1}\sin{\theta_1}+r_1^2\dot{\theta}_1\cos^2{\theta_1} + r_1\dot{r}_2\cos{\theta_1}\sin{\theta_2}+r_1r_2\dot{\theta}_2\cos{\theta_1}\cos{\theta_2}\right] \\
+	&=  -(b_1+c_1|\vec{v}_1|)\left[r_1\dot{r}_1(-\cos{\theta_1}\sin{\theta_1}+\sin{\theta_1}\cos{\theta_1}) + r_1^2\dot{\theta}_1(\sin^2{\theta_1} +\cos^2{\theta_1})\right] - (b_2+c_2|\vec{v}_2|)\left[r_1\dot{r}_1(-\cos{\theta_1}\sin{\theta_1} + \cos{\theta_1}\sin{\theta_1}) +r_1^2\dot{\theta_1}(\sin^2{\theta_1}+\cos^2{\theta_1})\right.\\
+	&\left.+r_1\dot{r}_2(-\sin{\theta_1}\cos{\theta_2}+\cos{\theta_1}\sin{\theta_2})+r_1r_2\dot{\theta}_2(\sin{\theta_1}\sin{\theta_2}+\cos{\theta_1}\cos{\theta_2})\right] \\
+	&= -(b_1+c_1|\vec{v}_1|)r_1^2\dot{\theta}_1 - (b_2+c_2|\vec{v}_2|)\left[ r_1^2\dot{\theta_1}+r_1\dot{r}_2\sin{(\theta_2-\theta_1)}+r_1r_2\dot{\theta}_2\cos{(\theta_2-\theta_1)}\right]
+\end{align*}
+
+Hence the $\theta_1$ version of \eqref{ELD} is
+
+\begin{align*}
+	&(m_1+m_2)\left[r_1^2\ddot{\theta}_1+2r_1\dot{r}_1\dot{\theta}_1\right] + m_2\left[\cos{\Delta}(\dot{r}_1r_2\dot{\theta}_2 + r_1\dot{r}_2 \dot{\Delta}_2+r_1r_2\ddot{\theta}_2) +\sin{\Delta}(\dot{r}_1\dot{r}_2+r_1\ddot{r}_2-r_1r_2\dot{\theta}_2\dot{\Delta})\right] - \left(-(m_1+m_2)gr_1\cos{\theta_1}+\right.\\
+	&\left.m_2\left[\sin{\Delta}(\dot{r}_1\dot{r}_2 + r_1r_2\dot{\theta}_1\dot{\theta}_2) - \cos{\Delta}(r_1\dot{r}_2\dot{\theta}_1-\dot{r}_1r_2\dot{\theta}_2)\right]\right) = Q_{\theta_1}\\
+	&(m_1+m_2)\left[r_1^2\ddot{\theta}_1+2r_1\dot{r}_1\dot{\theta}_1+gr_1\cos{\theta_1}\right] + m_2\left[\cos{\Delta}(\dot{r}_1r_2\dot{\theta}_2 + r_1\dot{r}_2 \dot{\Delta}_2+r_1r_2\ddot{\theta}_2+r_1\dot{r}_2\dot{\theta}_1-\dot{r}_1r_2\dot{\theta}_2) +\sin{\Delta}(\dot{r}_1\dot{r}_2+r_1\ddot{r}_2-r_1r_2\dot{\theta}_2\dot{\Delta}-\dot{r}_1\dot{r}_2-r_1r_2\dot{\theta}_1\dot{\theta}_2)\right] = Q_{\theta_1}\\
+	&(m_1+m_2)\left[r_1^2\ddot{\theta}_1+2r_1\dot{r}_1\dot{\theta}_1+gr_1\cos{\theta_1}\right] + m_2\left[\cos{\Delta}( r_1\dot{r}_2( \dot{\Delta}_2+\dot{\theta}_1)+r_1r_2\ddot{\theta}_2) +\sin{\Delta}(r_1\ddot{r}_2-r_1r_2\dot{\theta}_2(\dot{\Delta}+\dot{\theta}_1))\right] = Q_{\theta_1}\\
+	&(m_1+m_2)\left[r_1^2\ddot{\theta}_1+2r_1\dot{r}_1\dot{\theta}_1+gr_1\cos{\theta_1}\right] + m_2\left[\cos{\Delta}(2 r_1\dot{r}_2\dot{\theta}_2+r_1r_2\ddot{\theta}_2) +\sin{\Delta}(r_1\ddot{r}_2-r_1r_2\dot{\theta}_2^2)\right] = Q_{\theta_1}.
+\end{align*}
+
+Dividing by $(m_1+m_2)r_1^2$ yields
+
+\begin{align*}
+	\ddot{\theta}_1 + \dfrac{2\dot{r}_1\dot{\theta}_1}{r_1} + \dfrac{g\cos{\theta_1}}{r_1} + \dfrac{m_2}{(m_1+m_2)r_1}\left[\cos{\Delta}(2\dot{r}_2\dot{\theta}_2+r_2\ddot{\theta}_2) +\sin{\Delta}(\ddot{r}_2-r_2\dot{\theta}_2^2)\right] &= \dfrac{Q_{\theta_1}}{(m_1+m_2)r_1^2}.
+\end{align*}
+Making $\ddot{\theta}_1$ the subject of the equation
+
+\begin{align*}
+	\ddot{\theta}_1 &= -\dfrac{2\dot{r}_1\dot{\theta}_1}{r_1} - \dfrac{g\cos{\theta_1}}{r_1} - \dfrac{m_2}{(m_1+m_2)r_1}\left[\cos{\Delta}(2\dot{r}_2\dot{\theta}_2+r_2\ddot{\theta}_2) +\sin{\Delta}(\ddot{r}_2-r_2\dot{\theta}_2^2)\right] + \dfrac{Q_{\theta_1}}{(m_1+m_2)r_1^2}.
+\end{align*}
+
+As for $\theta_2$
+
+\begin{align*}
+	F_{\theta_2} &= \dfrac{\partial \lag}{\partial \theta_2} \\
+	&= (m_1+m_2)\left[\dfrac{\dfrac{\partial |\vec{v}_1|^2}{\partial \theta_2}}{2}\right] + m_2\left[\dfrac{\dfrac{\partial |\Delta \vec{v}_{21}|^2}{\partial \theta_2}}{2} - gr_2\cos{\theta_2}\right] \\
+	&= m_2 \left[\dfrac{-2\sin{\Delta}(\dot{r}_1\dot{r}_2 + r_1r_2\dot{\theta}_1\dot{\theta}_2) + 2\cos{\Delta}(r_1\dot{r}_2\dot{\theta}_1-\dot{r}_1r_2\dot{\theta}_2)}{2} - gr_2\cos{\theta_2}\right] \\
+	&= m_2\left[\cos{\Delta}(r_1\dot{r}_2\dot{\theta}_1-\dot{r}_1r_2\dot{\theta}_2) - \sin{\Delta}(\dot{r}_1\dot{r}_2 + r_1r_2\dot{\theta}_1\dot{\theta}_2) - gr_2\cos{\theta_2}\right]\\
+	\dot{p}_{\theta_2} &= \dfrac{d}{dt} \dfrac{\partial \lag}{\partial \dot{\theta}_2} \\
+	&= (m_1+m_2)\left[\dfrac{\dfrac{d}{dt}\dfrac{\partial |\vec{v}_1|^2}{\partial \dot{\theta}_2}}{2}\right] + m_2\left[\dfrac{\dfrac{d}{dt}\dfrac{\partial|\Delta \vec{v}_{21}|^2}{\partial \dot{\theta}_2}}{2}\right]\\
+	&= m_2 \left[\dfrac{4r_2\dot{r}_2\dot{\theta}_2 + 2r_2^2\ddot{\theta}_2 +2\cos{\Delta}(\dot{r}_1r_2\dot{\Delta}_1+r_1\dot{r}_2\dot{\theta}_1+r_1r_2\ddot{\theta}_1)-2\sin{\Delta}(r_1r_2\dot{\theta}_1\dot{\Delta} + \ddot{r}_1r_2 + \dot{r}_1\dot{r}_2)}{2}\right]\\
+	&= m_2\left[2r_2\dot{r}_2\dot{\theta}_2 + r_2^2\ddot{\theta}_2 +\cos{\Delta}(\dot{r}_1r_2\dot{\Delta}_1+r_1\dot{r}_2\dot{\theta}_1+r_1r_2\ddot{\theta}_1)-\sin{\Delta}(r_1r_2\dot{\theta}_1\dot{\Delta} + \ddot{r}_1r_2 + \dot{r}_1\dot{r}_2)\right]
+\end{align*}
+
+\begin{align*}
+	Q_{\theta_2} &= -(b_1+c_1|\vec{v}_1|)\vec{v}_1 \cdot \dfrac{\partial \vec{r}_1}{\partial \theta_2} - (b_2+c_2|\vec{v}_2|)\vec{v}_2\cdot \dfrac{\partial \vec{r}_2}{\partial \theta_2} \\
+	&= -(b_2+c_2|\vec{v}_2|)\begin{bmatrix}
+		\dot{r}_1 \cos{\theta_1} - r_1 \dot{\theta}_1 \sin{\theta_1} + \dot{r}_2\cos{\theta_2} - r_2\dot{\theta}_2 \sin{\theta_2} \\
+		\dot{r}_1\sin{\theta_1} + r_1\dot{\theta}_1 \cos{\theta_1} + \dot{r}_2\sin{\theta_2} + r_2\dot{\theta}_2 \cos{\theta_2}
+	\end{bmatrix} \cdot r_2\begin{bmatrix}
+	-\sin{\theta_2}\\
+	\cos{\theta_2}
+	\end{bmatrix} \\
+	&= -(b_2+c_2|\vec{v}_2|)\left[-\dot{r}_1r_2\cos{\theta}_1\sin{\theta_2} + r_1r_2\dot{\theta}_1\sin{\theta_1}\sin{\theta_2} - r_2\dot{r}_2\cos{\theta_2}\sin{\theta_2} + r_2^2\dot{\theta}_2\sin^2{\theta_2} + \dot{r}_1r_2\sin{\theta_1}\cos{\theta_2} + r_1r_2\dot{\theta}_1\cos{\theta_1}\cos{\theta_2} + r_2\dot{r}_2\sin{\theta_2}\cos{\theta_2} + r_2^2\dot{\theta}_2\cos^2{\theta_2}\right]\\
+	&= -(b_2+c_2|\vec{v}_2|)\left[\dot{r}_1r_2(-\cos{\theta}_1\sin{\theta_2} + \sin{\theta_1}\cos{\theta_2}) + r_1r_2\dot{\theta}_1(\sin{\theta_1}\sin{\theta_2}+\cos{\theta_1}\cos{\theta_2}) + r_2\dot{r}_2(-\cos{\theta_2}\sin{\theta_2} + \sin{\theta_2}\cos{\theta_2}) + r_2^2\dot{\theta}_2(\sin^2{\theta_2} +\cos^2{\theta_2})\right]\\
+	&= -(b_2+c_2|\vec{v}_2|)\left[ r_2^2\dot{\theta}_2-\dot{r}_1r_2\sin{(\theta_2-\theta_1)} + r_1r_2\dot{\theta}_1\cos{(\theta_2-\theta_1)}\right].
+\end{align*}
+
+Hence the $\theta_2$ version of \eqref{ELD} is
+
+\begin{align*}
+	m_2\left[2r_2\dot{r}_2\dot{\theta}_2 + r_2^2\ddot{\theta}_2 +\cos{\Delta}(\dot{r}_1r_2\dot{\Delta}_1+r_1\dot{r}_2\dot{\theta}_1+r_1r_2\ddot{\theta}_1)-\sin{\Delta}(r_1r_2\dot{\theta}_1\dot{\Delta} + \ddot{r}_1r_2 + \dot{r}_1\dot{r}_2)\right] - m_2\left[\cos{\Delta}(r_1\dot{r}_2\dot{\theta}_1-\dot{r}_1r_2\dot{\theta}_2) - \sin{\Delta}(\dot{r}_1\dot{r}_2 + r_1r_2\dot{\theta}_1\dot{\theta}_2) - gr_2\cos{\theta_2}\right] &= Q_{\theta_2}.
+\end{align*}
+
+Dividing by $m_2$
+
+\begin{align*}
+	2r_2\dot{r}_2\dot{\theta}_2 + r_2^2\ddot{\theta}_2 +\cos{\Delta}(\dot{r}_1r_2\dot{\Delta}_1+r_1\dot{r}_2\dot{\theta}_1+r_1r_2\ddot{\theta}_1)-\sin{\Delta}(r_1r_2\dot{\theta}_1\dot{\Delta} + \ddot{r}_1r_2 + \dot{r}_1\dot{r}_2) - \cos{\Delta}(r_1\dot{r}_2\dot{\theta}_1-\dot{r}_1r_2\dot{\theta}_2) + \sin{\Delta}(\dot{r}_1\dot{r}_2 + r_1r_2\dot{\theta}_1\dot{\theta}_2) + gr_2\cos{\theta_2} &= \dfrac{Q_{\theta_2}}{m_2}\\
+	2r_2\dot{r}_2\dot{\theta}_2 + r_2^2\ddot{\theta}_2 +\cos{\Delta}(\dot{r}_1r_2\dot{\Delta}_1+r_1\dot{r}_2\dot{\theta}_1+r_1r_2\ddot{\theta}_1-r_1\dot{r}_2\dot{\theta}_1+\dot{r}_1r_2\dot{\theta}_2)+\sin{\Delta}(-r_1r_2\dot{\theta}_1\dot{\Delta} - \ddot{r}_1r_2 - \dot{r}_1\dot{r}_2 + \dot{r}_1\dot{r}_2 + r_1r_2\dot{\theta}_1\dot{\theta}_2) + gr_2\cos{\theta_2} &= \dfrac{Q_{\theta_2}}{m_2}\\
+	2r_2\dot{r}_2\dot{\theta}_2 + r_2^2\ddot{\theta}_2 +\cos{\Delta}(\dot{r}_1r_2(\dot{\Delta}_1+\dot{\theta}_2)+r_1r_2\ddot{\theta}_1)+\sin{\Delta}(r_1r_2\dot{\theta}_1(-\dot{\Delta}+\dot{\theta}_2) - \ddot{r}_1r_2) + gr_2\cos{\theta_2} &= \dfrac{Q_{\theta_2}}{m_2}\\
+\end{align*}
+
+By definition, $\dot{\Delta}_1 + \dot{\theta}_2 = 2\dot{\theta}_1$ and $-\dot{\Delta} + \dot{\theta}_2 = \dot{\theta}_2 - (\dot{\theta}_2-\dot{\theta}_1) = \dot{\theta}_1$. Hence our above equation simplifies to
+
+\begin{align*}
+	2r_2\dot{r}_2\dot{\theta}_2 + r_2^2\ddot{\theta}_2 +\cos{\Delta}(2\dot{r}_1r_2\dot{\theta}_1+r_1r_2\ddot{\theta}_1)+\sin{\Delta}(r_1r_2\dot{\theta}_1^2 - \ddot{r}_1r_2) + gr_2\cos{\theta_2} &= \dfrac{Q_{\theta_2}}{m_2}.
+\end{align*}
+
+Dividing by $r_2^2$ yields
+
+\begin{align*}
+	\ddot{\theta}_2 + \dfrac{2\dot{r}_2\dot{\theta}_2}{r_2} + \dfrac{\cos{\Delta}}{r_2}(2\dot{r}_1\dot{\theta}_1+r_1\ddot{\theta}_1) + \dfrac{\sin{\Delta}}{r_2}(r_1\dot{\theta}_1^2 - \ddot{r}_1) + \dfrac{g}{r_2}\cos{\theta_2} &= \dfrac{Q_{\theta_2}}{m_2r_2^2}.
+\end{align*}
+
+Rearranging to make $\ddot{\theta}_2$ the subject yields
+
+\begin{align*}
+	\ddot{\theta}_2 &= -\dfrac{2\dot{r}_2\dot{\theta}_2}{r_2} - \dfrac{\cos{\Delta}}{r_2}(2\dot{r}_1\dot{\theta}_1+r_1\ddot{\theta}_1) - \dfrac{\sin{\Delta}}{r_2}(r_1\dot{\theta}_1^2 - \ddot{r}_1) - \dfrac{g}{r_2}\cos{\theta_2} + \dfrac{Q_{\theta_2}}{m_2r_2^2}.
 \end{align*}
 %\begin{align*}
 %	\mathcal{L} &= \dfrac{m_1+m_2}{2}\left(\dot{z}_1^2+(l_1+z_1)^2\dot{\theta}_1^2-2g(l_1+z_1)\sin{\theta_1}\right) + \dfrac{m_2}{2}\left[\dot{z}_2^2+ (l_2+z_2)^2\dot{\theta}_2^2 + 2\dot{z}_1\dot{z}_2\cos{(\theta_2-\theta_1)} + 2\dot{\theta}_1\dot{z}_2(l_1+z_1)\sin{(\theta_2-\theta_1)} - 2\dot{z}_1(l_2+z_2)\dot{\theta}_2\sin{(\theta_2-\theta_1)}\right.\\
