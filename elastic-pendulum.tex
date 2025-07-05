@@ -1064,6 +1064,8 @@ Hence the Lagrangian of the system is
 
 We will not expand this Lagrangian, as doing so just adds to its complexity. Instead, we will calculate the derivatives of each of its components. 
 
+\subsubsection{Derivative of components of the Lagrangian}
+
 \begin{align*}
 	\dfrac{\partial |\vec{v}_1|^2}{\partial r_1} &= 2r_1\dot{\theta}_1^2 & \dfrac{\partial |\vec{v}_1|^2}{\partial r_2} &= 0 & \dfrac{\partial |\vec{v}_1|^2}{\partial \theta_1} &= 0 & \dfrac{\partial |\vec{v}_1|^2}{\partial \theta_2} &= 0\\
 	\dfrac{\partial |\vec{v}_1|^2}{\partial \dot{r}_1} &= 2\dot{r}_1 & \dfrac{\partial |\vec{v}_1|^2}{\partial \dot{r}_2} &= 0 & \dfrac{\partial |\vec{v}_1|^2}{\partial \dot{\theta}_1} &= 2r_1^2\dot{\theta}_1 & \dfrac{\partial |\vec{v}_1|^2}{\partial \dot{\theta}_2} &= 0\\
@@ -1078,6 +1080,8 @@ We will not expand this Lagrangian, as doing so just adds to its complexity. Ins
 \end{align*}
 
 Let us define $\dot{\Delta}_1 = 2\dot{\theta}_1 - \dot{\theta}_2$ and $\dot{\Delta}_2 = 2\dot{\theta}_2 - \dot{\theta}_1$.
+
+\paragraph{Time derivatives of momenta}
 \begin{align*}
 	\dfrac{d}{dt} \dfrac{\partial |\Delta \vec{v}_{21}|^2}{\partial \dot{r}_1} &= 2\ddot{r}_2\cos{\Delta} - 2\dot{r}_2\dot{\Delta}\sin{\Delta} - 2\dot{r}_2\dot{\theta}_2\sin{\Delta} - 2r_2\ddot{\theta}_2\sin{\Delta} - 2r_2\dot{\theta}_2\dot{\Delta}\cos{\Delta} \\
 	&= 2\cos{\Delta}(\ddot{r}_2-r_2\dot{\theta}_2\dot{\Delta}) - 2\sin{\Delta}(\dot{r}_2\dot{\Delta} + \dot{r}_2\dot{\theta}_2+r_2\ddot{\theta}_2)\\
@@ -1095,6 +1099,8 @@ Let us define $\dot{\Delta}_1 = 2\dot{\theta}_1 - \dot{\theta}_2$ and $\dot{\Del
 	&=4r_2\dot{r}_2\dot{\theta}_2 + 2r_2^2\ddot{\theta}_2 +2\cos{\Delta}(\dot{r}_1r_2\dot{\Delta}_1+r_1\dot{r}_2\dot{\theta}_1+r_1r_2\ddot{\theta}_1)-2\sin{\Delta}(r_1r_2\dot{\theta}_1\dot{\Delta} + \ddot{r}_1r_2 + \dot{r}_1\dot{r}_2).
 \end{align*}
 
+\subsection{Euler-Lagrange equations with dissipative forces}
+\subsubsection{$r_1$}
 Therefore
 
 \begin{align*}
@@ -1145,6 +1151,7 @@ To simplify, we will use $\dot{\theta}_1 + \dot{\Delta} = \dot{\theta}_2$ and $\
 	&= r_1\dot{\theta}_1^2-g\sin{\theta_1} + \dfrac{m_2}{m_1+m_2}\left(\cos{\Delta}(r_2\dot{\theta}_2^2 -\ddot{r}_2) + \sin{\Delta}(2\dot{r}_2\dot{\theta}_2+r_2\ddot{\theta}_2)\right)  - \dfrac{k_1(r_1-l_1)}{m_1+m_2} + \dfrac{Q_{r_1}}{m_1+m_2}\label{r1ddotin}
 \end{align}
 
+\subsubsection{$r_2$}
 As for $r_2$'s version of \eqref{ELD}
 
 \begin{align*}
@@ -1192,6 +1199,7 @@ Next we will use $\dot{\Delta} - \dot{\theta}_2 = \dot{\theta}_2-\dot{\theta}_1 
 	\ddot{r}_2 &=- \cos{\Delta}(\ddot{r}_1 + r_1\dot{\theta}_1^2) - \sin{\Delta}(r_1\ddot{\theta}_1 + \dot{r}_1\dot{\theta}_1) + r_2\dot{\theta}_2^2-g\sin{\theta_2}+\dfrac{Q_{r_2}-k_2(r_2-l_2)}{m_2}\label{r2ddotinit}
 \end{align}
 
+\subsubsection{$\theta_1$}
 As for $\theta_1$
 
 \begin{align*}
@@ -1244,10 +1252,11 @@ Dividing by $(m_1+m_2)r_1^2$ yields
 \end{align*}
 Making $\ddot{\theta}_1$ the subject of the equation
 
-\begin{align*}
-	\ddot{\theta}_1 &= -\dfrac{2\dot{r}_1\dot{\theta}_1}{r_1} - \dfrac{g\cos{\theta_1}}{r_1} - \dfrac{m_2}{(m_1+m_2)r_1}\left[\cos{\Delta}(2\dot{r}_2\dot{\theta}_2+r_2\ddot{\theta}_2) +\sin{\Delta}(\ddot{r}_2-r_2\dot{\theta}_2^2)\right] + \dfrac{Q_{\theta_1}}{(m_1+m_2)r_1^2}.
-\end{align*}
+\begin{align}
+	\ddot{\theta}_1 &= -\dfrac{2\dot{r}_1\dot{\theta}_1}{r_1} - \dfrac{g\cos{\theta_1}}{r_1} - \dfrac{m_2}{(m_1+m_2)r_1}\left[\cos{\Delta}(2\dot{r}_2\dot{\theta}_2+r_2\ddot{\theta}_2) +\sin{\Delta}(\ddot{r}_2-r_2\dot{\theta}_2^2)\right] + \dfrac{Q_{\theta_1}}{(m_1+m_2)r_1^2}. \label{theta1ddotinit}
+\end{align}
 
+\subsubsection{$\theta_2$}
 As for $\theta_2$
 
 \begin{align*}
@@ -1303,12 +1312,98 @@ Dividing by $r_2^2$ yields
 
 Rearranging to make $\ddot{\theta}_2$ the subject yields
 
+\begin{align}
+	\ddot{\theta}_2 &= -\dfrac{2\dot{r}_2\dot{\theta}_2}{r_2} - \dfrac{\cos{\Delta}}{r_2}(2\dot{r}_1\dot{\theta}_1+r_1\ddot{\theta}_1) - \dfrac{\sin{\Delta}}{r_2}(r_1\dot{\theta}_1^2 - \ddot{r}_1) - \dfrac{g}{r_2}\cos{\theta_2} + \dfrac{Q_{\theta_2}}{m_2r_2^2}.\label{theta2ddotinit}
+\end{align}
+
+\subsubsection{Analysis and game plan}
+We cannot numerically integrate these equations as is. We need to rewrite them so that they only involve the second time derivative of one degree of freedom per equation. So, let us examine the second time derivatives in each equation. We will use the acronym ELE for the Euler-Lagrange equations with dissipation; \textbf{bold typeface} will be used to indicate the subject of the equation. \\
+
+$r_1$ ELE (\eq{r1ddotin}): $\mathbf{\ddot{r}_1}$, $\ddot{r}_2$ and $\ddot{\theta}_2$.\\
+$r_2$ ELE (\eq{r2ddotinit}): $\ddot{r}_1$, $\mathbf{\ddot{r}_2}$ and $\ddot{\theta}_1$.\\
+$\theta_1$ ELE (\eq{theta1ddotinit}): $\ddot{r}_2$, $\boldsymbol{\ddot{\theta}_1}$ and $\ddot{\theta}_2$.\\
+$\theta_2$ ELE (\eq{theta2ddotinit}): $\ddot{r}_1$, $\ddot{\theta}_1$ and $\boldsymbol{\ddot{\theta}_2}$.\\
+
+Therefore we will substitute \eq{theta2ddotinit} into \eq{theta1ddotinit}. This will yield an equation for $\ddot{\theta}_1$ involving $\ddot{r}_1$ and $\ddot{r}_2$. Then we can eliminate $\ddot{r}_2$ using \eq{r2ddotinit}, yielding an equation for $\ddot{\theta}_1$ in terms of $\ddot{r}_1$.
+
+Based on \eq{theta1ddotinit}
+
 \begin{align*}
-	\ddot{\theta}_2 &= -\dfrac{2\dot{r}_2\dot{\theta}_2}{r_2} - \dfrac{\cos{\Delta}}{r_2}(2\dot{r}_1\dot{\theta}_1+r_1\ddot{\theta}_1) - \dfrac{\sin{\Delta}}{r_2}(r_1\dot{\theta}_1^2 - \ddot{r}_1) - \dfrac{g}{r_2}\cos{\theta_2} + \dfrac{Q_{\theta_2}}{m_2r_2^2}.
+	r_1\ddot{\theta}_1 &= -2\dot{r}_1\dot{\theta}_1 - g\cos{\theta_1} - \dfrac{m_2}{m_1+m_2}\left[\cos{\Delta}(2\dot{r}_2\dot{\theta}_2+r_2\ddot{\theta}_2) +\sin{\Delta}(\ddot{r}_2-r_2\dot{\theta}_2^2)\right] + \dfrac{Q_{\theta_1}}{(m_1+m_2)r_1} \\
+	2\dot{r}_1\dot{\theta}_1 + r_1\ddot{\theta}_1 &= - g\cos{\theta_1} - \dfrac{m_2}{m_1+m_2}\left[\cos{\Delta}(2\dot{r}_2\dot{\theta}_2+r_2\ddot{\theta}_2) +\sin{\Delta}(\ddot{r}_2-r_2\dot{\theta}_2^2)\right] + \dfrac{Q_{\theta_1}}{(m_1+m_2)r_1} \\
+	-\dfrac{\cos{\Delta}}{r_2}\left(2\dot{r}_1\dot{\theta}_1 + r_1\ddot{\theta}_1\right) &= \dfrac{g\cos{\theta_1}\cos{\Delta}}{r_2} + \dfrac{m_2}{(m_1+m_2)r_2}\left[\cos^2{\Delta}(2\dot{r}_2\dot{\theta}_2+r_2\ddot{\theta}_2) +\sin{\Delta}\cos{\Delta}(\ddot{r}_2-r_2\dot{\theta}_2^2)\right] - \dfrac{Q_{\theta_1}\cos{\Delta}}{(m_1+m_2)r_1r_2}
 \end{align*}
-%\begin{align*}
-%	\mathcal{L} &= \dfrac{m_1+m_2}{2}\left(\dot{z}_1^2+(l_1+z_1)^2\dot{\theta}_1^2-2g(l_1+z_1)\sin{\theta_1}\right) + \dfrac{m_2}{2}\left[\dot{z}_2^2+ (l_2+z_2)^2\dot{\theta}_2^2 + 2\dot{z}_1\dot{z}_2\cos{(\theta_2-\theta_1)} + 2\dot{\theta}_1\dot{z}_2(l_1+z_1)\sin{(\theta_2-\theta_1)} - 2\dot{z}_1(l_2+z_2)\dot{\theta}_2\sin{(\theta_2-\theta_1)}\right.\\
-%	&\left.+2(l_1+z_1)(l_2+z_2)\dot{\theta}_1\dot{\theta}_2\cos{(\theta_2-\theta_1)}-2g(l_2+z_2)\sin{\theta_2}\right] - \dfrac{k_1 z_1^2}{2} - \dfrac{k_2z_2^2}{2}
-%\end{align*}
+\begin{align*}
+	\therefore \ddot{\theta}_2 &= -\dfrac{2\dot{r}_2\dot{\theta}_2}{r_2} + \dfrac{g\cos{\theta_1}\cos{\Delta}}{r_2} + \dfrac{m_2}{(m_1+m_2)r_2}\left[\cos^2{\Delta}(2\dot{r}_2\dot{\theta}_2+r_2\ddot{\theta}_2) +\sin{\Delta}\cos{\Delta}(\ddot{r}_2-r_2\dot{\theta}_2^2)\right] - \dfrac{Q_{\theta_1}\cos{\Delta}}{(m_1+m_2)r_1r_2} - \dfrac{\sin{\Delta}}{r_2}(r_1\dot{\theta}_1^2 - \ddot{r}_1) - \dfrac{g}{r_2}\cos{\theta_2} + \dfrac{Q_{\theta_2}}{m_2r_2^2}
+\end{align*}
+
+Subtracting $\dfrac{m_2\cos^2{\Delta}}{(m_1+m_2)}\ddot{\theta}_2$ from both sides yields
+
+\begin{align*}
+	\ddot{\theta}_2 \left(1-\dfrac{m_2\cos^2{\Delta}}{m_1+m_2}\right)&= -\dfrac{2\dot{r}_2\dot{\theta}_2}{r_2}\left(1-\dfrac{m_2\cos^2{\Delta}}{m_1+m_2}\right) + \dfrac{g\cos{\theta_1}\cos{\Delta}}{r_2} + \dfrac{m_2\sin{\Delta}\cos{\Delta}}{(m_1+m_2)r_2}\left[\ddot{r}_2-r_2\dot{\theta}_2^2\right] - \dfrac{Q_{\theta_1}\cos{\Delta}}{(m_1+m_2)r_1r_2} - \dfrac{\sin{\Delta}}{r_2}(r_1\dot{\theta}_1^2 - \ddot{r}_1) - \dfrac{g}{r_2}\cos{\theta_2} + \dfrac{Q_{\theta_2}}{m_2r_2^2}.
+\end{align*}
+
+Hence
+
+\begin{align*}
+	\alpha &= 1-\dfrac{m_2\cos^2{\Delta}}{m_1+m_2} \\
+	&= \dfrac{m_1+m_2-m_2\cos^2{\Delta}}{m_1+m_2} \\
+	&= \dfrac{m_1+m_2\sin^2{\Delta}}{m_1+m_2}.
+\end{align*}
+
+Let $M=m_1+m_2$ and $\beta=\alpha M$, then
+
+\begin{align*}
+	\ddot{\theta}_2&= -\dfrac{2\dot{r}_2\dot{\theta}_2}{r_2} + \dfrac{g\cos{\theta_1}\cos{\Delta}}{\alpha r_2} + \dfrac{m_2\sin{\Delta}\cos{\Delta}}{\beta r_2}\left[\ddot{r}_2-r_2\dot{\theta}_2^2\right] - \dfrac{Q_{\theta_1}\cos{\Delta}}{\beta r_1r_2} - \dfrac{\sin{\Delta}}{\alpha r_2}(r_1\dot{\theta}_1^2 - \ddot{r}_1) - \dfrac{g}{\alpha r_2}\cos{\theta_2} + \dfrac{Q_{\theta_2}}{m_2\alpha r_2^2}.
+\end{align*}
+
+Taking \eq{r2ddotinit} and subtracting $r_2\dot{\theta}_2^2$ from it yields
+
+\begin{align*}
+	\ddot{r}_2 - r_2\dot{\theta}_2^2 &= - \cos{\Delta}(\ddot{r}_1 + r_1\dot{\theta}_1^2) - \sin{\Delta}(r_1\ddot{\theta}_1 + \dot{r}_1\dot{\theta}_1)-g\sin{\theta_2}+\dfrac{Q_{r_2}-k_2(r_2-l_2)}{m_2}.
+\end{align*}
+
+Therefore
+
+\begin{align*}
+	\ddot{\theta}_2&= -\dfrac{2\dot{r}_2\dot{\theta}_2}{r_2} + \dfrac{g\cos{\theta_1}\cos{\Delta}}{\alpha r_2} + \dfrac{m_2\sin{\Delta}\cos{\Delta}}{\beta r_2}\left[- \cos{\Delta}(\ddot{r}_1 + r_1\dot{\theta}_1^2) - \sin{\Delta}(r_1\ddot{\theta}_1 + \dot{r}_1\dot{\theta}_1)-g\sin{\theta_2}+\dfrac{Q_{r_2}-k_2(r_2-l_2)}{m_2}\right] - \dfrac{Q_{\theta_1}\cos{\Delta}}{\beta r_1r_2} \\
+	&- \dfrac{\sin{\Delta}}{\alpha r_2}(r_1\dot{\theta}_1^2 - \ddot{r}_1) - \dfrac{g}{\alpha r_2}\cos{\theta_2} + \dfrac{Q_{\theta_2}}{m_2\alpha r_2^2}\\
+	&= -\dfrac{2\dot{r}_2\dot{\theta}_2}{r_2} + \dfrac{g\cos{\theta_1}\cos{\Delta}}{\alpha r_2} - \dfrac{m_2\sin{\Delta}\cos^2{\Delta}}{\beta r_2}(\ddot{r}_1 + r_1\dot{\theta}_1^2) + \dfrac{m_2\sin{\Delta}\cos{\Delta}}{\beta r_2}\left[- \sin{\Delta}(r_1\ddot{\theta}_1 + \dot{r}_1\dot{\theta}_1)-g\sin{\theta_2}+\dfrac{Q_{r_2}-k_2(r_2-l_2)}{m_2}\right] - \dfrac{Q_{\theta_1}\cos{\Delta}}{\beta r_1r_2} \\
+	&+ \dfrac{\sin{\Delta}(m_1+m_2)}{\beta r_2}(\ddot{r}_1-r_1\dot{\theta}_1^2) - \dfrac{g}{\alpha r_2}\cos{\theta_2} + \dfrac{Q_{\theta_2}}{m_2\alpha r_2^2}\\
+	&= -\dfrac{2\dot{r}_2\dot{\theta}_2}{r_2} + \dfrac{g\cos{\theta_1}\cos{\Delta}}{\alpha r_2} + \dfrac{\ddot{r}_1\sin{\Delta}}{\beta r_2}(m_1+m_2-m_2\cos^2{\Delta})- \dfrac{r_1\dot{\theta}_1^2\sin{\Delta}}{\beta r_2}(m_1+m_2+m_2\cos^2{\Delta}) + \dfrac{m_2\sin{\Delta}\cos{\Delta}}{\beta r_2}\left[- \sin{\Delta}(r_1\ddot{\theta}_1 + \dot{r}_1\dot{\theta}_1)-g\sin{\theta_2}\right.\\
+	&\left.+\dfrac{Q_{r_2}-k_2(r_2-l_2)}{m_2}\right] - \dfrac{Q_{\theta_1}\cos{\Delta}}{\beta r_1r_2} - \dfrac{g}{\alpha r_2}\cos{\theta_2} + \dfrac{Q_{\theta_2}}{m_2\alpha r_2^2}\\
+	&= -\dfrac{2\dot{r}_2\dot{\theta}_2}{r_2} + \dfrac{g\cos{\theta_1}\cos{\Delta}}{\alpha r_2} + \dfrac{\ddot{r}_1\sin{\Delta}}{\beta r_2}(m_1+m_2\sin^2{\Delta})- \dfrac{r_1\dot{\theta}_1^2\sin{\Delta}}{\beta r_2}(m_1+m_2(1+\cos^2{\Delta}))+ \dfrac{m_2\sin{\Delta}\cos{\Delta}}{\beta r_2}\left[- \sin{\Delta}(r_1\ddot{\theta}_1 + \dot{r}_1\dot{\theta}_1)-g\sin{\theta_2}\right.\\
+	&\left.+\dfrac{Q_{r_2}-k_2(r_2-l_2)}{m_2}\right] - \dfrac{Q_{\theta_1}\cos{\Delta}}{\beta r_1r_2} - \dfrac{g}{\alpha r_2}\cos{\theta_2} + \dfrac{Q_{\theta_2}}{m_2\alpha r_2^2}.
+\end{align*}
+
+Let us define $\gamma = \dfrac{m_1+m_2(1+\cos^2{\Delta})}{m_1+m_2\sin^2{\Delta}}$ then
+
+\begin{align*}
+	\ddot{\theta_2} &= -\dfrac{2\dot{r}_2\dot{\theta}_2}{r_2} + \dfrac{g\cos{\theta_1}\cos{\Delta}}{\alpha r_2} + \dfrac{\ddot{r}_1\sin{\Delta}}{r_2}- \dfrac{\gamma r_1\dot{\theta}_1^2\sin{\Delta}}{r_2}+ \dfrac{m_2\sin{\Delta}\cos{\Delta}}{\beta r_2}\left[- \sin{\Delta}(r_1\ddot{\theta}_1 + \dot{r}_1\dot{\theta}_1)-g\sin{\theta_2}\right.\\
+	&\left.+\dfrac{Q_{r_2}-k_2(r_2-l_2)}{m_2}\right] - \dfrac{Q_{\theta_1}\cos{\Delta}}{\beta r_1r_2} - \dfrac{g}{\alpha r_2}\cos{\theta_2} + \dfrac{Q_{\theta_2}}{m_2\alpha r_2^2}.
+\end{align*}
+
+Substituting in \eq{r1ddotin}
+
+\begin{align*}
+	\ddot{\theta}_2 &= -\dfrac{2\dot{r}_2\dot{\theta}_2}{r_2} + \dfrac{g\cos{\theta_1}\cos{\Delta}}{\alpha r_2} + \dfrac{\sin{\Delta}}{r_2} \left[r_1\dot{\theta}_1^2-g\sin{\theta_1} + \dfrac{m_2}{m_1+m_2}\left(\cos{\Delta}(r_2\dot{\theta}_2^2 -\ddot{r}_2) + \sin{\Delta}(2\dot{r}_2\dot{\theta}_2+r_2\ddot{\theta}_2)\right)  - \dfrac{k_1(r_1-l_1)}{m_1+m_2} + \dfrac{Q_{r_1}}{m_1+m_2}\right] \\
+	&- \dfrac{\gamma r_1\dot{\theta}_1^2\sin{\Delta}}{r_2}+ \dfrac{m_2\sin{\Delta}\cos{\Delta}}{\beta r_2}\left[- \sin{\Delta}(r_1\ddot{\theta}_1 + \dot{r}_1\dot{\theta}_1)-g\sin{\theta_2}+\dfrac{Q_{r_2}-k_2(r_2-l_2)}{m_2}\right] - \dfrac{Q_{\theta_1}\cos{\Delta}}{\beta r_1r_2} - \dfrac{g}{\alpha r_2}\cos{\theta_2} + \dfrac{Q_{\theta_2}}{m_2\alpha r_2^2}\\
+	&=-\dfrac{2\dot{r}_2\dot{\theta}_2}{r_2} + \dfrac{g\cos{\theta_1}\cos{\Delta}}{\alpha r_2} + \dfrac{\sin{\Delta}}{r_2} \left[-g\sin{\theta_1} + \dfrac{m_2\cos{\Delta}}{m_1+m_2}(r_2\dot{\theta}_2^2 -\ddot{r}_2)  - \dfrac{k_1(r_1-l_1)}{m_1+m_2} + \dfrac{Q_{r_1}}{m_1+m_2}\right] \\
+	&+ \dfrac{(1-\gamma) r_1\dot{\theta}_1^2\sin{\Delta}}{r_2}+ \dfrac{m_2\sin{\Delta}\cos{\Delta}}{\beta r_2}\left[- \sin{\Delta}(r_1\ddot{\theta}_1 + \dot{r}_1\dot{\theta}_1)-g\sin{\theta_2}+\dfrac{Q_{r_2}-k_2(r_2-l_2)}{m_2}\right] - \dfrac{Q_{\theta_1}\cos{\Delta}}{\beta r_1r_2} - \dfrac{g}{\alpha r_2}\cos{\theta_2} + \dfrac{Q_{\theta_2}}{m_2\alpha r_2^2}\\
+	&+\dfrac{m_2\sin^2{\Delta}}{(m_1+m_2)r_2}(2\dot{r}_2\dot{\theta}_2+r_2\ddot{\theta}_2)\\
+	\ddot{\theta}_2 \left(1-\dfrac{m_2\sin^2{\Delta}}{m_1+m_2}\right) &= -\dfrac{2\dot{r}_2\dot{\theta}_2}{r_2}\left(1-\dfrac{m_2\sin^2{\Delta}}{m_1+m_2}\right)+ \dfrac{g\cos{\theta_1}\cos{\Delta}}{\alpha r_2} + \dfrac{\sin{\Delta}}{r_2} \left[-g\sin{\theta_1} + \dfrac{m_2\cos{\Delta}}{m_1+m_2}(r_2\dot{\theta}_2^2 -\ddot{r}_2)  - \dfrac{k_1(r_1-l_1)}{m_1+m_2} + \dfrac{Q_{r_1}}{m_1+m_2}\right] \\
+	&+ \dfrac{(1-\gamma) r_1\dot{\theta}_1^2\sin{\Delta}}{r_2}+ \dfrac{m_2\sin{\Delta}\cos{\Delta}}{\beta r_2}\left[- \sin{\Delta}(r_1\ddot{\theta}_1 + \dot{r}_1\dot{\theta}_1)-g\sin{\theta_2}+\dfrac{Q_{r_2}-k_2(r_2-l_2)}{m_2}\right] - \dfrac{Q_{\theta_1}\cos{\Delta}}{\beta r_1r_2} - \dfrac{g}{\alpha r_2}\cos{\theta_2} + \dfrac{Q_{\theta_2}}{m_2\alpha r_2^2}.
+\end{align*}
+
+\begin{align*}
+	1-\gamma &= -\dfrac{m_2\cos^2{\Delta}}{m_1+m_2\sin^2{\Delta}}.
+\end{align*}
+
+Hence defining $\delta = \dfrac{m_2\cos^2{\Delta}}{m_1+m_2\sin^2{\Delta}}$ and remembering how we have defined $\alpha$
+
+\begin{align*}
+	\alpha \ddot{\theta}_2 &= -\dfrac{2\alpha\dot{r}_2\dot{\theta}_2}{r_2}+ \dfrac{g\cos{\theta_1}\cos{\Delta}}{\alpha r_2} + \dfrac{\sin{\Delta}}{r_2} \left[-g\sin{\theta_1} + \dfrac{m_2\cos{\Delta}}{m_1+m_2}(r_2\dot{\theta}_2^2 -\ddot{r}_2)  - \dfrac{k_1(r_1-l_1)}{m_1+m_2} + \dfrac{Q_{r_1}}{m_1+m_2}\right] \\
+	&- \dfrac{\delta r_1\dot{\theta}_1^2\sin{\Delta}}{r_2}+ \dfrac{m_2\sin{\Delta}\cos{\Delta}}{\beta r_2}\left[- \sin{\Delta}(r_1\ddot{\theta}_1 + \dot{r}_1\dot{\theta}_1)-g\sin{\theta_2}+\dfrac{Q_{r_2}-k_2(r_2-l_2)}{m_2}\right] - \dfrac{Q_{\theta_1}\cos{\Delta}}{\beta r_1r_2} - \dfrac{g}{\alpha r_2}\cos{\theta_2} + \dfrac{Q_{\theta_2}}{m_2\alpha r_2^2}.
+\end{align*}
 \end{landscape}
 \end{document}
