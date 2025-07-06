@@ -652,7 +652,7 @@ Therefore
 \begin{align*}
 	p_z &= \dfrac{\partial \lag}{\partial \dot{z}} \\
 	&= m_2(\dot{z} + \dot{s}\sin{\theta}) \\
-	\dot{p}_z &= m_2 (\ddot{z} + \ddot{s}\sin{\theta} + \dot{s}\dot{\theta}\cos{\theta})
+	\dot{p}_z &= m_2 (\ddot{z} + \ddot{s}\sin{\theta} + \dot{s}\dot{\theta}\cos{\theta}).
 \end{align*}
 
 Substituting in Equation \eqref{d2s1}
@@ -717,7 +717,7 @@ Hence
 Multiplying both sides of Equation \eqref{d2z1} by $\dfrac{m_1+m_2\sin^2{\theta}}{m_1}$
 
 \begin{align}
-	\ddot{z} &= (l+z)\dot{\theta}^2+g\cos{\theta} - \dfrac{\sin{\theta}}{m_1}\left[Q_s - \dfrac{Q_{\theta}\cos{\theta}}{l+z} \right]+\dfrac{m_1+m_2\sin^2{\theta}}{m_1m_2}\left(kz + Q_z\right) \label{d2z2}
+	\ddot{z} &= (l+z)\dot{\theta}^2+g\cos{\theta} - \dfrac{\sin{\theta}}{m_1}\left[Q_s - \dfrac{Q_{\theta}\cos{\theta}}{l+z} \right]+\dfrac{m_1+m_2\sin^2{\theta}}{m_1m_2}\left(kz + Q_z\right). \label{d2z2}
 \end{align}
 
 Substituting into Equation \eqref{d2s1}:
@@ -733,7 +733,7 @@ Cancelling out the $\dot{\theta}^2(l+z)$ and $g\sin{\theta}\cos{\theta}$ terms
 	&= \dfrac{1}{m_1+m_2\sin^2{\theta}}\left[\left(Q_s - \dfrac{Q_{\theta}\cos{\theta}}{l+z}\right)\left[1+\dfrac{m_2\sin^2{\theta}}{m_1}\right]-\dfrac{(m_1+m_2\sin^2{\theta})\sin{\theta}}{m_1}\left(kz + Q_z\right)\right]\nonumber\\
 	&=  \dfrac{1}{m_1+m_2\sin^2{\theta}}\left[\left(Q_s - \dfrac{Q_{\theta}\cos{\theta}}{l+z}\right)\left[\dfrac{m_1+m_2\sin^2{\theta}}{m_1}\right]-\dfrac{(m_1+m_2\sin^2{\theta})\sin{\theta}}{m_1}\left(kz + Q_z\right)\right] \nonumber\\
 	&= \dfrac{1}{m_1}\left(Q_s - \dfrac{Q_{\theta}\cos{\theta}}{l+z}\right) -\dfrac{(kz+Q_z)\sin{\theta}}{m_1} \nonumber\\
-	&= \dfrac{1}{m_1}\left(Q_s - \dfrac{Q_{\theta}\cos{\theta}}{l+z}-(kz+Q_z)\sin{\theta}\right) \label{d2s}
+	&= \dfrac{1}{m_1}\left(Q_s - \dfrac{Q_{\theta}\cos{\theta}}{l+z}-(kz+Q_z)\sin{\theta}\right). \label{d2s}
 \end{align}
 
 Hence, substituting Equation \eqref{d2s} into \eqref{d2theta1} yields
@@ -746,7 +746,7 @@ Hence, substituting Equation \eqref{d2s} into \eqref{d2theta1} yields
 \section{Double pendulum with an elastic second pendulum}
 Below we will analyse the double pendulum where the second pendulum is elastic. The rest length of the elastic pendulum is $l$ and its displacement from rest is $x$. Let the masses of the pendulum bobs be $m_1$ and $m_2$, respectively. We will assume the rod/string have no mass. I have tried accounting for it, using a centre of mass approach, in my double pendulum calculation and my experience with simulations is that it does not really make things any more interesting and just adds complexity. 
 \begin{figure}[H]
-	\includegraphics[width=300px]{Double pendulum second elastic.png}
+	\includegraphics[width=500px]{Double pendulum second elastic.png}
 	\caption{Diagram of a double pendulum wherein the second pendulum is elastic.}
 \end{figure}
 
@@ -991,12 +991,17 @@ Moving everything but $\ddot{\theta}_2$ to the right-hand side yields
 \end{align}
 
 \subsubsection{$z$}
+The generalized momentum canonical to $z$ and its time derivative are
 \begin{align*}
 	p_z &= \dfrac{\partial \lag}{\partial \dot{z}} \\
 	&= m_2\left(\dot{z} + r\dot{\theta}_1 \sin{(\theta_2-\theta_1)}\right) \\
-	\dot{p}_z &= m_2 \left(\ddot{z} + r\ddot{\theta}_1 \sin{(\theta_2-\theta_1)} + r\dot{\theta}_1(\dot{\theta}_2-\dot{\theta}_1)\cos{(\theta_2-\theta_1)}\right) \\
+	\dot{p}_z &= m_2 \left(\ddot{z} + r\ddot{\theta}_1 \sin{(\theta_2-\theta_1)} + r\dot{\theta}_1(\dot{\theta}_2-\dot{\theta}_1)\cos{(\theta_2-\theta_1)}\right).
+\end{align*}
+\begin{align*}
 	F_z &= \dfrac{\partial \lag}{\partial z} \\
-	&= m_2 \left((l+z)\dot{\theta}_2^2 + r\dot{\theta}_1\dot{\theta}_2 \cos{(\theta_2-\theta_1)}-g\sin{\theta_2}\right) -kz\\
+	&= m_2 \left((l+z)\dot{\theta}_2^2 + r\dot{\theta}_1\dot{\theta}_2 \cos{(\theta_2-\theta_1)}-g\sin{\theta_2}\right) -kz.
+\end{align*}
+\begin{align*}
 	Q_z &= \vec{F}_{D,1} \cdot \hat{e}_{1,z} + \vec{F}_{D,2} \cdot \hat{e}_{2,z} \\
 	&= -(b_1+c_1r|\dot{\theta}_1|)r\dot{\theta}_1 \begin{bmatrix}
 		-\sin{\theta}_1 \\
@@ -1033,6 +1038,42 @@ where $k'=\dfrac{k}{m_2}$. Moving everything but the $\ddot{z}$ term to the righ
 	\ddot{z} &= -r\ddot{\theta}_1 \sin{(\theta_2-\theta_1)} + r\dot{\theta}_1^2\cos{(\theta_2-\theta_1)} + (l+z)\dot{\theta}_2^2-g\sin{\theta_2} - k'z + \dfrac{Q_z}{m_2}. \label{d2z}
 \end{align}
 
+Hence our system of ODEs can be written, in matrix, form as
+
+\begin{align*}
+	\begin{bmatrix}
+		1 & r & 0 \\
+		\dfrac{m_2\sin{(\theta_2-\theta_1)}}{(m_1+m_2)r} & 1 & \dfrac{m_2(l+z)\cos{(\theta_2-\theta_1)}}{(m_1+m_2)r} \\
+		0 & \dfrac{r\cos{(\theta_2-\theta_1)}}{l+z} & 1
+	\end{bmatrix} \begin{bmatrix}
+	\ddot{z} \\
+	\ddot{\theta}_1 \\
+	\ddot{\theta}_2
+	\end{bmatrix} &= \begin{bmatrix}
+	r\dot{\theta}_1^2\cos{(\theta_2-\theta_1)} + (l+z)\dot{\theta}_2^2 - g\sin{\theta_2} + \dfrac{Q_z-kz}{m_2} \\
+	-\dfrac{g}{r}\cos{\theta_1} + \dfrac{m_2}{(m_1+m_2)r}\left[(l+z)\dot{\theta}_2^2\sin{(\theta_2-\theta_1)} - 2\dot{z}\dot{\theta}_2\cos{(\theta_2-\theta_1)}\right] + \dfrac{Q_{\theta_1}}{(m_1+m_2)r^2} \\
+	-\dfrac{2\dot{z}\dot{\theta}_2 + r\dot{\theta}_1^2\sin{(\theta_2-\theta_1)} + g\cos{\theta_2}}{l+z} + \dfrac{Q_{\theta_2}}{m_2(l+z)^2}
+	\end{bmatrix}.
+\end{align*}
+
+The solution of which is
+
+\begin{align*}
+	\begin{bmatrix}
+		\ddot{z} \\
+		\ddot{\theta}_1 \\
+		\ddot{\theta}_2
+	\end{bmatrix} &= \begin{bmatrix}
+	1 & r & 0 \\
+	\dfrac{m_2\sin{(\theta_2-\theta_1)}}{(m_1+m_2)r} & 1 & \dfrac{m_2(l+z)\cos{(\theta_2-\theta_1)}}{(m_1+m_2)r} \\
+	0 & \dfrac{r\cos{(\theta_2-\theta_1)}}{l+z} & 1
+	\end{bmatrix}^{-1} \begin{bmatrix}
+	r\dot{\theta}_1^2\cos{(\theta_2-\theta_1)} + (l+z)\dot{\theta}_2^2 - g\sin{\theta_2} + \dfrac{Q_z-kz}{m_2} \\
+	-\dfrac{g}{r}\cos{\theta_1} + \dfrac{m_2}{(m_1+m_2)r}\left[(l+z)\dot{\theta}_2^2\sin{(\theta_2-\theta_1)} - 2\dot{z}\dot{\theta}_2\cos{(\theta_2-\theta_1)}\right] + \dfrac{Q_{\theta_1}}{(m_1+m_2)r^2} \\
+	-\dfrac{2\dot{z}\dot{\theta}_2 + r\dot{\theta}_1^2\sin{(\theta_2-\theta_1)} + g\cos{\theta_2}}{l+z} + \dfrac{Q_{\theta_2}}{m_2(l+z)^2}
+	\end{bmatrix}.
+\end{align*}
+
 Let us substitute \eq{d2z} into \eq{d2theta1}
 
 \begin{align*}
@@ -1068,21 +1109,21 @@ Hence
 	-\dfrac{r\ddot{\theta}_1 \cos{(\theta_2-\theta_1)}+r\dot{\theta}_1^2\sin{(\theta_2-\theta_1)}}{l+z} &= \dfrac{m_2\ddot{\theta}_2\cos^2{(\theta_2-\theta_1)}}{m_1+m_2\cos^2{(\theta_2-\theta_1)}} - \dfrac{m_1r\dot{\theta}_1^2\sin{(\theta_2-\theta_1)}}{(l+z)(m_1+m_2\cos^2{(\theta_2-\theta_1)})} + \dfrac{2m_2\cos^2{(\theta_2-\theta_1)}\dot{z}\dot{\theta}_2}{(m_1+m_2\cos^2{(\theta_2-\theta_1)})(l+z)}\\
 	&- \dfrac{\cos{(\theta_2-\theta_1)}}{(m_1+m_2\cos^2{(\theta_2-\theta_1)})r(l+z)}\left[m_2gr\sin{\theta_2}\sin{(\theta_2 - \theta_1)}+Q_{\theta_1}+r(kz-Q_z)\sin{(\theta_2-\theta_1)}-g(m_1+m_2)r\cos{\theta_1}\right] \\
 	&= \dfrac{m_2\ddot{\theta}_2\cos^2{(\theta_2-\theta_1)}}{m_1+m_2\cos^2{(\theta_2-\theta_1)}} - \dfrac{m_1r\dot{\theta}_1^2\sin{(\theta_2-\theta_1)}}{(l+z)(m_1+m_2\cos^2{(\theta_2-\theta_1)})} + \dfrac{2\dot{z}\dot{\theta}_2}{l+z}\left[1-\dfrac{m_1}{m_1+m_2\cos^2{(\theta_2-\theta_1)}}\right]\\
-	&- \dfrac{\cos{(\theta_2-\theta_1)}}{(m_1+m_2\cos^2{(\theta_2-\theta_1)})r(l+z)}\left[m_2gr\sin{\theta_2}\sin{(\theta_2 - \theta_1)}+Q_{\theta_1}+r(kz-Q_z)\sin{(\theta_2-\theta_1)}-g(m_1+m_2)r\cos{\theta_1}\right]
+	&- \dfrac{\cos{(\theta_2-\theta_1)}}{(m_1+m_2\cos^2{(\theta_2-\theta_1)})r(l+z)}\left[m_2gr\sin{\theta_2}\sin{(\theta_2 - \theta_1)}+Q_{\theta_1}+r(kz-Q_z)\sin{(\theta_2-\theta_1)}-g(m_1+m_2)r\cos{\theta_1}\right].
 \end{align*}
 
 Adding in the $-\dfrac{2\dot{z}\dot{\theta}_2}{l+z}$ term of \eq{d2theta2} yields
 
 \begin{align*}
 	-\dfrac{2\dot{z}\dot{\theta}_2 + r\ddot{\theta}_1 \cos{(\theta_2-\theta_1)}+r\dot{\theta}_1^2\sin{(\theta_2-\theta_1)}}{l+z} &= \dfrac{m_2\ddot{\theta}_2\cos^2{(\theta_2-\theta_1)}}{m_1+m_2\cos^2{(\theta_2-\theta_1)}} - \dfrac{m_1(r\dot{\theta}_1^2\sin{(\theta_2-\theta_1)}+2\dot{z}\dot{\theta}_2)}{(l+z)(m_1+m_2\cos^2{(\theta_2-\theta_1)})}\\
-	&- \dfrac{\cos{(\theta_2-\theta_1)}}{(m_1+m_2\cos^2{(\theta_2-\theta_1)})r(l+z)}\left[m_2gr\sin{\theta_2}\sin{(\theta_2 - \theta_1)}+Q_{\theta_1}+r(kz-Q_z)\sin{(\theta_2-\theta_1)}-g(m_1+m_2)r\cos{\theta_1}\right]
+	&- \dfrac{\cos{(\theta_2-\theta_1)}}{(m_1+m_2\cos^2{(\theta_2-\theta_1)})r(l+z)}\left[m_2gr\sin{\theta_2}\sin{(\theta_2 - \theta_1)}+Q_{\theta_1}+r(kz-Q_z)\sin{(\theta_2-\theta_1)}-g(m_1+m_2)r\cos{\theta_1}\right].
 \end{align*}
 
 Hence
 
 \begin{align*}
 	\ddot{\theta}_2 &= -\dfrac{g\cos{\theta_2}}{l+z} + \dfrac{m_2\ddot{\theta}_2\cos^2{(\theta_2-\theta_1)}}{m_1+m_2\cos^2{(\theta_2-\theta_1)}} - \dfrac{m_1(r\dot{\theta}_1^2\sin{(\theta_2-\theta_1)}+2\dot{z}\dot{\theta}_2)}{(l+z)(m_1+m_2\cos^2{(\theta_2-\theta_1)})} + \dfrac{Q_{\theta_2}}{m_2(l+z)^2}\\
-	&- \dfrac{\cos{(\theta_2-\theta_1)}}{(m_1+m_2\cos^2{(\theta_2-\theta_1)})r(l+z)}\left[m_2gr\sin{\theta_2}\sin{(\theta_2 - \theta_1)}+Q_{\theta_1}+r(kz-Q_z)\sin{(\theta_2-\theta_1)}-g(m_1+m_2)r\cos{\theta_1}\right]
+	&- \dfrac{\cos{(\theta_2-\theta_1)}}{(m_1+m_2\cos^2{(\theta_2-\theta_1)})r(l+z)}\left[m_2gr\sin{\theta_2}\sin{(\theta_2 - \theta_1)}+Q_{\theta_1}+r(kz-Q_z)\sin{(\theta_2-\theta_1)}-g(m_1+m_2)r\cos{\theta_1}\right].
 \end{align*}
 
 Moving the $\ddot{\theta}_2$ term on the RHS to the LHS
@@ -1093,7 +1134,7 @@ Moving the $\ddot{\theta}_2$ term on the RHS to the LHS
 	\dfrac{m_1\ddot{\theta}_2}{m_1+m_2\cos^2{(\theta_2-\theta_1)}} &= -\dfrac{g\cos{\theta_2}}{l+z} - \dfrac{m_1(r\dot{\theta}_1^2\sin{(\theta_2-\theta_1)}+2\dot{z}\dot{\theta}_2)}{(l+z)(m_1+m_2\cos^2{(\theta_2-\theta_1)})} + \dfrac{Q_{\theta_2}}{m_2(l+z)^2}\\
 	&- \dfrac{\cos{(\theta_2-\theta_1)}}{(m_1+m_2\cos^2{(\theta_2-\theta_1)})r(l+z)}\left[m_2gr\sin{\theta_2}\sin{(\theta_2 - \theta_1)}+Q_{\theta_1}+r(kz-Q_z)\sin{(\theta_2-\theta_1)}-g(m_1+m_2)r\cos{\theta_1}\right]\\
 	\ddot{\theta}_2 &= -\dfrac{m_1+m_2\cos^2{(\theta_2-\theta_1)}}{m_1}\left[\dfrac{Q_{\theta_2}}{m_2(l+z)^2} - \dfrac{g\cos{\theta_2}}{l+z}\right] - \dfrac{r\dot{\theta}_1^2\sin{(\theta_2-\theta_1)}+2\dot{z}\dot{\theta}_2}{l+z} \\
-	&- \dfrac{\cos{(\theta_2-\theta_1)}}{m_1r(l+z)}\left[m_2gr\sin{\theta_2}\sin{(\theta_2 - \theta_1)}+Q_{\theta_1}+r(kz-Q_z)\sin{(\theta_2-\theta_1)}-g(m_1+m_2)r\cos{\theta_1}\right]
+	&- \dfrac{\cos{(\theta_2-\theta_1)}}{m_1r(l+z)}\left[m_2gr\sin{\theta_2}\sin{(\theta_2 - \theta_1)}+Q_{\theta_1}+r(kz-Q_z)\sin{(\theta_2-\theta_1)}-g(m_1+m_2)r\cos{\theta_1}\right].
 \end{align*}
 \end{landscape}
 
