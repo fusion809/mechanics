@@ -326,6 +326,7 @@ and the generalized dissipative forces are
 \section{Elastic spherical pendulum}
 Here we have a single elastic pendulum whose bob position is described in spherical coordinates. We will not provide a diagram as drawing in 3D is a bit more challenging.
 
+\subsection{Coordinates}
 \begin{align*}
 	x &= r\cos{\theta}\sin{\varphi}\\
 	y &= r\sin{\theta}\sin{\varphi} \\
@@ -335,6 +336,7 @@ Here we have a single elastic pendulum whose bob position is described in spheri
 Where $r = l + \xi$. Here $l$ is the rest length of the pendulum rods and $\xi$ is the displacement of them. 
 
 \begin{landscape}
+\subsection{Velocity}
 Hence our velocity vector is
 
 \begin{align*}
@@ -350,6 +352,7 @@ Hence our velocity vector is
 	\therefore |\vec{v}| &= \sqrt{\dot{r}^2 + r^2\dot{\theta}^2\sin^2{\varphi} + r^2\dot{\varphi}^2}.
 \end{align*}
 
+\subsection{Lagrangian}
 Hence the Lagrangian is
 
 \begin{align*}
@@ -357,18 +360,23 @@ Hence the Lagrangian is
 	&= \dfrac{m|\vec{v}|^2}{2} - mgr\cos{\varphi} - \dfrac{k(r-l)^2}{2}.
 \end{align*}
 
+\subsection{Euler-Lagrange equations with dissipation}
+\subsubsection{Length of pendulum: $r$}
 Hence \eq{ELD} for $r$ has the components
 
 \begin{align*}
 	\dfrac{\partial \lag}{\partial r} &= m(r\dot{\theta}^2\sin^2{\varphi} + r\dot{\varphi}^2-g\cos{\varphi}) - k(r-l) \\
 	\dfrac{\partial \lag}{\partial \dot{r}} &= m\dot{r} \\
-	\dfrac{d}{dt} \dfrac{\partial \lag}{\partial \dot{r}} &= m\ddot{r} \\
-	\therefore \dfrac{\delta \lag}{\delta r} &= \dfrac{d}{dt} \dfrac{\partial \lag}{\partial \dot{r}} -\dfrac{\partial \lag}{\partial r} \\
+	\dfrac{d}{dt} \dfrac{\partial \lag}{\partial \dot{r}} &= m\ddot{r}.
+\end{align*}
+Consequently, the functional derivative of $\lag$ with respect to $r$ is
+\begin{align*}
+	\dfrac{\delta \lag}{\delta r} &= \dfrac{d}{dt} \dfrac{\partial \lag}{\partial \dot{r}} -\dfrac{\partial \lag}{\partial r} \\
 	&= m\ddot{r} - \left[m(r\dot{\theta}^2\sin^2{\varphi} + r\dot{\varphi}^2-g\cos{\varphi}) - k(r-l)\right] \\
 	&= m\left[\ddot{r} - r\dot{\theta}^2\sin^2{\varphi} - r\dot{\varphi}^2+g\cos{\varphi}\right] + k(r-l).
 \end{align*}
 
-Hence the dissipation term is
+The dissipation term is
 \begin{align*}
 	Q_r &= -(b + c|\vec{v}|)\vec{v} \cdot \dfrac{\partial \vec{r}}{\partial r} \\
 	&= -(b + c|\vec{v}|) \begin{bmatrix}
@@ -392,6 +400,7 @@ Hence the Euler-Lagrange equation with dissipation for $r$ is
 	\ddot{r} &= r\dot{\theta}^2\sin^2{\varphi} + r\varphi^2 - g\cos{\varphi} - \dfrac{(b + c|\vec{v}|)\dot{r}+k(r-l)}{m}.
 \end{align*}
 
+\subsubsection{Angle pendulum makes with positive $x$-axis: $\theta$}
 As for $\theta$
 
 \begin{align*}
@@ -428,6 +437,7 @@ Dividing by $mr^2\sin^2{\varphi}$ yields
 
 Which will sadly be unstable whenever $\varphi \approx n\pi$ where $n\in \mathbb{Z}$.
 
+\subsubsection{Angle pendulum makes with positive $z$-axis: $\varphi$}
 As for $\varphi$
 
 \begin{align*}
