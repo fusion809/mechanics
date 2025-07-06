@@ -227,7 +227,7 @@ Hence $Q_i$ is
 \end{align*}
 
 \subsection{Left-hand side of \eq{ELD}}
-\subsubsection{$\theta$}
+\subsubsection{Angle pendulum makes with the positive $x$-axis: $\theta$}
 As for the LHS of \eq{ELD}, let us work on it for $\theta$ one term at a time
 \begin{align*}
 	p_{\theta} &= \dfrac{\partial \lag}{\partial \dot{\theta}} \\
@@ -250,7 +250,7 @@ Let $k'=\dfrac{k}{m}$, $b'=\dfrac{b}{m}$ and $c'=\dfrac{c}{m}$.
 	\ddot{\theta} &= -\dfrac{2\dot{\theta}\dot{z}}{l+z} - \dfrac{g\cos{\theta}}{l+z} -\dot{\theta} \left(b'+c'\sqrt{\dot{z}^2+(l+z)^2\dot{\theta}^2}\right).
 \end{align*}
 
-\subsubsection{$z$}
+\subsubsection{Extension of the pendulum: $z$}
 As for $z$
 
 \begin{align*}
@@ -307,7 +307,7 @@ and the generalized dissipative forces are
 	Q_{\theta} &= -\dfrac{p_{\theta}}{m} \left(b+c\sqrt{\dfrac{p_z^2}{m^2} + \dfrac{p_{\theta}^2}{m^2(l+z)^2}}\right).
 \end{align*}
 
-\subsubsection{$z$}
+\subsubsection{Extension of the pendulum: $z$}
 \begin{align*}
 	\dot{z} &= \dfrac{\partial \ham}{\partial p_z} \\
 	&= \dfrac{p_z}{m} \\
@@ -315,7 +315,7 @@ and the generalized dissipative forces are
 	&= \dfrac{p_{\theta}^2}{m(l+z)^3} - kz - mg\sin{\theta} + Q_z
 \end{align*}
 
-\subsubsection{$\theta$}
+\subsubsection{Angle the pendulum makes with the positive $x$-axis: $\theta$}
 \begin{align*}
 	\dot{\theta} &= \dfrac{\partial \ham}{\partial p_{\theta}} \\
 	&= \dfrac{p_{\theta}}{m(l+z)^2} \\
@@ -585,7 +585,7 @@ where $j$ refers to the particles in the system. Or, defining
 	\hat{e}_{i,j} &= \dfrac{\partial \vec{r}_{j}}{\partial q_i} & Q_i &= \sum_{j} \vec{F}_{D, j} \cdot \hat{e}_{i,j}
 \end{align*}
 
-\subsubsection{$\theta$}
+\subsubsection{Angle between pendulum and positive $x$-axis: $\theta$}
 \begin{align*}
 	p_{\theta} &= \dfrac{\partial \lag}{\partial \dot{\theta}} \\
 	&= m_2 \left[(l+z)^2 \dot{\theta} + \dot{s}(l+z)\cos{\theta}\right] \\
@@ -626,7 +626,7 @@ Hence
 	\ddot{\theta} = -\dfrac{2\dot{z}\dot{\theta}+\ddot{s}\cos{\theta} + g\sin{\theta}}{l+z} + \dfrac{Q_{\theta}}{m_2(l+z)^2}.\label{d2theta1}
 \end{align}
 
-\subsubsection{$s$}
+\subsubsection{Horizontal distance between cart and origin: $s$}
 \begin{align*}
 	p_s &= \dfrac{\partial \lag}{\partial \dot{s}} \\
 	&= (m_1+m_2)\dot{s} + m_2(\dot{z}\sin{\theta} + \dot{\theta}(l+z)\cos{\theta}) \\
@@ -701,7 +701,7 @@ Therefore
 	&= \dfrac{1}{m_1+m_2\sin^2{\theta}}\left[Q_s - \dfrac{Q_{\theta}\cos{\theta}}{l+z} - m_2\left(\sin{\theta}(\ddot{z}-\dot{\theta}^2(l+z)) - g\sin{\theta}\cos{\theta}\right)\right] \label{d2s1}
 \end{align}
 
-\subsubsection{$z$}
+\subsubsection{Extension of the pendulum: $z$}
 \begin{align*}
 	p_z &= \dfrac{\partial \lag}{\partial \dot{z}} \\
 	&= m_2(\dot{z} + \dot{s}\sin{\theta}) \\
@@ -910,7 +910,7 @@ The total potential energy is therefore
 \end{align*}
 
 \subsection{Euler-Lagrange equations}
-\subsubsection{$\theta_1$}
+\subsubsection{Angle between first pendulum and positive $x$-axis: $\theta_1$}
 \begin{align*}
 	p_{\theta_1} &= \dfrac{\partial \lag}{\partial \dot{\theta}_1} \\
 	&= (m_1+m_2)r^2 \dot{\theta}_1 + m_2r[ \dot{z} \sin{(\theta_2-\theta_1)} + (l+z)\dot{\theta}_2\cos{(\theta_2 - \theta_1)}] \\
@@ -997,7 +997,7 @@ Moving everything but the $\ddot{\theta}_1$ to the RHS yields
 	\ddot{\theta}_1 &= \dfrac{Q_{\theta_1}}{(m_1+m_2)r^2} - \dfrac{g}{r}\cos{\theta_1} - \dfrac{m_2}{(m_1+m_2)r}\left[(\ddot{z} -(l+z)\dot{\theta}_2^2)\sin{(\theta_2 - \theta_1)}+(2\dot{z}\dot{\theta}_2+(l+z)\ddot{\theta}_2)\cos{(\theta_2-\theta_1)}\right]. \label{d2theta1}
 \end{align}
 
-\subsubsection{$\theta_2$}
+\subsubsection{Angle between second pendulum and positive $x$-axis: $\theta_2$}
 Hence
 
 \begin{align*}
@@ -1043,7 +1043,7 @@ Moving everything but $\ddot{\theta}_2$ to the right-hand side yields
 	\ddot{\theta}_2 &= -\dfrac{1}{l+z}\left[2\dot{z}\dot{\theta}_2 + r\ddot{\theta}_1 \cos{(\theta_2-\theta_1)} + r\dot{\theta}_1^2\sin{(\theta_2-\theta_1)} + g\cos{\theta}_2\right] + \dfrac{Q_{\theta_2}}{m_2(l+z)^2}. \label{d2theta2}
 \end{align}
 
-\subsubsection{$z$}
+\subsubsection{Extension of elastic pendulum: $z$}
 The generalized momentum canonical to $z$ and its time derivative are
 \begin{align*}
 	p_z &= \dfrac{\partial \lag}{\partial \dot{z}} \\
