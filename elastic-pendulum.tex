@@ -323,6 +323,416 @@ and the generalized dissipative forces are
 	&= -mg(l+z)\cos{\theta} + Q_{\theta}.
 \end{align*}
 
+\section{Elastic spherical pendulum}
+Here we have a single elastic pendulum whose bob position is described in spherical coordinates. We will not provide a diagram as drawing in 3D is a bit more challenging.
+
+\begin{align*}
+	x &= r\cos{\theta}\sin{\varphi}\\
+	y &= r\sin{\theta}\sin{\varphi} \\
+	z &= r\cos{\varphi}.
+\end{align*}
+
+Where $r = l + \xi$. Here $l$ is the rest length of the pendulum rods and $\xi$ is the displacement of them. 
+
+\begin{landscape}
+Hence our velocity vector is
+
+\begin{align*}
+	\vec{v} &= \dfrac{d}{dt}{\vec{r}} \\
+	&= \begin{bmatrix}
+		\dot{r}\cos{\theta}\sin{\varphi}  - r\dot{\theta}\sin{\theta}\sin{\varphi} + r\dot{\varphi}\cos{\theta}\cos{\varphi} \\
+		\dot{r}\sin{\theta}\sin{\varphi}  + r\dot{\theta}\cos{\theta}\sin{\varphi} + r\dot{\varphi}\sin{\theta}\cos{\varphi} \\
+		\dot{r}\cos{\varphi} - r\dot{\varphi}\sin{\varphi}
+	\end{bmatrix} \\
+	|\vec{v}|^2 &= \dot{r}^2\cos^2{\theta}\sin^2{\varphi}  + r^2\dot{\theta}^2\sin^2{\theta}\sin^2{\varphi} + r^2\dot{\varphi}^2\cos^2{\theta}\cos^2{\varphi} - 2\dot{r}r\dot{\theta}\cos{\theta}\sin{\theta}\sin^2{\varphi} + 2\dot{r}r\dot{\varphi}\cos^2{\theta}\sin{\varphi}\cos{\varphi} - 2r^2\dot{\theta}\dot{\varphi}\sin{\theta}\cos{\theta}\sin{\varphi}\cos{\varphi} + \dot{r}^2\sin^2{\theta}\sin^2{\varphi}  \\
+	&+ r^2\dot{\theta}^2\cos^2{\theta}\sin^2{\varphi} + r^2\dot{\varphi}^2\sin^2{\theta}\cos^2{\varphi} + 2r\dot{r}\dot{\theta}\sin{\theta}\cos{\theta}\sin^2{\varphi} + 2r\dot{r}\dot{\varphi}\sin^2{\theta}\sin{\varphi}\cos{\varphi} + 2r^2\dot{\theta}\dot{\varphi}\sin{\theta}\cos{\theta}\sin{\varphi}\cos{\varphi} + \dot{r}^2\cos^2{\varphi} + r^2\dot{\varphi}^2\sin^2{\varphi} - 2r\dot{r}\dot{\varphi}\cos{\varphi}\sin{\varphi}\\
+	&= \dot{r}^2 + r^2\dot{\theta}^2\sin^2{\varphi} + r^2\dot{\varphi}^2 \\
+	\therefore |\vec{v}| &= \sqrt{\dot{r}^2 + r^2\dot{\theta}^2\sin^2{\varphi} + r^2\dot{\varphi}^2}.
+\end{align*}
+
+Hence the Lagrangian is
+
+\begin{align*}
+	\lag &= \dfrac{m|\vec{v}|^2}{2} - mgz - \dfrac{k\xi^2}{2} \\
+	&= \dfrac{m|\vec{v}|^2}{2} - mgr\cos{\varphi} - \dfrac{k(r-l)^2}{2}.
+\end{align*}
+
+Hence \eq{ELD} for $r$ has the components
+
+\begin{align*}
+	\dfrac{\partial \lag}{\partial r} &= m(r\dot{\theta}^2\sin^2{\varphi} + r\dot{\varphi}^2-g\cos{\varphi}) - k(r-l) \\
+	\dfrac{\partial \lag}{\partial \dot{r}} &= m\dot{r} \\
+	\dfrac{d}{dt} \dfrac{\partial \lag}{\partial \dot{r}} &= m\ddot{r} \\
+	\therefore \dfrac{\delta \lag}{\delta r} &= \dfrac{d}{dt} \dfrac{\partial \lag}{\partial \dot{r}} -\dfrac{\partial \lag}{\partial r} \\
+	&= m\ddot{r} - \left[m(r\dot{\theta}^2\sin^2{\varphi} + r\dot{\varphi}^2-g\cos{\varphi}) - k(r-l)\right] \\
+	&= m\left[\ddot{r} - r\dot{\theta}^2\sin^2{\varphi} - r\dot{\varphi}^2+g\cos{\varphi}\right] + k(r-l).
+\end{align*}
+
+Hence the dissipation term is
+\begin{align*}
+	Q_r &= -(b + c|\vec{v}|)\vec{v} \cdot \dfrac{\partial \vec{r}}{\partial r} \\
+	&= -(b + c|\vec{v}|) \begin{bmatrix}
+		\dot{r}\cos{\theta}\sin{\varphi}  - r\dot{\theta}\sin{\theta}\sin{\varphi} + r\dot{\varphi}\cos{\theta}\cos{\varphi} \\
+		\dot{r}\sin{\theta}\sin{\varphi}  + r\dot{\theta}\cos{\theta}\sin{\varphi} + r\dot{\varphi}\sin{\theta}\cos{\varphi} \\
+		\dot{r}\cos{\varphi} - r\dot{\varphi}\sin{\varphi}
+	\end{bmatrix} \cdot \begin{bmatrix}
+	\cos{\theta}\sin{\varphi}\\
+	\sin{\theta}\sin{\varphi} \\
+	\cos{\varphi}
+	\end{bmatrix} \\
+	&= -(b + c|\vec{v}|) \left[\dot{r}\cos^2{\theta}\sin^2{\varphi} - r\dot{\theta}\sin{\theta}\cos{\theta}\sin^2{\varphi} + r\dot{\varphi}\cos^2{\theta}\sin{\varphi}\cos{\varphi} + \dot{r}\sin^2{\theta}\sin^2{\varphi} + r\dot{\theta}\sin{\theta}\cos{\theta}\sin^2{\varphi} + r\dot{\varphi}\sin^2{\theta}\cos{\varphi}\sin{\varphi} + \dot{r}\cos^2{\varphi} - r\dot{\varphi}\cos{\varphi}\sin{\varphi}\right]\\
+	&= -(b + c|\vec{v}|)\dot{r}.
+\end{align*}
+
+Hence the Euler-Lagrange equation with dissipation for $r$ is
+
+\begin{align*}
+	m\left[\ddot{r} - r\dot{\theta}^2\sin^2{\varphi} - r\varphi^2+g\cos{\varphi}\right] + k(r-l) &= -(b + c|\vec{v}|)\dot{r} \\
+	\ddot{r} - r\dot{\theta}^2\sin^2{\varphi} - r\varphi^2+g\cos{\varphi} + \dfrac{k}{m}(r-l) &= \dfrac{-(b + c|\vec{v}|)\dot{r}}{m} \\
+	\ddot{r} &= r\dot{\theta}^2\sin^2{\varphi} + r\varphi^2 - g\cos{\varphi} - \dfrac{(b + c|\vec{v}|)\dot{r}+k(r-l)}{m}.
+\end{align*}
+
+As for $\theta$
+
+\begin{align*}
+	\dfrac{\partial \lag}{\partial \theta} &= 0 \\
+	\dfrac{\partial \lag}{\partial \dot{\theta}} &= mr^2\dot{\theta}\sin^2{\varphi} \\
+	\dfrac{d}{dt} \dfrac{\partial \lag}{\partial \dot{\theta}} &= mr^2\ddot{\theta} \sin^2{\varphi} + 2mr\dot{r}\dot{\theta}\sin^2{\varphi} + mr^2\dot{\theta}\dot{\varphi}\sin{2\varphi} \\
+	\dfrac{\delta \lag}{\delta \theta} &= mr^2\ddot{\theta} \sin^2{\varphi} + 2mr\dot{r}\dot{\theta}\sin^2{\varphi} + mr^2\dot{\theta}\dot{\varphi}\sin{2\varphi} \\
+	Q_{\theta} &= -(b+c|\vec{v}|)\vec{v} \cdot \dfrac{\partial \vec{r}}{\partial \theta} \\
+	&= -(b+c|\vec{v}|) \begin{bmatrix}
+		\dot{r}\cos{\theta}\sin{\varphi}  - r\dot{\theta}\sin{\theta}\sin{\varphi} + r\dot{\varphi}\cos{\theta}\cos{\varphi} \\
+		\dot{r}\sin{\theta}\sin{\varphi}  + r\dot{\theta}\cos{\theta}\sin{\varphi} + r\dot{\varphi}\sin{\theta}\cos{\varphi} \\
+		\dot{r}\cos{\varphi} - r\dot{\varphi}\sin{\varphi}
+	\end{bmatrix} \cdot \begin{bmatrix}
+	-r\sin{\theta}\sin{\varphi} \\
+	r\cos{\theta}\sin{\varphi} \\
+	0
+\end{bmatrix} \\
+&= -(b+c|\vec{v}|)\left[-r\dot{r}\cos{\theta}\sin{\theta}\sin^2{\varphi} + r^2\dot{\theta}\sin^2{\theta}\sin^2{\varphi} - r^2\dot{\varphi}\sin{\theta}\cos{\theta}\cos{\varphi}\sin{\varphi} + r\dot{r}\sin{\theta}\cos{\theta}\sin^2{\varphi} + r^2\dot{\theta}\cos^2{\theta}\sin^2{\varphi} + r^2\dot{\varphi}\sin{\theta}\cos{\theta}\cos{\varphi}\sin{\varphi}\right]\\
+&= -(b+c|\vec{v}|)r^2\dot{\theta}\sin^2{\varphi}.
+\end{align*}
+
+Hence \eq{ELD} for $\theta$ is
+
+\begin{align*}
+	mr^2\ddot{\theta} \sin^2{\varphi} + 2mr\dot{r}\dot{\theta}\sin^2{\varphi} + mr^2\dot{\theta}\dot{\varphi}\sin{2\varphi} &= -(b+c|\vec{v}|)r^2\dot{\theta}\sin^2{\varphi}.
+\end{align*}
+
+Dividing by $mr^2\sin^2{\varphi}$ yields
+
+\begin{align*}
+	\ddot{\theta} + \dfrac{2\dot{r}\dot{\theta}}{r} + 2\dot{\theta}\dot{\varphi}\cot{\varphi} &= -\dfrac{(b+c|\vec{v}|)\dot{\theta}}{m} \\
+	\ddot{\theta} &= -\dfrac{2\dot{r}\dot{\theta}}{r} - 2\dot{\theta}\dot{\varphi}\cot{\varphi} -\dfrac{(b+c|\vec{v}|)\dot{\theta}}{m}.
+\end{align*}
+
+Which will sadly be unstable whenever $\varphi \approx n\pi$ where $n\in \mathbb{Z}$.
+
+As for $\varphi$
+
+\begin{align*}
+	\dfrac{\partial \lag}{\partial \varphi} &= \dfrac{mr^2\dot{\theta}^2\sin{2\varphi}}{2} + mgr\sin{\varphi} \\
+	\dfrac{\partial \lag}{\partial \dot{\varphi}} &= mr^2\dot{\varphi} \\
+	\dfrac{d}{dt}\dfrac{\partial \lag}{\partial \dot{\varphi}} &= 2mr\dot{r}\dot{\varphi} + mr^2 \ddot{\varphi} \\
+	\dfrac{\delta \lag}{\partial \varphi} &= 2mr\dot{r}\dot{\varphi} + mr^2 \ddot{\varphi} -\left[ \dfrac{mr^2\dot{\theta}^2\sin{2\varphi}}{2} + mgr\sin{\varphi}\right] \\
+	&= mr^2\left[\ddot{\varphi} + \dfrac{2\dot{r}\dot{\varphi}}{r} - \dfrac{\dot{\theta}^2\dot{\varphi}\sin{2\varphi}}{2} -\dfrac{g\sin{\varphi}}{r} \right]\\
+	Q_{\varphi} &= -(b+c|\vec{v}|) \begin{bmatrix}
+		\dot{r}\cos{\theta}\sin{\varphi}  - r\dot{\theta}\sin{\theta}\sin{\varphi} + r\dot{\varphi}\cos{\theta}\cos{\varphi} \\
+		\dot{r}\sin{\theta}\sin{\varphi}  + r\dot{\theta}\cos{\theta}\sin{\varphi} + r\dot{\varphi}\sin{\theta}\cos{\varphi} \\
+		\dot{r}\cos{\varphi} - r\dot{\varphi}\sin{\varphi}
+	\end{bmatrix} \cdot \begin{bmatrix}
+	r\cos{\theta}\cos{\varphi} \\
+	r\sin{\theta}\cos{\varphi} \\
+	-r\sin{\varphi}
+	\end{bmatrix} \\
+	&= -(b+c|\vec{v}|)\left[r\dot{r}\cos^2{\theta}\cos{\varphi}\sin{\varphi} - r^2\dot{\theta}\sin{\theta}\cos{\theta}\sin{\varphi}\cos{\varphi} + r^2\dot{\varphi}\cos^2{\theta}\cos^2{\varphi} + r\dot{r}\sin^2{\theta}\sin{\varphi}\cos{\varphi} + r^2\dot{\theta}\cos{\theta}\sin{\theta}\cos{\varphi}\sin{\varphi} + r^2 \dot{\varphi}\sin^2{\theta}\cos^2{\varphi}  - r\dot{r}\cos{\varphi}\sin{\varphi} \right.\\
+	&\left.+ r^2\dot{\varphi}\sin^2{\varphi}\right] \\
+	&= -(b+c|\vec{v}|)r^2\dot{\varphi}.
+\end{align*}
+
+Hence \eq{ELD} for $\varphi$ is
+
+\begin{align*}
+	mr^2\left[\ddot{\varphi} + \dfrac{2\dot{r}\dot{\varphi}}{r} - \dfrac{\dot{\theta}^2\sin{2\varphi}}{2} -\dfrac{g\sin{\varphi}}{r} \right] &= -(b+c|\vec{v}|)r^2\dot{\varphi} \\
+	\ddot{\varphi} + \dfrac{2\dot{r}\dot{\varphi}}{r} - \dfrac{\dot{\theta}^2\sin{2\varphi}}{2} -\dfrac{g\sin{\varphi}}{r} &= -\dfrac{(b+c|\vec{v}|)\dot{\varphi}}{m} \\
+	\ddot{\varphi} &= \dfrac{g\sin{\varphi} - 2\dot{r}\dot{\varphi}}{r} + \dot{\theta}^2\sin{\varphi}\cos{\varphi} - \dfrac{(b+c|\vec{v}|)\dot{\varphi}}{m}.
+\end{align*}
+
+\end{landscape}
+\section{Cart with elastic pendulum}
+\begin{figure}[H]
+	\includegraphics[width=500px]{Elastic pendulum on a cart.png}
+	\caption{Diagram of problem.}\label{fig1}
+\end{figure}
+
+Here we have a cart whose centre of mass is at $(s, 0)$ and a pendulum attached to its horizontal centre bottom. To simplify calculations, we will assume the height of the cart is 0, but adding a constant height to the cart will not change the equations of motion.
+
+\subsection{Coordinates, velocity and kinetic energy}
+Hence the kinetic energy for the cart is $\dfrac{m_1}{2}\dot{s}^2$. Next, we will calculate the coordinates, velocity and kinetic energy of the pendulum
+
+\begin{align*}
+	x_2 &= s + (l+z)\sin{\theta} \\
+	\dot{x}_2 &= \dot{s} + \dot{z}\sin{\theta} + (l+z)\dot{\theta}\cos{\theta}\\
+	y_2 &= -(l+z)\cos{\theta} \\
+	\dot{y}_2 &= -\dot{z}\cos{\theta} + (l+z)\dot{\theta}\sin{\theta} \\
+	v_2^2 &= \dot{x}_2^2 + \dot{y}_2^2 \\
+	&= (\dot{s} + \dot{z}\sin{\theta} + (l+z)\dot{\theta}\cos{\theta})^2 + (-\dot{z}\cos{\theta} + (l+z)\dot{\theta}\sin{\theta})^2 \\
+	&= \dot{s}^2 + \dot{z}^2 \sin^2{\theta} + (l+z)^2\dot{\theta}^2\cos^2{\theta} + 2\dot{s}\dot{z}\sin{\theta} + 2\dot{s}\dot{\theta}(l+z)\cos{\theta} + 2\dot{z}\dot{\theta}(l+z)\sin{\theta}\cos{\theta} + \dot{z}^2\cos^2{\theta} \\
+	&+ (l+z)^2\dot{\theta}^2\sin^2{\theta} - 2\dot{z}\dot{\theta}(l+z)\cos{\theta}\sin{\theta}\\
+	&= \dot{s}^2 + \dot{z}^2 + (l+z)^2\dot{\theta}^2 + 2\dot{s}(\dot{z}\sin{\theta} + \dot{\theta}(l+z)\cos{\theta})\\
+	T_p &= \dfrac{m_2}{2} \left(\dot{s}^2 + \dot{z}^2 + (l+z)^2\dot{\theta}^2 + 2\dot{s}(\dot{z}\sin{\theta} + \dot{\theta}(l+z)\cos{\theta})\right).
+\end{align*}
+
+Hence the total kinetic energy of the system is
+
+\begin{align*}
+	T &= T_c + T_p \\
+	&= \dfrac{m_1}{2}\dot{s}^2 + \dfrac{m_2}{2} \left(\dot{s}^2 + \dot{z}^2 + (l+z)^2\dot{\theta}^2 + 2\dot{s}(\dot{z}\sin{\theta} + \dot{\theta}(l+z)\cos{\theta})\right) \\
+	&= \dfrac{m_1+m_2}{2} \dot{s}^2 + \dfrac{m_2}{2}\left(\dot{z}^2 + (l+z)^2\dot{\theta}^2 + 2\dot{s}(\dot{z}\sin{\theta} + \dot{\theta}(l+z)\cos{\theta})\right).
+\end{align*}
+
+\subsection{Potential energy}
+As for the potential energy, it comes in two forms --- gravitational and spring. 
+
+\begin{align*}
+	V &= m_2 g y_2 + \dfrac{kz^2}{2}\\
+	&= -m_2g(l+z)\cos{\theta} + \dfrac{kz^2}{2}.
+\end{align*}
+
+\subsection{Lagrangian}
+Hence the Lagrangian is
+
+\begin{align*}
+	\lag &= T - V \\
+	&= \dfrac{m_1+m_2}{2} \dot{s}^2 + \dfrac{m_2}{2}\left(\dot{z}^2 + (l+z)^2\dot{\theta}^2 + 2\dot{s}(\dot{z}\sin{\theta} + \dot{\theta}(l+z)\cos{\theta})+2g(l+z)\cos{\theta}\right) - \dfrac{kz^2}{2}.
+\end{align*}
+
+\subsection{Euler-Lagrange equations}
+The Euler-Lagrange equations for this system are
+
+\begin{align*}
+	\dfrac{d}{dt}\dfrac{\partial \lag}{\partial \dot{q}_i} - \dfrac{\partial \lag}{\partial q_i} &= \sum_{j} \vec{F}_{D, j} \cdot \dfrac{\partial \vec{r}_{j}}{\partial q_i}
+\end{align*}
+
+where $j$ refers to the particles in the system. Or, defining
+
+\begin{align*}
+	p_i &= \dfrac{\partial \lag}{\partial \dot{q}_i} & \dot{p}_i &= \dfrac{dp_i}{dt} \\
+	F_i &= \dfrac{\partial \lag}{\partial q_i} & &= \dfrac{d}{dt}\dfrac{\partial \lag}{\partial \dot{q}_i}\\
+	\hat{e}_{i,j} &= \dfrac{\partial \vec{r}_{j}}{\partial q_i} & Q_i &= \sum_{j} \vec{F}_{D, j} \cdot \hat{e}_{i,j}
+\end{align*}
+
+\subsubsection{$\theta$}
+\begin{align*}
+	p_{\theta} &= \dfrac{\partial \lag}{\partial \dot{\theta}} \\
+	&= m_2 \left[(l+z)^2 \dot{\theta} + \dot{s}(l+z)\cos{\theta}\right] \\
+	\dot{p}_{\theta} &= m_2\left[2(l+z)\dot{z}\dot{\theta} + (l+z)^2\ddot{\theta} + \ddot{s}(l+z)\cos{\theta} + \dot{s}\dot{z}\cos{\theta} - \dot{s}(l+z)\dot{\theta}\sin{\theta}\right] \\
+	&= m_2 \left[(l+z)^2 \ddot{\theta} + (l+z)\left(\dot{\theta}(2\dot{z} - \dot{s}\sin{\theta}) + \ddot{s}\cos{\theta}\right) + \dot{s}\dot{z}\cos{\theta}\right]\\
+	F_{\theta} &= \dfrac{\partial \lag}{\partial \theta} \\
+	&= \dfrac{\partial \lag}{\partial \theta} \\
+	&= m_2(\dot{s}(\dot{z}\cos{\theta} - \dot{\theta}(l+z)\sin{\theta}) - g(l+z)\sin{\theta})\\
+	&= m_2(\dot{s}\dot{z}\cos{\theta}-(l+z)\sin{\theta}(g+\dot{s}\dot{\theta})) \\
+	Q_{\theta} &= \vec{F}_{D,cart} \cdot \hat{e}_{\theta,cart} + \vec{F}_{D,bob} \cdot \hat{e}_{\theta,bob} \\
+	&= -(b_{cart}+c_{cart}|\dot{s}|)\begin{bmatrix}
+		\dot{s}\\
+		0
+	\end{bmatrix} \cdot \vec{0}\\
+	&-(b_{bob}+c_{bob}\sqrt{\dot{s}^2 + \dot{z}^2 + (l+z)^2\dot{\theta}^2 + 2\dot{s}(\dot{z}\sin{\theta} + \dot{\theta}(l+z)\cos{\theta})})\begin{bmatrix}
+		\dot{s} + \dot{z}\sin{\theta} + (l+z)\dot{\theta}\cos{\theta} \\
+		-\dot{z}\cos{\theta} + (l+z)\dot{\theta}\sin{\theta}
+	\end{bmatrix} \cdot (l+z)\begin{bmatrix}
+		\cos{\theta} \\
+		\sin{\theta}
+	\end{bmatrix} \\
+	&= -(b_{bob}+c_{bob}\sqrt{\dot{s}^2 + \dot{z}^2 + (l+z)^2\dot{\theta}^2 + 2\dot{s}(\dot{z}\sin{\theta} + \dot{\theta}(l+z)\cos{\theta})})(l+z)\left(\dot{s}\cos{\theta} + \dot{z}\sin{\theta}\cos{\theta} + (l+z)\dot{\theta}\cos^2{\theta}\right.\\
+	&\left.-\dot{z}\cos{\theta}\sin{\theta} + (l+z)\dot{\theta}\sin^2{\theta}\right) \\
+	&= -(b_{bob}+c_{bob}\sqrt{\dot{s}^2 + \dot{z}^2 + (l+z)^2\dot{\theta}^2 + 2\dot{s}(\dot{z}\sin{\theta} + \dot{\theta}(l+z)\cos{\theta})})(l+z)\left(\dot{s}\cos{\theta}+(l+z)\dot{\theta}\right).
+\end{align*}
+
+Hence the Euler-Lagrange equation is
+
+\begin{align*}
+	m_2 \left[(l+z)^2 \ddot{\theta} + (l+z)\left(\dot{\theta}(2\dot{z} - \dot{s}\sin{\theta}) + \ddot{s}\cos{\theta}\right) + \dot{s}\dot{z}\cos{\theta}\right] - m_2(\dot{s}\dot{z}\cos{\theta}-(l+z)\sin{\theta}(g+\dot{s}\dot{\theta})) &= Q_{\theta}\\
+	(l+z)^2 \ddot{\theta} + (l+z)\left(\dot{\theta}(2\dot{z} - \dot{s}\sin{\theta}) + \ddot{s}\cos{\theta}\right) + \dot{s}\dot{z}\cos{\theta} - \dot{s}\dot{z}\cos{\theta}+(l+z)\sin{\theta}(g+\dot{s}\dot{\theta}) &= \dfrac{Q_{\theta}}{m_2} \\
+	(l+z)^2 \ddot{\theta} + (l+z)(2\dot{z}\dot{\theta} + \ddot{s}\cos{\theta}+g\sin{\theta}) &= \dfrac{Q_{\theta}}{m_2}
+\end{align*}
+
+Hence
+
+\begin{align}
+	\ddot{\theta} = -\dfrac{2\dot{z}\dot{\theta}+\ddot{s}\cos{\theta} + g\sin{\theta}}{l+z} + \dfrac{Q_{\theta}}{m_2(l+z)^2}.\label{d2theta1}
+\end{align}
+
+\subsubsection{$s$}
+\begin{align*}
+	p_s &= \dfrac{\partial \lag}{\partial \dot{s}} \\
+	&= (m_1+m_2)\dot{s} + m_2(\dot{z}\sin{\theta} + \dot{\theta}(l+z)\cos{\theta}) \\
+	\dot{p}_s &= (m_1+m_2)\ddot{s} + m_2(\ddot{z}\sin{\theta}+\dot{z}\dot{\theta}\cos{\theta}+\ddot{\theta}(l+z)\cos{\theta}-\dot{\theta}^2(l+z)\sin{\theta}+\dot{\theta}\dot{z}\cos{\theta}) \\
+	&= (m_1+m_2)\ddot{s} + m_2(\sin{\theta}(\ddot{z}-\dot{\theta}^2(l+z))+\cos{\theta}(2\dot{z}\dot{\theta}+\ddot{\theta}(l+z)))\\
+	F_{s} &= \dfrac{\partial \lag}{\partial s} \\
+	&= 0 \\
+	\vec{F}_{D,cart} &= -(b_{cart}+c_{cart}|\dot{s}|)\begin{bmatrix}
+		\dot{s}\\
+		0
+	\end{bmatrix} \\
+	\vec{F}_{D,bob} &= -(b_{bob}+c_{bob}\sqrt{\dot{s}^2 + \dot{z}^2 + (l+z)^2\dot{\theta}^2 + 2\dot{s}(\dot{z}\sin{\theta} + \dot{\theta}(l+z)\cos{\theta})})\begin{bmatrix}
+		\dot{s} + \dot{z}\sin{\theta} + (l+z)\dot{\theta}\cos{\theta} \\
+		-\dot{z}\cos{\theta} + (l+z)\dot{\theta}\sin{\theta}
+	\end{bmatrix} \\
+	\hat{e}_{s, cart} &= \dfrac{\partial \vec{r}_{cart}}{\partial s} \\
+	&= \begin{bmatrix}
+		1 \\
+		0
+	\end{bmatrix} \\
+	\hat{e}_{z, cart} &= \vec{0} \\
+	\hat{e}_{\theta, cart} &= \vec{0} \\
+	\hat{e}_{s, bob} &= \dfrac{\partial \vec{r}_{bob}}{\partial s} \\
+	&= \begin{bmatrix}
+		1 \\
+		0
+	\end{bmatrix} \\
+	\hat{e}_{z, bob} &= \dfrac{\partial \vec{r}_{bob}}{\partial z} \\
+	&= \begin{bmatrix}
+		\sin{\theta}\\
+		-\cos{\theta}
+	\end{bmatrix} \\
+	\hat{e}_{\theta, bob} &= \dfrac{\partial \vec{r}_{bob}}{\partial \theta} \\
+	&= (l+z)\begin{bmatrix}
+		\cos{\theta} \\
+		\sin{\theta}
+	\end{bmatrix}\\
+	Q_s &= -(b_{cart}+c_{cart}|\dot{s}|)\dot{s} \\
+	& -(b_{bob}+c_{bob}\sqrt{\dot{s}^2 + \dot{z}^2 + (l+z)^2\dot{\theta}^2 + 2\dot{s}(\dot{z}\sin{\theta} + \dot{\theta}(l+z)\cos{\theta})})\begin{bmatrix}
+		\dot{s} + \dot{z}\sin{\theta} + (l+z)\dot{\theta}\cos{\theta} \\
+		-\dot{z}\cos{\theta} + (l+z)\dot{\theta}\sin{\theta}
+	\end{bmatrix} \cdot \begin{bmatrix}
+		1 \\
+		0
+	\end{bmatrix} \\
+	&= -(b_{cart}+c_{cart}|\dot{s}|)\dot{s} -\left(b_{bob}+c_{bob}\sqrt{\dot{s}^2 + \dot{z}^2 + (l+z)^2\dot{\theta}^2 + 2\dot{s}(\dot{z}\sin{\theta} + \dot{\theta}(l+z)\cos{\theta})}\right)(\dot{s} + \dot{z}\sin{\theta} \\
+	&+ (l+z)\dot{\theta}\cos{\theta}) \\
+	\therefore \ddot{s} &= -\dfrac{m_2}{m_1+m_2}\left[\sin{\theta}(\ddot{z}-\dot{\theta}^2(l+z))+\cos{\theta}(2\dot{z}\dot{\theta}+\ddot{\theta}(l+z))\right] + \dfrac{Q_s}{m_1+m_2}.
+\end{align*}
+
+Substituting Equation \eqref{d2theta1} in yields
+
+\begin{align*}
+	\ddot{s} &= -\dfrac{m_2}{m_1+m_2}\left[\sin{\theta}(\ddot{z}-\dot{\theta}^2(l+z))+\cos{\theta}\left(2\dot{z}\dot{\theta}+(l+z)\left[-\dfrac{2\dot{z}\dot{\theta}+\ddot{s}\cos{\theta} + g\sin{\theta}}{l+z} + \dfrac{Q_{\theta}}{m_2(l+z)^2}\right]\right)\right] + \dfrac{Q_s}{m_1+m_2}\\
+	&= -\dfrac{m_2}{m_1+m_2}\left[\sin{\theta}(\ddot{z}-\dot{\theta}^2(l+z))+\cos{\theta}\left(2\dot{z}\dot{\theta}-(2\dot{z}\dot{\theta}+\ddot{s}\cos{\theta} + g\sin{\theta}) + \dfrac{Q_{\theta}}{m_2(l+z)}\right)\right] + \dfrac{Q_s}{m_1+m_2} \\
+	&=-\dfrac{m_2}{m_1+m_2}\left[\sin{\theta}(\ddot{z}-\dot{\theta}^2(l+z))-\ddot{s}\cos^2{\theta} - g\sin{\theta}\cos{\theta} + \dfrac{Q_{\theta}\cos{\theta}}{m_2(l+z)}\right] + \dfrac{Q_s}{m_1+m_2}
+\end{align*}
+Bringing all $\ddot{s}$ terms to the left-hand side
+\begin{align*}
+	\ddot{s}\left(1-\dfrac{m_2\cos^2{\theta}}{m_1+m_2}\right) &= -\dfrac{m_2}{m_1+m_2}\left[\sin{\theta}(\ddot{z}-\dot{\theta}^2(l+z)) - g\sin{\theta}\cos{\theta} + \dfrac{Q_{\theta}\cos{\theta}}{m_2(l+z)}\right] + \dfrac{Q_s}{m_1+m_2}
+\end{align*}
+
+\begin{align*}
+	1-\dfrac{m_2\cos^2{\theta}}{m_1+m_2} &= \dfrac{m_1+m_2 - m_2\cos^2{\theta}}{m_1+m_2} \\
+	&= \dfrac{m_1+m_2\sin^2{\theta}}{m_1+m_2}.
+\end{align*}
+
+Therefore
+
+\begin{align}
+	\ddot{s} &= -\dfrac{m_2}{m_1+m_2\sin^2{\theta}}\left[\sin{\theta}(\ddot{z}-\dot{\theta}^2(l+z)) - g\sin{\theta}\cos{\theta} + \dfrac{Q_{\theta}\cos{\theta}}{m_2(l+z)}\right] + \dfrac{Q_s}{m_1+m_2\sin^2{\theta}} \nonumber\\
+	&= \dfrac{1}{m_1+m_2\sin^2{\theta}}\left[Q_s - \dfrac{Q_{\theta}\cos{\theta}}{l+z} - m_2\left(\sin{\theta}(\ddot{z}-\dot{\theta}^2(l+z)) - g\sin{\theta}\cos{\theta}\right)\right] \label{d2s1}
+\end{align}
+
+\subsubsection{$z$}
+\begin{align*}
+	p_z &= \dfrac{\partial \lag}{\partial \dot{z}} \\
+	&= m_2(\dot{z} + \dot{s}\sin{\theta}) \\
+	\dot{p}_z &= m_2 (\ddot{z} + \ddot{s}\sin{\theta} + \dot{s}\dot{\theta}\cos{\theta})
+\end{align*}
+
+Substituting in Equation \eqref{d2s1}
+
+\begin{align*}
+	\dot{p}_z &= m_2 \left[\ddot{z} + \sin{\theta}\left(\dfrac{1}{m_1+m_2\sin^2{\theta}}\left[Q_s - \dfrac{Q_{\theta}\cos{\theta}}{l+z} - m_2\left(\sin{\theta}(\ddot{z}-\dot{\theta}^2(l+z)) - g\sin{\theta}\cos{\theta}\right)\right]\right) + \dot{s}\dot{\theta}\cos{\theta}\right]\\
+	&= m_2 \left[\ddot{z}\left(1-\dfrac{m_2\sin^2{\theta}}{m_1+m_2\sin^2{\theta}}\right) + \dfrac{\sin{\theta}}{m_1+m_2\sin^2{\theta}}\left[Q_s - \dfrac{Q_{\theta}\cos{\theta}}{l+z} + m_2\sin{\theta}\left(\dot{\theta}^2(l+z) + g\cos{\theta}\right)\right] + \dot{s}\dot{\theta}\cos{\theta}\right] \\
+	&=m_2 \left[\dfrac{m_1\ddot{z}}{m_1+m_2\sin^2{\theta}} + \dfrac{\sin{\theta}}{m_1+m_2\sin^2{\theta}}\left[Q_s - \dfrac{Q_{\theta}\cos{\theta}}{l+z} + m_2\sin{\theta}\left(\dot{\theta}^2(l+z) + g\cos{\theta}\right)\right] + \dot{s}\dot{\theta}\cos{\theta}\right].
+\end{align*}
+
+\begin{align*}
+	F_{z} &= \dfrac{\partial \lag}{\partial z} \\
+	&= m_2\left((l+z)\dot{\theta}^2 + \dot{s}\dot{\theta}\cos{\theta} + g\cos{\theta}-k'z\right).
+\end{align*}
+
+Where $k'=\dfrac{k}{m_2}$. 	Finally, we will calculate $Q_z$
+
+\begin{align*}
+	Q_z &= \vec{F}_{D,cart} \cdot \dfrac{\partial \vec{r}_{cart}}{\partial z} + \vec{F}_{D, bob} \cdot \dfrac{\partial \vec{r}_{bob}}{\partial z} \\
+	&= -(b_{cart}+c_{cart}|\dot{s}|)\begin{bmatrix}
+		\dot{s}\\
+		0
+	\end{bmatrix} \cdot \vec{0} -(b_{bob}+c_{bob}\sqrt{\dot{s}^2 + \dot{z}^2 + (l+z)^2\dot{\theta}^2 + 2\dot{s}(\dot{z}\sin{\theta} + \dot{\theta}(l+z)\cos{\theta})})\\
+	&\begin{bmatrix}
+		\dot{s} + \dot{z}\sin{\theta} + (l+z)\dot{\theta}\cos{\theta} \\
+		-\dot{z}\cos{\theta} + (l+z)\dot{\theta}\sin{\theta}
+	\end{bmatrix} \cdot \begin{bmatrix}
+		\sin{\theta}\\
+		-\cos{\theta}
+	\end{bmatrix}\\
+	&= -(b_{bob}+c_{bob}\sqrt{\dot{s}^2 + \dot{z}^2 + (l+z)^2\dot{\theta}^2 + 2\dot{s}(\dot{z}\sin{\theta} + \dot{\theta}(l+z)\cos{\theta})})
+	(\dot{s}\sin{\theta} + \dot{z}\sin^2{\theta} + (l+z)\dot{\theta}\cos{\theta}\sin{\theta}\\
+	&+\dot{z}\cos^2{\theta}- (l+z)\dot{\theta}\sin{\theta}\cos{\theta})\\
+	&= -(b_{bob}+c_{bob}\sqrt{\dot{s}^2 + \dot{z}^2 + (l+z)^2\dot{\theta}^2 + 2\dot{s}(\dot{z}\sin{\theta} + \dot{\theta}(l+z)\cos{\theta})})
+	(\dot{s}\sin{\theta} + \dot{z}).
+\end{align*}
+
+Hence the Euler-Lagrange equation is
+
+\begin{align*}
+	&m_2 \left[\dfrac{m_1\ddot{z}}{m_1+m_2\sin^2{\theta}} + \dfrac{\sin{\theta}}{m_1+m_2\sin^2{\theta}}\left[Q_s - \dfrac{Q_{\theta}\cos{\theta}}{l+z} + m_2\sin{\theta}\left(\dot{\theta}^2(l+z) + g\cos{\theta}\right)\right] + \dot{s}\dot{\theta}\cos{\theta}\right] \\
+	&- m_2\left((l+z)\dot{\theta}^2 + \dot{s}\dot{\theta}\cos{\theta} + g\cos{\theta}-k'z\right)= Q_z \\
+\end{align*}
+
+$m_2\dot{s}\dot{\theta}\cos{\theta}$ will be cancelled out. 
+
+Hence
+
+\begin{align*}
+	\dfrac{m_1\ddot{z}}{m_1+m_2\sin^2{\theta}} + \dfrac{\sin{\theta}}{m_1+m_2\sin^2{\theta}}\left[Q_s - \dfrac{Q_{\theta}\cos{\theta}}{l+z} + m_2\sin{\theta}\left(\dot{\theta}^2(l+z) + g\cos{\theta}\right)\right] -(l+z)\dot{\theta}^2 - g\cos{\theta}+k'z &= \dfrac{Q_z}{m_2}
+\end{align*}
+\begin{align}
+	\dfrac{m_1\ddot{z}}{m_1+m_2\sin^2{\theta}} &= -\dfrac{\sin{\theta}}{m_1+m_2\sin^2{\theta}}\left[Q_s - \dfrac{Q_{\theta}\cos{\theta}}{l+z} + m_2\sin{\theta}\left(\dot{\theta}^2(l+z) + g\cos{\theta}\right)\right] +(l+z)\dot{\theta}^2 + g\cos{\theta}+k'z + \dfrac{Q_z}{m_2} \nonumber\\
+	&= \left[(l+z)\dot{\theta}^2+g\cos{\theta}\right]\left(1-\dfrac{m_2\sin^2{\theta}}{m_1+m_2\sin^2{\theta}}\right) -\dfrac{\sin{\theta}}{m_1+m_2\sin^2{\theta}}\left[Q_s - \dfrac{Q_{\theta}\cos{\theta}}{l+z} \right]+k'z + \dfrac{Q_z}{m_2}\label{d2z1}
+\end{align}
+
+\begin{align*}
+	1-\dfrac{m_2\sin^2{\theta}}{m_1+m_2\sin^2{\theta}} &= \dfrac{m_1+m_2\sin^2{\theta}-m_2\sin^2{\theta}}{m_1+m_2\sin^2{\theta}}\\
+	&= \dfrac{m_1}{m_1+m_2\sin^2{\theta}}.
+\end{align*}
+
+Multiplying both sides of Equation \eqref{d2z1} by $\dfrac{m_1+m_2\sin^2{\theta}}{m_1}$
+
+\begin{align}
+	\ddot{z} &= (l+z)\dot{\theta}^2+g\cos{\theta} - \dfrac{\sin{\theta}}{m_1}\left[Q_s - \dfrac{Q_{\theta}\cos{\theta}}{l+z} \right]+\dfrac{m_1+m_2\sin^2{\theta}}{m_1m_2}\left(kz + Q_z\right) \label{d2z2}
+\end{align}
+
+Substituting into Equation \eqref{d2s1}:
+
+\begin{align*}
+	\ddot{s} &= \dfrac{1}{m_1+m_2\sin^2{\theta}}\left[Q_s - \dfrac{Q_{\theta}\cos{\theta}}{l+z} - m_2\left(\sin{\theta}\left((l+z)\dot{\theta}^2+g\cos{\theta} - \dfrac{\sin{\theta}}{m_1}\left[Q_s - \dfrac{Q_{\theta}\cos{\theta}}{l+z} \right]\right.\right.\right.\\
+	&\left.\left.\left.+\dfrac{m_1+m_2\sin^2{\theta}}{m_1m_2}\left(kz + Q_z\right)-\dot{\theta}^2(l+z)\right) - g\sin{\theta}\cos{\theta}\right)\right]
+\end{align*}
+Cancelling out the $\dot{\theta}^2(l+z)$ and $g\sin{\theta}\cos{\theta}$ terms
+\begin{align}
+	\ddot{s} &= \dfrac{1}{m_1+m_2\sin^2{\theta}}\left[Q_s - \dfrac{Q_{\theta}\cos{\theta}}{l+z} +  \dfrac{m_2\sin^2{\theta}}{m_1}\left[Q_s - \dfrac{Q_{\theta}\cos{\theta}}{l+z} \right]\right.\nonumber\\
+	&\left.-\dfrac{(m_1+m_2\sin^2{\theta})\sin{\theta}}{m_1}\left(kz + Q_z\right)\right]\nonumber\\
+	&= \dfrac{1}{m_1+m_2\sin^2{\theta}}\left[\left(Q_s - \dfrac{Q_{\theta}\cos{\theta}}{l+z}\right)\left[1+\dfrac{m_2\sin^2{\theta}}{m_1}\right]-\dfrac{(m_1+m_2\sin^2{\theta})\sin{\theta}}{m_1}\left(kz + Q_z\right)\right]\nonumber\\
+	&=  \dfrac{1}{m_1+m_2\sin^2{\theta}}\left[\left(Q_s - \dfrac{Q_{\theta}\cos{\theta}}{l+z}\right)\left[\dfrac{m_1+m_2\sin^2{\theta}}{m_1}\right]-\dfrac{(m_1+m_2\sin^2{\theta})\sin{\theta}}{m_1}\left(kz + Q_z\right)\right] \nonumber\\
+	&= \dfrac{1}{m_1}\left(Q_s - \dfrac{Q_{\theta}\cos{\theta}}{l+z}\right) -\dfrac{(kz+Q_z)\sin{\theta}}{m_1} \nonumber\\
+	&= \dfrac{1}{m_1}\left(Q_s - \dfrac{Q_{\theta}\cos{\theta}}{l+z}-(kz+Q_z)\sin{\theta}\right) \label{d2s}
+\end{align}
+
+Hence, substituting Equation \eqref{d2s} into \eqref{d2theta1} yields
+
+\begin{align*}
+	\ddot{\theta} &= -\dfrac{2\dot{z}\dot{\theta}+\dfrac{\cos{\theta}}{m_1}\left(Q_s -(kz+Q_z)\sin{\theta}\right) + g\sin{\theta}}{l+z} + \dfrac{Q_{\theta}}{(l+z)^2m_1m_2}(m_1+m_2\cos^2{\theta})\\
+	&= \dfrac{Q_{\theta}(m_1+m_2\cos^2{\theta})}{(l+z)^2m_1m_2} - \dfrac{\cos{\theta}(Q_s - (kz+Q_z)\sin{\theta})}{m_1(l+z)} - \dfrac{2\dot{z}\dot{\theta} + g\sin{\theta}}{l+z}.
+\end{align*}
+
 \section{Double pendulum with an elastic second pendulum}
 Below we will analyse the double pendulum where the second pendulum is elastic. The rest length of the elastic pendulum is $l$ and its displacement from rest is $x$. Let the masses of the pendulum bobs be $m_1$ and $m_2$, respectively. We will assume the rod/string have no mass. I have tried accounting for it, using a centre of mass approach, in my double pendulum calculation and my experience with simulations is that it does not really make things any more interesting and just adds complexity. 
 \begin{figure}[H]
@@ -675,309 +1085,7 @@ Moving the $\ddot{\theta}_2$ term on the RHS to the LHS
 	\ddot{\theta}_2 &= -\dfrac{m_1+m_2\cos^2{(\theta_2-\theta_1)}}{m_1}\left[\dfrac{Q_{\theta_2}}{m_2(l+z)^2} - \dfrac{g\cos{\theta_2}}{l+z}\right] - \dfrac{r\dot{\theta}_1^2\sin{(\theta_2-\theta_1)}+2\dot{z}\dot{\theta}_2}{l+z} \\
 	&- \dfrac{\cos{(\theta_2-\theta_1)}}{m_1r(l+z)}\left[m_2gr\sin{\theta_2}\sin{(\theta_2 - \theta_1)}+Q_{\theta_1}+r(kz-Q_z)\sin{(\theta_2-\theta_1)}-g(m_1+m_2)r\cos{\theta_1}\right]
 \end{align*}
-
-\subsection{Rewriting in terms of momenta and coordinates}
-\begin{align*}
-	\vec{v}_1 &= r\dot{\theta}_1\begin{bmatrix}
-		-\sin{\theta_1} \\
-		\cos{\theta_1}
-	\end{bmatrix} \\
-	p_{\theta_1} &= (m_1+m_2)r^2 \dot{\theta}_1 + m_2r[ \dot{z} \sin{(\theta_2-\theta_1)} + (l+z)\dot{\theta}_2\cos{(\theta_2 - \theta_1)}] \\
-	p_{\theta_2} &= m_2(l+z)^2\dot{\theta}_2 + m_2r(l+z)\dot{\theta}_1\cos{(\theta_2-\theta_1)} \\
-	p_z &= m_2(\dot{z}+r\dot{\theta}_1\sin{(\theta_2-\theta_1)}) \\
-	\dot{\theta}_1 &= \dfrac{p_{\theta_1}}{(m_1+m_2)r^2} - \dfrac{m_2}{(m_1+m_2)r}[ \dot{z} \sin{(\theta_2-\theta_1)} + (l+z)\dot{\theta}_2\cos{(\theta_2 - \theta_1)}]\\
-	\dot{z} &= \dfrac{p_z}{m_2} - r\dot{\theta}_1\sin{(\theta_2-\theta_1)} \\
-	&= \dfrac{p_z}{m_2} - r\sin{(\theta_2-\theta_1)}\left[\dfrac{p_{\theta_1}}{(m_1+m_2)r^2} - \dfrac{m_2}{(m_1+m_2)r}[ \dot{z} \sin{(\theta_2-\theta_1)} + (l+z)\dot{\theta}_2\cos{(\theta_2 - \theta_1)}]\right].
-\end{align*}
-\begin{align*}
-	\dot{z} &= \dfrac{p_z}{m_2} - \dfrac{p_{\theta_1}\sin{(\theta_2-\theta_1)}}{(m_1+m_2)r} + \dfrac{m_2\dot{z}\sin^2{(\theta_2-\theta_1)}}{m_1+m_2} - \dfrac{m_2(l+z)\dot{\theta}_2\sin{(\theta_2-\theta_1)}\cos{(\theta_2-\theta_1)}}{m_1+m_2} \\
-	\dot{z}\left(1-\dfrac{m_2\sin^2{(\theta_2-\theta_1)}}{m_1+m_2}\right) &= \dfrac{p_z}{m_2} - \dfrac{p_{\theta_1}\sin{(\theta_2-\theta_1)}}{(m_1+m_2)r} - \dfrac{m_2(l+z)\dot{\theta}_2\sin{(\theta_2-\theta_1)}\cos{(\theta_2-\theta_1)}}{m_1+m_2} \\
-	\dfrac{\dot{z}}{m_1+m_2}\left(m_1+m_2 - m_2\sin^2{(\theta_2-\theta_1)}\right) &= \dfrac{p_z}{m_2} - \dfrac{p_{\theta_1}\sin{(\theta_2-\theta_1)}}{(m_1+m_2)r} - \dfrac{m_2(l+z)\dot{\theta}_2\sin{(\theta_2-\theta_1)}\cos{(\theta_2-\theta_1)}}{m_1+m_2} \\
-	\dfrac{\dot{z}}{m_1+m_2}(m_1+m_2\cos^2{(\theta_2-\theta_1)}) &= \dfrac{p_z}{m_2} - \dfrac{p_{\theta_1}\sin{(\theta_2-\theta_1)}}{(m_1+m_2)r} - \dfrac{m_2(l+z)\dot{\theta}_2\sin{(\theta_2-\theta_1)}\cos{(\theta_2-\theta_1)}}{m_1+m_2} \\
-	\dot{z} &= \dfrac{1}{m_1+m_2\cos^2{(\theta_2-\theta_1)}} \left[p_z \left(1+\dfrac{m_1}{m_2}\right)-\dfrac{p_{\theta_1}\sin{(\theta_2-\theta_1)}}{r} - m_2(l+z)\dot{\theta}_2\sin{(\theta_2-\theta_1)}\cos{(\theta_2-\theta_1)} \right]
-\end{align*}
-\begin{align*}
-	\dot{\theta}_1 &= \dfrac{p_{\theta_1}}{(m_1+m_2)r^2} - \dfrac{m_2}{(m_1+m_2)r}\left[\dfrac{1}{m_1+m_2\cos^2{(\theta_2-\theta_1)}} \left[p_z \left(1+\dfrac{m_1}{m_2}\right)\right.\right.\\
-	&\left.\left.-\dfrac{p_{\theta_1}\sin{(\theta_2-\theta_1)}}{r} - m_2(l+z)\dot{\theta}_2\sin{(\theta_2-\theta_1)}\cos{(\theta_2-\theta_1)} \right] \sin{(\theta_2-\theta_1)} + (l+z)\dot{\theta}_2\cos{(\theta_2 - \theta_1)}\right]\\
-	&= \dfrac{p_{\theta_1}}{(m_1+m_2)r^2} - \dfrac{p_z\sin{(\theta_2-\theta_1)}}{(m_1+m_2\cos^2{(\theta_2-\theta_1)})r} + \dfrac{m_2p_{\theta}\sin^2{(\theta_2-\theta_1)}}{(m_1+m_2)r^2(m_1+m_2\cos^2{(\theta_2-\theta_1)})}\\
-	\dot{\theta}_2 &= \dfrac{p_{\theta_2} - m_2r(l+z)\dot{\theta}_1\cos{(\theta_2-\theta_1)}}{m_2(l+z)^2} \\
-	&= \dfrac{p_{\theta_2} - m_2r(l+z)\dot{\theta}_1\cos{(\theta_2-\theta_1)}}{m_2(l+z)^2}
-\end{align*} 
 \end{landscape}
-
-\section{Cart with elastic pendulum}
-\begin{figure}[H]
-	\includegraphics[width=500px]{Elastic pendulum on a cart.png}
-	\caption{Diagram of problem.}\label{fig1}
-\end{figure}
-
-Here we have a cart whose centre of mass is at $(s, 0)$ and a pendulum attached to its horizontal centre bottom. To simplify calculations, we will assume the height of the cart is 0, but adding a constant height to the cart will not change the equations of motion.
-
-\subsection{Coordinates, velocity and kinetic energy}
-Hence the kinetic energy for the cart is $\dfrac{m_1}{2}\dot{s}^2$. Next, we will calculate the coordinates, velocity and kinetic energy of the pendulum
-
-\begin{align*}
-	x_2 &= s + (l+z)\sin{\theta} \\
-	\dot{x}_2 &= \dot{s} + \dot{z}\sin{\theta} + (l+z)\dot{\theta}\cos{\theta}\\
-	y_2 &= -(l+z)\cos{\theta} \\
-	\dot{y}_2 &= -\dot{z}\cos{\theta} + (l+z)\dot{\theta}\sin{\theta} \\
-	v_2^2 &= \dot{x}_2^2 + \dot{y}_2^2 \\
-	&= (\dot{s} + \dot{z}\sin{\theta} + (l+z)\dot{\theta}\cos{\theta})^2 + (-\dot{z}\cos{\theta} + (l+z)\dot{\theta}\sin{\theta})^2 \\
-	&= \dot{s}^2 + \dot{z}^2 \sin^2{\theta} + (l+z)^2\dot{\theta}^2\cos^2{\theta} + 2\dot{s}\dot{z}\sin{\theta} + 2\dot{s}\dot{\theta}(l+z)\cos{\theta} + 2\dot{z}\dot{\theta}(l+z)\sin{\theta}\cos{\theta} + \dot{z}^2\cos^2{\theta} \\
-	&+ (l+z)^2\dot{\theta}^2\sin^2{\theta} - 2\dot{z}\dot{\theta}(l+z)\cos{\theta}\sin{\theta}\\
-	&= \dot{s}^2 + \dot{z}^2 + (l+z)^2\dot{\theta}^2 + 2\dot{s}(\dot{z}\sin{\theta} + \dot{\theta}(l+z)\cos{\theta})\\
-	T_p &= \dfrac{m_2}{2} \left(\dot{s}^2 + \dot{z}^2 + (l+z)^2\dot{\theta}^2 + 2\dot{s}(\dot{z}\sin{\theta} + \dot{\theta}(l+z)\cos{\theta})\right).
-\end{align*}
-
-Hence the total kinetic energy of the system is
-
-\begin{align*}
-	T &= T_c + T_p \\
-	&= \dfrac{m_1}{2}\dot{s}^2 + \dfrac{m_2}{2} \left(\dot{s}^2 + \dot{z}^2 + (l+z)^2\dot{\theta}^2 + 2\dot{s}(\dot{z}\sin{\theta} + \dot{\theta}(l+z)\cos{\theta})\right) \\
-	&= \dfrac{m_1+m_2}{2} \dot{s}^2 + \dfrac{m_2}{2}\left(\dot{z}^2 + (l+z)^2\dot{\theta}^2 + 2\dot{s}(\dot{z}\sin{\theta} + \dot{\theta}(l+z)\cos{\theta})\right).
-\end{align*}
-
-\subsection{Potential energy}
-As for the potential energy, it comes in two forms --- gravitational and spring. 
-
-\begin{align*}
-	V &= m_2 g y_2 + \dfrac{kz^2}{2}\\
-	&= -m_2g(l+z)\cos{\theta} + \dfrac{kz^2}{2}.
-\end{align*}
-
-\subsection{Lagrangian}
-Hence the Lagrangian is
-
-\begin{align*}
-	\lag &= T - V \\
-	&= \dfrac{m_1+m_2}{2} \dot{s}^2 + \dfrac{m_2}{2}\left(\dot{z}^2 + (l+z)^2\dot{\theta}^2 + 2\dot{s}(\dot{z}\sin{\theta} + \dot{\theta}(l+z)\cos{\theta})+2g(l+z)\cos{\theta}\right) - \dfrac{kz^2}{2}.
-\end{align*}
-
-\subsection{Euler-Lagrange equations}
-The Euler-Lagrange equations for this system are
-
-\begin{align*}
-	\dfrac{d}{dt}\dfrac{\partial \lag}{\partial \dot{q}_i} - \dfrac{\partial \lag}{\partial q_i} &= \sum_{j} \vec{F}_{D, j} \cdot \dfrac{\partial \vec{r}_{j}}{\partial q_i}
-\end{align*}
-
-where $j$ refers to the particles in the system. Or, defining
-
-\begin{align*}
-	p_i &= \dfrac{\partial \lag}{\partial \dot{q}_i} & \dot{p}_i &= \dfrac{dp_i}{dt} \\
-	F_i &= \dfrac{\partial \lag}{\partial q_i} & &= \dfrac{d}{dt}\dfrac{\partial \lag}{\partial \dot{q}_i}\\
-	\hat{e}_{i,j} &= \dfrac{\partial \vec{r}_{j}}{\partial q_i} & Q_i &= \sum_{j} \vec{F}_{D, j} \cdot \hat{e}_{i,j}
-\end{align*}
-
-\subsubsection{$\theta$}
-\begin{align*}
-	p_{\theta} &= \dfrac{\partial \lag}{\partial \dot{\theta}} \\
-	&= m_2 \left[(l+z)^2 \dot{\theta} + \dot{s}(l+z)\cos{\theta}\right] \\
-	\dot{p}_{\theta} &= m_2\left[2(l+z)\dot{z}\dot{\theta} + (l+z)^2\ddot{\theta} + \ddot{s}(l+z)\cos{\theta} + \dot{s}\dot{z}\cos{\theta} - \dot{s}(l+z)\dot{\theta}\sin{\theta}\right] \\
-	&= m_2 \left[(l+z)^2 \ddot{\theta} + (l+z)\left(\dot{\theta}(2\dot{z} - \dot{s}\sin{\theta}) + \ddot{s}\cos{\theta}\right) + \dot{s}\dot{z}\cos{\theta}\right]\\
-	F_{\theta} &= \dfrac{\partial \lag}{\partial \theta} \\
-	&= \dfrac{\partial \lag}{\partial \theta} \\
-	&= m_2(\dot{s}(\dot{z}\cos{\theta} - \dot{\theta}(l+z)\sin{\theta}) - g(l+z)\sin{\theta})\\
-	&= m_2(\dot{s}\dot{z}\cos{\theta}-(l+z)\sin{\theta}(g+\dot{s}\dot{\theta})) \\
-	Q_{\theta} &= \vec{F}_{D,cart} \cdot \hat{e}_{\theta,cart} + \vec{F}_{D,bob} \cdot \hat{e}_{\theta,bob} \\
-	&= -(b_{cart}+c_{cart}|\dot{s}|)\begin{bmatrix}
-		\dot{s}\\
-		0
-	\end{bmatrix} \cdot \vec{0}\\
-	&-(b_{bob}+c_{bob}\sqrt{\dot{s}^2 + \dot{z}^2 + (l+z)^2\dot{\theta}^2 + 2\dot{s}(\dot{z}\sin{\theta} + \dot{\theta}(l+z)\cos{\theta})})\begin{bmatrix}
-		\dot{s} + \dot{z}\sin{\theta} + (l+z)\dot{\theta}\cos{\theta} \\
-		-\dot{z}\cos{\theta} + (l+z)\dot{\theta}\sin{\theta}
-	\end{bmatrix} \cdot (l+z)\begin{bmatrix}
-		\cos{\theta} \\
-		\sin{\theta}
-	\end{bmatrix} \\
-	&= -(b_{bob}+c_{bob}\sqrt{\dot{s}^2 + \dot{z}^2 + (l+z)^2\dot{\theta}^2 + 2\dot{s}(\dot{z}\sin{\theta} + \dot{\theta}(l+z)\cos{\theta})})(l+z)\left(\dot{s}\cos{\theta} + \dot{z}\sin{\theta}\cos{\theta} + (l+z)\dot{\theta}\cos^2{\theta}\right.\\
-	&\left.-\dot{z}\cos{\theta}\sin{\theta} + (l+z)\dot{\theta}\sin^2{\theta}\right) \\
-	&= -(b_{bob}+c_{bob}\sqrt{\dot{s}^2 + \dot{z}^2 + (l+z)^2\dot{\theta}^2 + 2\dot{s}(\dot{z}\sin{\theta} + \dot{\theta}(l+z)\cos{\theta})})(l+z)\left(\dot{s}\cos{\theta}+(l+z)\dot{\theta}\right).
-\end{align*}
-
-Hence the Euler-Lagrange equation is
-
-\begin{align*}
-	m_2 \left[(l+z)^2 \ddot{\theta} + (l+z)\left(\dot{\theta}(2\dot{z} - \dot{s}\sin{\theta}) + \ddot{s}\cos{\theta}\right) + \dot{s}\dot{z}\cos{\theta}\right] - m_2(\dot{s}\dot{z}\cos{\theta}-(l+z)\sin{\theta}(g+\dot{s}\dot{\theta})) &= Q_{\theta}\\
-	(l+z)^2 \ddot{\theta} + (l+z)\left(\dot{\theta}(2\dot{z} - \dot{s}\sin{\theta}) + \ddot{s}\cos{\theta}\right) + \dot{s}\dot{z}\cos{\theta} - \dot{s}\dot{z}\cos{\theta}+(l+z)\sin{\theta}(g+\dot{s}\dot{\theta}) &= \dfrac{Q_{\theta}}{m_2} \\
-	(l+z)^2 \ddot{\theta} + (l+z)(2\dot{z}\dot{\theta} + \ddot{s}\cos{\theta}+g\sin{\theta}) &= \dfrac{Q_{\theta}}{m_2}
-\end{align*}
-
-Hence
-
-\begin{align}
-	\ddot{\theta} = -\dfrac{2\dot{z}\dot{\theta}+\ddot{s}\cos{\theta} + g\sin{\theta}}{l+z} + \dfrac{Q_{\theta}}{m_2(l+z)^2}.\label{d2theta1}
-\end{align}
-
-\subsubsection{$s$}
-\begin{align*}
-	p_s &= \dfrac{\partial \lag}{\partial \dot{s}} \\
-	&= (m_1+m_2)\dot{s} + m_2(\dot{z}\sin{\theta} + \dot{\theta}(l+z)\cos{\theta}) \\
-	\dot{p}_s &= (m_1+m_2)\ddot{s} + m_2(\ddot{z}\sin{\theta}+\dot{z}\dot{\theta}\cos{\theta}+\ddot{\theta}(l+z)\cos{\theta}-\dot{\theta}^2(l+z)\sin{\theta}+\dot{\theta}\dot{z}\cos{\theta}) \\
-	&= (m_1+m_2)\ddot{s} + m_2(\sin{\theta}(\ddot{z}-\dot{\theta}^2(l+z))+\cos{\theta}(2\dot{z}\dot{\theta}+\ddot{\theta}(l+z)))\\
-	F_{s} &= \dfrac{\partial \lag}{\partial s} \\
-	&= 0 \\
-	\vec{F}_{D,cart} &= -(b_{cart}+c_{cart}|\dot{s}|)\begin{bmatrix}
-		\dot{s}\\
-		0
-	\end{bmatrix} \\
-	\vec{F}_{D,bob} &= -(b_{bob}+c_{bob}\sqrt{\dot{s}^2 + \dot{z}^2 + (l+z)^2\dot{\theta}^2 + 2\dot{s}(\dot{z}\sin{\theta} + \dot{\theta}(l+z)\cos{\theta})})\begin{bmatrix}
-		\dot{s} + \dot{z}\sin{\theta} + (l+z)\dot{\theta}\cos{\theta} \\
-		-\dot{z}\cos{\theta} + (l+z)\dot{\theta}\sin{\theta}
-	\end{bmatrix} \\
-	\hat{e}_{s, cart} &= \dfrac{\partial \vec{r}_{cart}}{\partial s} \\
-	&= \begin{bmatrix}
-		1 \\
-		0
-	\end{bmatrix} \\
-	\hat{e}_{z, cart} &= \vec{0} \\
-	\hat{e}_{\theta, cart} &= \vec{0} \\
-	\hat{e}_{s, bob} &= \dfrac{\partial \vec{r}_{bob}}{\partial s} \\
-	&= \begin{bmatrix}
-		1 \\
-		0
-	\end{bmatrix} \\
-	\hat{e}_{z, bob} &= \dfrac{\partial \vec{r}_{bob}}{\partial z} \\
-	&= \begin{bmatrix}
-		\sin{\theta}\\
-		-\cos{\theta}
-	\end{bmatrix} \\
-	\hat{e}_{\theta, bob} &= \dfrac{\partial \vec{r}_{bob}}{\partial \theta} \\
-	&= (l+z)\begin{bmatrix}
-		\cos{\theta} \\
-		\sin{\theta}
-	\end{bmatrix}\\
-	Q_s &= -(b_{cart}+c_{cart}|\dot{s}|)\dot{s} \\
-	& -(b_{bob}+c_{bob}\sqrt{\dot{s}^2 + \dot{z}^2 + (l+z)^2\dot{\theta}^2 + 2\dot{s}(\dot{z}\sin{\theta} + \dot{\theta}(l+z)\cos{\theta})})\begin{bmatrix}
-		\dot{s} + \dot{z}\sin{\theta} + (l+z)\dot{\theta}\cos{\theta} \\
-		-\dot{z}\cos{\theta} + (l+z)\dot{\theta}\sin{\theta}
-	\end{bmatrix} \cdot \begin{bmatrix}
-		1 \\
-		0
-	\end{bmatrix} \\
-	&= -(b_{cart}+c_{cart}|\dot{s}|)\dot{s} -\left(b_{bob}+c_{bob}\sqrt{\dot{s}^2 + \dot{z}^2 + (l+z)^2\dot{\theta}^2 + 2\dot{s}(\dot{z}\sin{\theta} + \dot{\theta}(l+z)\cos{\theta})}\right)(\dot{s} + \dot{z}\sin{\theta} \\
-	&+ (l+z)\dot{\theta}\cos{\theta}) \\
-	\therefore \ddot{s} &= -\dfrac{m_2}{m_1+m_2}\left[\sin{\theta}(\ddot{z}-\dot{\theta}^2(l+z))+\cos{\theta}(2\dot{z}\dot{\theta}+\ddot{\theta}(l+z))\right] + \dfrac{Q_s}{m_1+m_2}.
-\end{align*}
-
-Substituting Equation \eqref{d2theta1} in yields
-
-\begin{align*}
-	\ddot{s} &= -\dfrac{m_2}{m_1+m_2}\left[\sin{\theta}(\ddot{z}-\dot{\theta}^2(l+z))+\cos{\theta}\left(2\dot{z}\dot{\theta}+(l+z)\left[-\dfrac{2\dot{z}\dot{\theta}+\ddot{s}\cos{\theta} + g\sin{\theta}}{l+z} + \dfrac{Q_{\theta}}{m_2(l+z)^2}\right]\right)\right] + \dfrac{Q_s}{m_1+m_2}\\
-	&= -\dfrac{m_2}{m_1+m_2}\left[\sin{\theta}(\ddot{z}-\dot{\theta}^2(l+z))+\cos{\theta}\left(2\dot{z}\dot{\theta}-(2\dot{z}\dot{\theta}+\ddot{s}\cos{\theta} + g\sin{\theta}) + \dfrac{Q_{\theta}}{m_2(l+z)}\right)\right] + \dfrac{Q_s}{m_1+m_2} \\
-	&=-\dfrac{m_2}{m_1+m_2}\left[\sin{\theta}(\ddot{z}-\dot{\theta}^2(l+z))-\ddot{s}\cos^2{\theta} - g\sin{\theta}\cos{\theta} + \dfrac{Q_{\theta}\cos{\theta}}{m_2(l+z)}\right] + \dfrac{Q_s}{m_1+m_2}
-\end{align*}
-Bringing all $\ddot{s}$ terms to the left-hand side
-\begin{align*}
-	\ddot{s}\left(1-\dfrac{m_2\cos^2{\theta}}{m_1+m_2}\right) &= -\dfrac{m_2}{m_1+m_2}\left[\sin{\theta}(\ddot{z}-\dot{\theta}^2(l+z)) - g\sin{\theta}\cos{\theta} + \dfrac{Q_{\theta}\cos{\theta}}{m_2(l+z)}\right] + \dfrac{Q_s}{m_1+m_2}
-\end{align*}
-
-\begin{align*}
-	1-\dfrac{m_2\cos^2{\theta}}{m_1+m_2} &= \dfrac{m_1+m_2 - m_2\cos^2{\theta}}{m_1+m_2} \\
-	&= \dfrac{m_1+m_2\sin^2{\theta}}{m_1+m_2}.
-\end{align*}
-
-Therefore
-
-\begin{align}
-	\ddot{s} &= -\dfrac{m_2}{m_1+m_2\sin^2{\theta}}\left[\sin{\theta}(\ddot{z}-\dot{\theta}^2(l+z)) - g\sin{\theta}\cos{\theta} + \dfrac{Q_{\theta}\cos{\theta}}{m_2(l+z)}\right] + \dfrac{Q_s}{m_1+m_2\sin^2{\theta}} \nonumber\\
-	&= \dfrac{1}{m_1+m_2\sin^2{\theta}}\left[Q_s - \dfrac{Q_{\theta}\cos{\theta}}{l+z} - m_2\left(\sin{\theta}(\ddot{z}-\dot{\theta}^2(l+z)) - g\sin{\theta}\cos{\theta}\right)\right] \label{d2s1}
-\end{align}
-
-\subsubsection{$z$}
-\begin{align*}
-	p_z &= \dfrac{\partial \lag}{\partial \dot{z}} \\
-	&= m_2(\dot{z} + \dot{s}\sin{\theta}) \\
-	\dot{p}_z &= m_2 (\ddot{z} + \ddot{s}\sin{\theta} + \dot{s}\dot{\theta}\cos{\theta})
-\end{align*}
-
-Substituting in Equation \eqref{d2s1}
-
-\begin{align*}
-	\dot{p}_z &= m_2 \left[\ddot{z} + \sin{\theta}\left(\dfrac{1}{m_1+m_2\sin^2{\theta}}\left[Q_s - \dfrac{Q_{\theta}\cos{\theta}}{l+z} - m_2\left(\sin{\theta}(\ddot{z}-\dot{\theta}^2(l+z)) - g\sin{\theta}\cos{\theta}\right)\right]\right) + \dot{s}\dot{\theta}\cos{\theta}\right]\\
-	&= m_2 \left[\ddot{z}\left(1-\dfrac{m_2\sin^2{\theta}}{m_1+m_2\sin^2{\theta}}\right) + \dfrac{\sin{\theta}}{m_1+m_2\sin^2{\theta}}\left[Q_s - \dfrac{Q_{\theta}\cos{\theta}}{l+z} + m_2\sin{\theta}\left(\dot{\theta}^2(l+z) + g\cos{\theta}\right)\right] + \dot{s}\dot{\theta}\cos{\theta}\right] \\
-	&=m_2 \left[\dfrac{m_1\ddot{z}}{m_1+m_2\sin^2{\theta}} + \dfrac{\sin{\theta}}{m_1+m_2\sin^2{\theta}}\left[Q_s - \dfrac{Q_{\theta}\cos{\theta}}{l+z} + m_2\sin{\theta}\left(\dot{\theta}^2(l+z) + g\cos{\theta}\right)\right] + \dot{s}\dot{\theta}\cos{\theta}\right].
-\end{align*}
-
-\begin{align*}
-	F_{z} &= \dfrac{\partial \lag}{\partial z} \\
-	&= m_2\left((l+z)\dot{\theta}^2 + \dot{s}\dot{\theta}\cos{\theta} + g\cos{\theta}-k'z\right).
-\end{align*}
-
-Where $k'=\dfrac{k}{m_2}$. 	Finally, we will calculate $Q_z$
-
-\begin{align*}
-	Q_z &= \vec{F}_{D,cart} \cdot \dfrac{\partial \vec{r}_{cart}}{\partial z} + \vec{F}_{D, bob} \cdot \dfrac{\partial \vec{r}_{bob}}{\partial z} \\
-	&= -(b_{cart}+c_{cart}|\dot{s}|)\begin{bmatrix}
-		\dot{s}\\
-		0
-	\end{bmatrix} \cdot \vec{0} -(b_{bob}+c_{bob}\sqrt{\dot{s}^2 + \dot{z}^2 + (l+z)^2\dot{\theta}^2 + 2\dot{s}(\dot{z}\sin{\theta} + \dot{\theta}(l+z)\cos{\theta})})\\
-	&\begin{bmatrix}
-		\dot{s} + \dot{z}\sin{\theta} + (l+z)\dot{\theta}\cos{\theta} \\
-		-\dot{z}\cos{\theta} + (l+z)\dot{\theta}\sin{\theta}
-	\end{bmatrix} \cdot \begin{bmatrix}
-		\sin{\theta}\\
-		-\cos{\theta}
-	\end{bmatrix}\\
-	&= -(b_{bob}+c_{bob}\sqrt{\dot{s}^2 + \dot{z}^2 + (l+z)^2\dot{\theta}^2 + 2\dot{s}(\dot{z}\sin{\theta} + \dot{\theta}(l+z)\cos{\theta})})
-	(\dot{s}\sin{\theta} + \dot{z}\sin^2{\theta} + (l+z)\dot{\theta}\cos{\theta}\sin{\theta}\\
-	&+\dot{z}\cos^2{\theta}- (l+z)\dot{\theta}\sin{\theta}\cos{\theta})\\
-	&= -(b_{bob}+c_{bob}\sqrt{\dot{s}^2 + \dot{z}^2 + (l+z)^2\dot{\theta}^2 + 2\dot{s}(\dot{z}\sin{\theta} + \dot{\theta}(l+z)\cos{\theta})})
-	(\dot{s}\sin{\theta} + \dot{z}).
-\end{align*}
-
-Hence the Euler-Lagrange equation is
-
-\begin{align*}
-	&m_2 \left[\dfrac{m_1\ddot{z}}{m_1+m_2\sin^2{\theta}} + \dfrac{\sin{\theta}}{m_1+m_2\sin^2{\theta}}\left[Q_s - \dfrac{Q_{\theta}\cos{\theta}}{l+z} + m_2\sin{\theta}\left(\dot{\theta}^2(l+z) + g\cos{\theta}\right)\right] + \dot{s}\dot{\theta}\cos{\theta}\right] \\
-	&- m_2\left((l+z)\dot{\theta}^2 + \dot{s}\dot{\theta}\cos{\theta} + g\cos{\theta}-k'z\right)= Q_z \\
-\end{align*}
-
-$m_2\dot{s}\dot{\theta}\cos{\theta}$ will be cancelled out. 
-
-Hence
-
-\begin{align*}
-	\dfrac{m_1\ddot{z}}{m_1+m_2\sin^2{\theta}} + \dfrac{\sin{\theta}}{m_1+m_2\sin^2{\theta}}\left[Q_s - \dfrac{Q_{\theta}\cos{\theta}}{l+z} + m_2\sin{\theta}\left(\dot{\theta}^2(l+z) + g\cos{\theta}\right)\right] -(l+z)\dot{\theta}^2 - g\cos{\theta}+k'z &= \dfrac{Q_z}{m_2}
-\end{align*}
-\begin{align}
-	\dfrac{m_1\ddot{z}}{m_1+m_2\sin^2{\theta}} &= -\dfrac{\sin{\theta}}{m_1+m_2\sin^2{\theta}}\left[Q_s - \dfrac{Q_{\theta}\cos{\theta}}{l+z} + m_2\sin{\theta}\left(\dot{\theta}^2(l+z) + g\cos{\theta}\right)\right] +(l+z)\dot{\theta}^2 + g\cos{\theta}+k'z + \dfrac{Q_z}{m_2} \nonumber\\
-	&= \left[(l+z)\dot{\theta}^2+g\cos{\theta}\right]\left(1-\dfrac{m_2\sin^2{\theta}}{m_1+m_2\sin^2{\theta}}\right) -\dfrac{\sin{\theta}}{m_1+m_2\sin^2{\theta}}\left[Q_s - \dfrac{Q_{\theta}\cos{\theta}}{l+z} \right]+k'z + \dfrac{Q_z}{m_2}\label{d2z1}
-\end{align}
-
-\begin{align*}
-	1-\dfrac{m_2\sin^2{\theta}}{m_1+m_2\sin^2{\theta}} &= \dfrac{m_1+m_2\sin^2{\theta}-m_2\sin^2{\theta}}{m_1+m_2\sin^2{\theta}}\\
-	&= \dfrac{m_1}{m_1+m_2\sin^2{\theta}}.
-\end{align*}
-
-Multiplying both sides of Equation \eqref{d2z1} by $\dfrac{m_1+m_2\sin^2{\theta}}{m_1}$
-
-\begin{align}
-	\ddot{z} &= (l+z)\dot{\theta}^2+g\cos{\theta} - \dfrac{\sin{\theta}}{m_1}\left[Q_s - \dfrac{Q_{\theta}\cos{\theta}}{l+z} \right]+\dfrac{m_1+m_2\sin^2{\theta}}{m_1m_2}\left(kz + Q_z\right) \label{d2z2}
-\end{align}
-
-Substituting into Equation \eqref{d2s1}:
-
-\begin{align*}
-	\ddot{s} &= \dfrac{1}{m_1+m_2\sin^2{\theta}}\left[Q_s - \dfrac{Q_{\theta}\cos{\theta}}{l+z} - m_2\left(\sin{\theta}\left((l+z)\dot{\theta}^2+g\cos{\theta} - \dfrac{\sin{\theta}}{m_1}\left[Q_s - \dfrac{Q_{\theta}\cos{\theta}}{l+z} \right]\right.\right.\right.\\
-	&\left.\left.\left.+\dfrac{m_1+m_2\sin^2{\theta}}{m_1m_2}\left(kz + Q_z\right)-\dot{\theta}^2(l+z)\right) - g\sin{\theta}\cos{\theta}\right)\right]
-\end{align*}
-Cancelling out the $\dot{\theta}^2(l+z)$ and $g\sin{\theta}\cos{\theta}$ terms
-\begin{align}
-	\ddot{s} &= \dfrac{1}{m_1+m_2\sin^2{\theta}}\left[Q_s - \dfrac{Q_{\theta}\cos{\theta}}{l+z} +  \dfrac{m_2\sin^2{\theta}}{m_1}\left[Q_s - \dfrac{Q_{\theta}\cos{\theta}}{l+z} \right]\right.\nonumber\\
-	&\left.-\dfrac{(m_1+m_2\sin^2{\theta})\sin{\theta}}{m_1}\left(kz + Q_z\right)\right]\nonumber\\
-	&= \dfrac{1}{m_1+m_2\sin^2{\theta}}\left[\left(Q_s - \dfrac{Q_{\theta}\cos{\theta}}{l+z}\right)\left[1+\dfrac{m_2\sin^2{\theta}}{m_1}\right]-\dfrac{(m_1+m_2\sin^2{\theta})\sin{\theta}}{m_1}\left(kz + Q_z\right)\right]\nonumber\\
-	&=  \dfrac{1}{m_1+m_2\sin^2{\theta}}\left[\left(Q_s - \dfrac{Q_{\theta}\cos{\theta}}{l+z}\right)\left[\dfrac{m_1+m_2\sin^2{\theta}}{m_1}\right]-\dfrac{(m_1+m_2\sin^2{\theta})\sin{\theta}}{m_1}\left(kz + Q_z\right)\right] \nonumber\\
-	&= \dfrac{1}{m_1}\left(Q_s - \dfrac{Q_{\theta}\cos{\theta}}{l+z}\right) -\dfrac{(kz+Q_z)\sin{\theta}}{m_1} \nonumber\\
-	&= \dfrac{1}{m_1}\left(Q_s - \dfrac{Q_{\theta}\cos{\theta}}{l+z}-(kz+Q_z)\sin{\theta}\right) \label{d2s}
-\end{align}
-
-Hence, substituting Equation \eqref{d2s} into \eqref{d2theta1} yields
-
-\begin{align*}
-	\ddot{\theta} &= -\dfrac{2\dot{z}\dot{\theta}+\dfrac{\cos{\theta}}{m_1}\left(Q_s -(kz+Q_z)\sin{\theta}\right) + g\sin{\theta}}{l+z} + \dfrac{Q_{\theta}}{(l+z)^2m_1m_2}(m_1+m_2\cos^2{\theta})\\
-	&= \dfrac{Q_{\theta}(m_1+m_2\cos^2{\theta})}{(l+z)^2m_1m_2} - \dfrac{\cos{\theta}(Q_s - (kz+Q_z)\sin{\theta})}{m_1(l+z)} - \dfrac{2\dot{z}\dot{\theta} + g\sin{\theta}}{l+z}.
-\end{align*}
 
 \section{Double elastic pendulum}
 \begin{figure}[H]
@@ -1064,8 +1172,8 @@ Hence the Lagrangian of the system is
 
 We will not expand this Lagrangian, as doing so just adds to its complexity. Instead, we will calculate the derivatives of each of its components. 
 
-\subsubsection{Derivative of components of the Lagrangian}
-
+\subsection{Derivative of components of the Lagrangian}
+\subsubsection{Square of the velocity of the first pendulum's bob}
 The relevant partial and standard derivatives are:
 \begin{align*}
 	\dfrac{\partial |\vec{v}_1|^2}{\partial r_1} &= 2r_1\dot{\theta}_1^2 & \dfrac{\partial |\vec{v}_1|^2}{\partial r_2} &= 0 & \dfrac{\partial |\vec{v}_1|^2}{\partial \theta_1} &= 0 & \dfrac{\partial |\vec{v}_1|^2}{\partial \theta_2} &= 0\\
@@ -1079,6 +1187,9 @@ Hence the functional derivatives are
 	\dfrac{\delta |\vec{v}_1|^2}{\delta r_1} &= \dfrac{d}{dt}\dfrac{\partial |\vec{v}_1|^2}{\partial \dot{r}_1} - \dfrac{\partial |\vec{v}_1|^2}{\partial r_1} & \dfrac{\delta |\vec{v}_1|^2}{\delta r_2} &= \dfrac{d}{dt}\dfrac{\partial |\vec{v}_1|^2}{\partial \dot{r}_2} - \dfrac{\partial |\vec{v}_1|^2}{\partial r_2} & \dfrac{\delta |\vec{v}_1|^2}{\delta \theta_1} &= \dfrac{d}{dt}\dfrac{\partial |\vec{v}_1|^2}{\partial \dot{\theta}_1} - \dfrac{\partial |\vec{v}_1|^2}{\partial \theta_1} & \dfrac{\delta |\vec{v}_1|^2}{\delta \theta_2} &= \dfrac{d}{dt}\dfrac{\partial |\vec{v}_1|^2}{\partial \dot{\theta}_2} - \dfrac{\partial |\vec{v}_1|^2}{\partial \theta_2}\\
 	&= 2\ddot{r}_1 - 2r_1\dot{\theta}_1^2 & &= 0 & &=2r_1^2\ddot{\theta}_1 + 4r_1\dot{r}_1\dot{\theta}_1 & &= 0.	
 \end{align*}
+
+\subsubsection{Difference in the square of each bob's velocity}
+Hence the partial and standard derivatives of the difference in the square of each bob's velocity is
 \begin{align*}
 	\dfrac{\partial |\Delta \vec{v}_{21}|^2}{\partial r_1} &= 2r_2\dot{\theta}_1\dot{\theta}_2\cos{\Delta} + 2\dot{r}_2\dot{\theta}_1\sin{\Delta} & \dfrac{\partial |\Delta \vec{v}_{21}|^2}{\partial r_2} &= 2r_2\dot{\theta}_2^2+2r_1\dot{\theta}_1\dot{\theta}_2\cos{\Delta}-2\dot{r}_1\dot{\theta}_2\sin{\Delta} \\
 	\dfrac{\partial |\Delta \vec{v}_{21}|^2}{\partial \theta_1} &= -2\sin{\Delta}\cdot -1(\dot{r}_1\dot{r}_2 + r_1r_2\dot{\theta}_1\dot{\theta}_2) + 2\cos{\Delta}\cdot -1(r_1\dot{r}_2\dot{\theta}_1-\dot{r}_1r_2\dot{\theta}_2) & \dfrac{\partial |\Delta \vec{v}_{21}|^2}{\partial \theta_2} &= -2\sin{\Delta}(\dot{r}_1\dot{r}_2 + r_1r_2\dot{\theta}_1\dot{\theta}_2) + 2\cos{\Delta}(r_1\dot{r}_2\dot{\theta}_1-\dot{r}_1r_2\dot{\theta}_2)  \\
@@ -1152,12 +1263,21 @@ As for $\theta_2$
 	&= 4r_2\dot{r}_2\dot{\theta}_2 + 2r_2^2\ddot{\theta}_2 +2\cos{\Delta}(2\dot{r}_1r_2\dot{\theta}_1+r_1r_2\ddot{\theta}_1)+2\sin{\Delta}(r_1r_2\dot{\theta}_1^2-\ddot{r}_1r_2).
 \end{align*}
 
-It is important to note that $\dfrac{\delta f(q_i)}{\delta q_i} = -\dfrac{\partial f}{\partial q_i}$, hence
+\subsection{Euler-Lagrange equations with dissipation}
+\subsubsection{Length of pendulum 1: $r_1$}
+It is important to note that $\dfrac{\delta f(q_i)}{\delta q_i} = -\dfrac{\partial f}{\partial q_i}$ and of course if a term does not depend on $q_i$ or $\dot{q}_i$ its functional derivative with respect to $q_i$ is zero. Hence
 
 \begin{align*}
-	\dfrac{\delta \lag}{\delta r_1} &= (m_1+m_2)\left[\dfrac{\dfrac{\delta |\vec{v}_1|^2}{\delta r_1}}{2} -g\sin{\theta_1}\dfrac{\delta r_1}{\delta r_1}\right] + m_2\left[\dfrac{\dfrac{\delta |\Delta \vec{v}_{21}|^2}{\delta r_1}}{2}\right] - \dfrac{k_1}{2} \dfrac{\delta (r_1-l_1)^2}{\delta r_1} \\
-	&= (m_1+m_2)\left[\dfrac{2\ddot{r}_1-2r_1\dot{\theta}_1^2}{2} + g\sin{\theta_1}\right] + m_2\left[\dfrac{2\cos{\Delta}(\ddot{r}_2-r_2\dot{\theta}_2^2) - 2\sin{\Delta} (2\dot{r}_2\dot{\theta}_2+r_2\ddot{\theta}_2)}{2}\right] + k_1(r_1-l_1)\\
-	&= (m_1+m_2)\left[\ddot{r}_1-r_1\dot{\theta}_1^2 + g\sin{\theta_1}\right] + m_2\left[\cos{\Delta}(\ddot{r}_2-r_2\dot{\theta}_2^2) - \sin{\Delta} (2\dot{r}_2\dot{\theta}_2+r_2\ddot{\theta}_2)\right] + k_1(r_1-l_1) \\
+	\dfrac{\delta \lag}{\delta r_1} &= (m_1+m_2)\left[\dfrac{\dfrac{\delta |\vec{v}_1|^2}{\delta r_1}}{2} -g\sin{\theta_1}\dfrac{\delta r_1}{\delta r_1}\right] + m_2\left[\dfrac{\dfrac{\delta |\Delta \vec{v}_{21}|^2}{\delta r_1}}{2}\right] - \dfrac{k_1}{2} \dfrac{\delta (r_1-l_1)^2}{\delta r_1}.
+\end{align*}
+We have deliberately ignored the $m_2gr_2\sin{\theta_2}$ and $-\dfrac{k_2(r_2-l_2)^2}{2}$ as they are independent of $r_1$.
+\begin{align*}
+	\dfrac{\delta \lag}{\delta r_1} &= (m_1+m_2)\left[\dfrac{2\ddot{r}_1-2r_1\dot{\theta}_1^2}{2} + g\sin{\theta_1}\right] + m_2\left[\dfrac{2\cos{\Delta}(\ddot{r}_2-r_2\dot{\theta}_2^2) - 2\sin{\Delta} (2\dot{r}_2\dot{\theta}_2+r_2\ddot{\theta}_2)}{2}\right] + k_1(r_1-l_1)\\
+	&= (m_1+m_2)\left[\ddot{r}_1-r_1\dot{\theta}_1^2 + g\sin{\theta_1}\right] + m_2\left[\cos{\Delta}(\ddot{r}_2-r_2\dot{\theta}_2^2) - \sin{\Delta} (2\dot{r}_2\dot{\theta}_2+r_2\ddot{\theta}_2)\right] + k_1(r_1-l_1).
+\end{align*}
+	
+The generalized dissipation force canonical to $r_1$ is hence
+\begin{align*}
 	Q_{r_1} &= -(b_1+c_1|\vec{v}_1|)\vec{v}_1\cdot \dfrac{\partial \vec{r}_1}{\partial r_1} - (b_2+c_2|\vec{v}_2|)\vec{v}_2\cdot \dfrac{\partial \vec{r}_2}{\partial r_1} \\
 	&= -(b_1+c_1|\vec{v}_1|)\begin{bmatrix}
 		\dot{r}_1\cos{\theta_1} - r_1\dot{\theta}_1\sin{\theta_1} \\
@@ -1203,6 +1323,7 @@ Moving all terms that do not involve second derivatives to the right-hand side y
 	\ddot{r}_1 + \dfrac{m_2\cos{\Delta}}{m_1+m_2}\ddot{r}_2 + 0\ddot{\theta}_1 - \dfrac{m_2r_2\sin{\Delta}}{m_1+m_2}\ddot{\theta}_2 &= r_1\dot{\theta}_1^2 - g\sin{\theta_1} + \dfrac{m_2}{m_1+m_2}\left[r_2\dot{\theta}_2^2\cos{\Delta} + 2\dot{r}_2\dot{\theta}_2\sin{\Delta}\right] + \dfrac{Q_{r_1}-k_1(r_1-l_1)}{m_1+m_2}.
 \end{align*}
 
+\subsubsection{Second pendulum length: $r_2$}
 As for $r_2$
 
 \begin{align*}
@@ -1243,6 +1364,7 @@ Next we will expand out second time derivatives and moving everything else to th
 	\cos{\Delta}\ddot{r}_1 + \ddot{r}_2 + r_1\sin{\Delta}\ddot{\theta}_1 + 0\ddot{\theta}_2 &= r_2\dot{\theta}_2^2  - g\sin{\theta_2} + r_1\dot{\theta}_1^2\cos{\Delta} - 2\dot{r}_1\dot{\theta}_1\sin{\Delta} + \dfrac{Q_{r_2}-k_2(r_2-l_2)}{m_2}.
 \end{align*}
 
+\subsubsection{Angle the first pendulum makes with the positive x-axis: $\theta_1$}
 As for $\theta_1$
 
 \begin{align*}
@@ -1288,6 +1410,7 @@ Expanding out all second time derivatives and moving all other terms to the righ
 	0\ddot{r}_1 + \dfrac{m_2\sin{\Delta}}{(m_1+m_2)r_1}\ddot{r}_2 + \ddot{\theta}_1 + \dfrac{m_2r_2\cos{\Delta}}{(m_1+m_2)r_1}\ddot{\theta}_2 &= -\dfrac{2\dot{r}_1\dot{\theta}_1}{r_1} - \dfrac{g\cos{\theta_1}}{r_1} - \dfrac{m_2}{(m_1+m_2)r_1}\left[2\dot{r}_2\dot{\theta}_2\cos{\Delta} -r_2\dot{\theta}_2^2\sin{\Delta}\right] + \dfrac{Q_{\theta_1}}{(m_1+m_2)r_1^2}.
 \end{align*}
 
+\subsubsection{Angle the second pendulum makes with the positive x-axis: $\theta_2$}
 As for $\theta_2$
 
 \begin{align*}
