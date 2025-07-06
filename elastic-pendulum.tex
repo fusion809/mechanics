@@ -405,7 +405,8 @@ As for $\theta$
 
 \begin{align*}
 	\dfrac{\partial \lag}{\partial \theta} &= 0 \\
-	\dfrac{\partial \lag}{\partial \dot{\theta}} &= mr^2\dot{\theta}\sin^2{\varphi} \\
+	p_{\theta} &= \dfrac{\partial \lag}{\partial \dot{\theta}} \\
+	&= mr^2\dot{\theta}\sin^2{\varphi} \\
 	\dfrac{d}{dt} \dfrac{\partial \lag}{\partial \dot{\theta}} &= mr^2\ddot{\theta} \sin^2{\varphi} + 2mr\dot{r}\dot{\theta}\sin^2{\varphi} + mr^2\dot{\theta}\dot{\varphi}\sin{2\varphi} \\
 	\dfrac{\delta \lag}{\delta \theta} &= mr^2\ddot{\theta} \sin^2{\varphi} + 2mr\dot{r}\dot{\theta}\sin^2{\varphi} + mr^2\dot{\theta}\dot{\varphi}\sin{2\varphi} \\
 	Q_{\theta} &= -(b+c|\vec{v}|)\vec{v} \cdot \dfrac{\partial \vec{r}}{\partial \theta} \\
@@ -442,7 +443,8 @@ As for $\varphi$
 
 \begin{align*}
 	\dfrac{\partial \lag}{\partial \varphi} &= \dfrac{mr^2\dot{\theta}^2\sin{2\varphi}}{2} + mgr\sin{\varphi} \\
-	\dfrac{\partial \lag}{\partial \dot{\varphi}} &= mr^2\dot{\varphi} \\
+	p_{\varphi} &= \dfrac{\partial \lag}{\partial \dot{\varphi}} \\
+	&= mr^2\dot{\varphi} \\
 	\dfrac{d}{dt}\dfrac{\partial \lag}{\partial \dot{\varphi}} &= 2mr\dot{r}\dot{\varphi} + mr^2 \ddot{\varphi} \\
 	\dfrac{\delta \lag}{\partial \varphi} &= 2mr\dot{r}\dot{\varphi} + mr^2 \ddot{\varphi} -\left[ \dfrac{mr^2\dot{\theta}^2\sin{2\varphi}}{2} + mgr\sin{\varphi}\right] \\
 	&= mr^2\left[\ddot{\varphi} + \dfrac{2\dot{r}\dot{\varphi}}{r} - \dfrac{\dot{\theta}^2\dot{\varphi}\sin{2\varphi}}{2} -\dfrac{g\sin{\varphi}}{r} \right]\\
@@ -468,6 +470,57 @@ Hence \eq{ELD} for $\varphi$ is
 	\ddot{\varphi} &= \dfrac{g\sin{\varphi} - 2\dot{r}\dot{\varphi}}{r} + \dot{\theta}^2\sin{\varphi}\cos{\varphi} - \dfrac{(b+c|\vec{v}|)\dot{\varphi}}{m}.
 \end{align*}
 
+\section{Hamilton's equation}
+First, we will write the kinetic energy in terms of momenta and generalized coordinates
+
+\begin{align*}
+	T &= \dfrac{m}{2}\left(\dot{r}^2 + r^2\dot{\theta}^2\sin^2{\varphi} + r^2\dot{\varphi}^2\right)
+\end{align*}
+
+\begin{align*}
+	\dot{r} &= \dfrac{p_r}{m} &\implies \dfrac{m\dot{r}^2}{2} &= \dfrac{p_r^2}{2m}\\
+	\dot{\theta} &= \dfrac{p_{\theta}}{mr^2\sin^2{\varphi}} & \implies \dfrac{mr^2\dot{\theta}^2\sin^2{\varphi}}{2} &= r^2\dfrac{mp_{\theta}^2}{2m^2r^4\sin^4{\varphi}}\sin^2{\varphi}\\
+	\dot{\varphi} &= \dfrac{p_{\varphi}}{mr^2} & &= \dfrac{p_{\theta}^2}{2mr^2\sin^2{\varphi}}\\
+	\therefore \dfrac{mr^2\dot{\varphi}^2}{2} &= \dfrac{mr^2 \dfrac{p_{\varphi}^2}{m^2r^4}}{2} \\
+	&= \dfrac{p_{\varphi}^2}{2mr^2}.
+\end{align*}
+
+Hence
+
+\begin{align*}
+	|\vec{v}|^2 &= \dfrac{p_r^2}{m^2} + \dfrac{p_{\theta}^2}{m^2r^2\sin^2{\varphi}} + \dfrac{p_{\varphi}^2}{m^2r^2} \\
+	T &= \dfrac{p_r^2}{2m} + \dfrac{p_{\theta}^2}{2mr^2\sin^2{\varphi}} + \dfrac{p_{\varphi}^2}{2mr^2}
+\end{align*}
+
+and
+
+\begin{align*}
+	\ham &= T + V \\
+	&= \dfrac{p_r^2}{2m} + \dfrac{p_{\theta}^2}{2mr^2\sin^2{\varphi}} + \dfrac{p_{\varphi}^2}{2mr^2} + mgr\cos{\varphi} + \dfrac{k(r-l)^2}{2}.
+\end{align*}
+
+Hence \eq{qdoti} and \eq{pdoti} for $r$ are
+
+\begin{align*}
+	\dot{r} &= \dfrac{\partial \ham}{\partial p_r} & \dot{p}_r &= -\dfrac{\partial \ham}{\partial r} + Q_r \\
+	&= \dfrac{p_r}{m} & &= \dfrac{2p_{\theta}^2}{2mr^3\sin^2{\varphi}} + \dfrac{2p_{\varphi}^2}{2mr^3} - mg\cos{\varphi} - k(r-l) + Q_r\\
+	& & &= \dfrac{p_{\theta}^2}{mr^3\sin^2{\varphi}} + \dfrac{p_{\varphi}^2}{mr^3} - mg\cos{\varphi} - k(r-l) + Q_r.
+\end{align*}
+
+As for $\theta$
+
+\begin{align*}
+	\dot{\theta} &= \dfrac{\partial \ham}{\partial p_{\theta}} & \dot{p}_{\theta} &= -\dfrac{\partial \ham}{\partial \theta} + Q_{\theta}\\
+	&= \dfrac{p_{\theta}}{mr^2\sin^2{\varphi}} & &= Q_{\theta}. 
+\end{align*}
+
+Finally, for $\varphi$
+
+\begin{align*}
+	\dot{\varphi} &= \dfrac{\partial \ham}{\partial p_{\varphi}} & \dot{p}_{\varphi} &= -\dfrac{\partial \ham}{\partial \varphi} + Q_{\varphi}\\
+	&= \dfrac{p_{\varphi}}{mr^2} & &=-\left[ -\dfrac{2p_{\theta}^2\cos{\varphi}}{2mr^2\sin^3{\varphi}} - mgr\sin{\varphi}\right] + Q_{\varphi} \\
+	& & &= \dfrac{p_{\theta}^2\cos{\varphi}}{mr^2\sin^3{\varphi}} + mgr\sin{\varphi} + Q_{\varphi}.
+\end{align*}
 \end{landscape}
 \section{Cart with elastic pendulum}
 \begin{figure}[H]
