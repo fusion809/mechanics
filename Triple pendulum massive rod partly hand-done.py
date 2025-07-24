@@ -27,9 +27,12 @@ c1b = symbols("c1b");
 c2b = symbols("c2b"); 
 c3b = symbols("c3b");
 
-theta1=Function('theta1')(t); 
+theta1=Function('theta1')(t);
+dtheta1=diff(theta1, t);
 theta2=Function('theta2')(t); 
+dtheta2=diff(theta2, t);
 theta3=Function('theta3')(t); 
+dtheta3=diff(theta3, t);
 x1b = l1*cos(theta1);
 x1r = x1b/2;
 y1b = l1*sin(theta1);
@@ -48,32 +51,23 @@ x3r = x2b + l3*cos(theta3)/2;
 y3r = y2b + l3*sin(theta3)/2;
 r3b = x3b*N.i + y3b*N.j;
 r3r = x3r*N.i + y3r*N.j;
+Delta21 = theta2-theta1;
+Delta32 = theta3-theta2;
+Delta31 = theta3 - theta1;
+#M1 = m1b + m1r/3 + m2b + m2r + m3b + m3r;
+#M2 = m2b + m2r/3 + m3b + m3r;
+#M3 = m3b + m3r/3;
+#mu1 = m1b + m1r/2 + m2b + m2r + m3b + m3r;
+#mu2 = m2b + m2r/2 + m3b + m3r;
+#mu3 = m3b + m3r/2;	
+M1 = symbols("M1");
+M2 = symbols("M2");
+M3 = symbols("M3");
+mu1 = symbols("mu1");
+mu2 = symbols("mu2");
+mu3 = symbols("mu3");
+L = M1/2*l1**2*dtheta1**2 + M2/2*l2**2*dtheta2**2 + M3/2*l3**2*dtheta3**2 + mu2*(l1*l2*dtheta1*dtheta2*cos(Delta21) - g*l2*sin(theta2)) + mu3*(l1*l3*dtheta1*dtheta3*cos(Delta31) + l2*l3*dtheta2*dtheta3*cos(Delta32) - g*l3*sin(theta3)) - mu1*g*l1*sin(theta1);
 
-def compute_kinetic(m, l, theta, r):
-	T = 0;
-	j = 0;
-	v = [];
-	for i in m:
-		v.append(diff(r[j], t))
-		T += i*v[j].dot(v[j])/2;
-		j += 1
-		
-	for i in range(len(l)):
-		T += m[2*i]*l[i]**2*diff(theta[i], t)**2/24;
-	
-	return T
-	
-def compute_potential(g, m, r):
-	V = 0;
-	for j in range(len(r)):
-		y = r[j].dot(N.j)
-		V += m[j] * g * y
-	
-	return V
-	
-def compute_lagrangian(g, l, m, r, theta):
-	L = compute_kinetic(m, l, theta, r) - compute_potential(g, m, r)
-	return L
 
 def diss_force(b, c, r):
 	v = diff(r, t);
@@ -90,9 +84,8 @@ def gen_diss_force(b, c, r, coord):
 
 	return Q
 	
-def compute_eq_of_motion(g, m, b, c, r, l, theta):
+def compute_eq_of_motion(L, coord):
 	t = symbols('t')
-	L = compute_lagrangian(g, l, m, r, theta)
 	coord = [theta1, theta2, theta3]
 	Q = [Function('Qtheta1')(t), Function('Qtheta2')(t), Function('Qtheta3')(t)];
 	lhs = [0 for i in range(len(coord))]
@@ -105,7 +98,7 @@ r = [r1r, r1b, r2r, r2b, r3r, r3b]
 l = [l1, l2, l3];
 coord = [theta1, theta2, theta3]
 Q = gen_diss_force(b, c, r, coord)
-eqns = compute_eq_of_motion(g, m, b, c, r, l, coord)
+eqns = compute_eq_of_motion(L, coord)
 d2 = [diff(i, (t, 2)) for i in coord];
 theta_ddot_syms = symbols('theta1_dd theta2_dd theta3_dd')
 #sol = solve(eqn, d2)

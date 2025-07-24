@@ -1,4 +1,4 @@
-from sympy import symbols, Function, diff, cos, sin, simplify, sqrt, Abs, Eq, solve, latex, integrate, factor
+from sympy import symbols, Function, diff, cos, sin, simplify, sqrt, Abs, Eq, solve, latex, integrate, factor, collect, shape
 from sympy.vector import CoordSys3D
 from multiprocessing import Pool, cpu_count
 from math import floor
@@ -22,6 +22,10 @@ c1r = symbols("c1r");
 c1b = symbols("c1b"); 
 c2r = symbols("c2r"); 
 c2b = symbols("c2b");
+M1 = symbols("M1");
+M2 = symbols("M2");
+mu1 = symbols("mu1");
+mu2 = symbols("mu2");
 # Functions
 r1 = Function('r1')(t); 
 theta1=Function('theta1')(t); 
@@ -64,11 +68,6 @@ x2r = x1b + r2*cos(theta2)/2;
 y2r = y1b + r2*sin(theta2)/2;
 r2r = x2r*N.i+y2r*N.j;
 v2r = diff(r2r, t);
-s = symbols("s");
-poscent = [r1b, r1r, r2b, r2r];
-r1r = s/l1 * r1b
-r2r = r1b * (1-s/l2) + r2b*s/l2;
-pos = [r1b, r1r, r2b, r2r];
 
 
 def diss_force(b, c, pos):
@@ -82,11 +81,7 @@ def gen_diss_force(b, c, l, pos, coords):
 		for j in range(len(b)):
 			F = diss_force(b[j], c[j], pos[j])
 			ehat = diff(pos[j], coords[i]);
-			if (any(expr.has("s") for expr in pos)):
-				lind = floor(j/2);
-				Q[i] += integrate(F.dot(ehat), (s, 0, l[lind]))
-			else:
-				Q[i] += F.dot(ehat);
+			Q[i] += F.dot(ehat);
 		Q[i] = simplify(Q[i])
 	return Q
 
@@ -114,13 +109,18 @@ def compute_potential(g, k, m, l, r, y):
 		
 	return V
 	
-def compute_lagrangian(g, k, m, l, r, y, poscent):
-	T = compute_kinetic(m, poscent)
-	V = compute_potential(g, k, m, l, r, y)
-	return T-V
 	
 def compute_equations_motion(g, k, m, l, coords, y, poscent):
-	L = compute_lagrangian(g, k, m, l, coords[0:2], y, poscent)
+	r1 = coords[0];
+	dr1 = diff(r1,t);
+	r2 = coords[1];
+	dr2 = diff(r2, t)
+	theta1 = coords[2];
+	dtheta1 = diff(theta1, t)
+	theta2 = coords[3];
+	dtheta2 = diff(theta2, t)
+	Delta = theta2 - theta1;
+	L = M1/2*(dr1**2+r1**2*dtheta1**2) + M2/2*(dr2**2+r2**2*dtheta2**2) + mu2*(cos(Delta)*(dr1*dr2 + r1*r2*dtheta1*dtheta2) + sin(Delta)*(r1*dr2*dtheta1 - dr1*r2*dtheta2)-g*r2*sin(theta2)) - mu1*g*r1*sin(theta1) - k1*(r1-l1)**2/2 - k2*(r2-l2)**2/2;
 	Q = [Function('Qr1')(t), Function('Qr2')(t), Function('Qtheta1')(t), Function('Qtheta2')(t)]
 	return [Eq(diff(diff(L, diff(coords[i], t)), t) - diff(L, coords[i]), Q[i]) for i in range(len(coords))]
 	
@@ -134,7 +134,8 @@ coords = r + theta;
 
 d2 = [diff(i, (t, 2)) for i in coords];
 coords_ddot_syms = symbols('r1_dd r2_dd theta1_dd theta2_dd')
-equations = compute_equations_motion(g, k, m, l, coords, y, poscent)
+pos = [r1b, r1r, r2b, r2r]
+equations = compute_equations_motion(g, k, m, l, coords, y, pos)
 
 # Turn Eq(lhs, rhs) into lhs - rhs == 0
 residuals = [eq.lhs - eq.rhs for eq in equations]
@@ -144,8 +145,23 @@ residuals_subs = [res.subs(dict(zip(d2, coords_ddot_syms))) for res in residuals
 from sympy.solvers.solveset import linear_eq_to_matrix
 
 A, RHS = linear_eq_to_matrix(residuals_subs, coords_ddot_syms)
-print(simplify(A))
-print(factor(simplify(RHS)))
 b = [b1b, b1r, b2b, b2r]
 c = [c1b, c1r, c2b, c2r]
-print(gen_diss_force(b, c, l, pos, coords))
+Q=gen_diss_force(b, c, l, pos, coords)
+
+Delta = symbols("Delta")
+subs_dict = {
+    theta1 - theta2: -Delta,
+    theta2 - theta1: Delta,
+}
+print("Simplified A with subs=")
+A = simplify(A).subs(subs_dict)
+novars = shape(A)[0];
+for i in range(novars):
+	print("A[" + str(i) + ",:] = " + str(A[i,:]))
+	
+print("Simplified b with subs=")
+RHS = factor(simplify(RHS)).subs(subs_dict)
+for i in range(novars):
+	collRHS = collect(RHS[i], [M1, M2, mu1, mu2, k1, k2])
+	print("b[" + str(i) + "] = " + str(collRHS))	
