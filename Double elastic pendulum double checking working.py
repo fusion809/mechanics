@@ -36,97 +36,83 @@ r2 = Function('r2')(t);
 dr2 = diff(r2, t);
 theta2 = Function('theta2')(t);
 dtheta2 = diff(theta2, t);
-v2bI_sq = dr2**2 + r2**2*dtheta2**2;
-Delta = theta2 - theta1;
-# Bob 1
-x1b = r1*cos(theta1);
-y1b = r1*sin(theta1);
-y1r = r1*sin(theta1)/2;
-r1b = x1b * N.i + y1b * N.j;
-v1b = diff(r1b, t);
-v1b_sq = v1b.dot(v1b);
-v1b_mag = sqrt(v1b_sq);
-e1b_r1 = diff(r1b, r1);
-e1b_r2 = diff(r1b, r2);
-e1b_th1 = diff(r1b, theta1);
-e1b_th2 = diff(r1b, theta2);
+coords = [r1, r2, theta1, theta2]
+dcoords = [dr1, dr2, dtheta1, dtheta2]
+M1 = symbols("M1");
+M2 = symbols("M2");
+mu1 = symbols("mu1");
+mu2 = symbols("mu2");
 
-# Bob 2
-x2b = x1b+r2*cos(theta2);
-y2b = y1b + r2*sin(theta2);
-y2r = y1b + r2*sin(theta2)/2;
-r2b = x2b * N.i + y2b * N.j;
-v2b = diff(r2b, t);
-v2b_sq = v2b.dot(v2b);
-v2b_mag = sqrt(v2b_sq);
-e2b_r1 = diff(r2b, r1);
-e2b_r2 = diff(r2b, r2);
-e2b_th1 = diff(r2b, theta1);
-e2b_th2 = diff(r2b, theta2);
+def Lagrangian(m, g, k, l, coords, dcoords):
+	M1 = m[0];
+	M2 = m[1];
+	mu1 = m[2];
+	mu2 = m[3];
+	k1 = k[0];
+	k2 = k[1];
+	l1 = l[0];
+	l2 = l[1];
+	r1 = coords[0];
+	r2 = coords[1];
+	theta1 = coords[2];
+	theta2 = coords[3];
+	dr1 = dcoords[0];
+	dr2 = dcoords[1];
+	dtheta1 = dcoords[2];
+	dtheta2 = dcoords[3];
+	Delta = theta2-theta1;
+	L = M1/2 * (dr1**2 + r1**2 * dtheta1**2) + M2/2*(dr2**2 + r2**2*dtheta2**2) + mu2*(cos(Delta)*(dr1*dr2 + r1*r2*dtheta1*dtheta2)+sin(Delta)*(r1*dr2*dtheta1 - dr1*r2*dtheta2)-g*r2*sin(theta2)) - mu1*g*r1*sin(theta1) - (k1*(r1-l1)**2+k2*(r2-l2)**2)/2;
+	return L
 
-# Rod 1
-x1r = x1b/2;
-y1r = y1b/2;
-r1r = x1r*N.i+y1r*N.j;
-v1r = diff(r1r, t);
-# Rod 2
-x2r = x1b + r2*cos(theta2)/2;
-y2r = y1b + r2*sin(theta2)/2;
-r2r = x2r*N.i+y2r*N.j;
-v2r = diff(r2r, t);
+m = [M1, M2, mu1, mu2];
+l = [l1, l2];
+k = [k1, k2];
+dr1 = diff(r1, t)
+dr2 = diff(r2, t)
+dtheta1 = diff(theta1, t)
+dtheta2 = diff(theta2,t)
 
-Delv21I_sq = simplify(v2b_sq - v1b_sq - v2bI_sq)
-coords = [r1, r2, theta1, theta2];
-dcoords = [dr1, dr2, dtheta1, dtheta2];
+def ELE(m, g, k, l, coords, dcoords):
+	L = Lagrangian(m, g, k, l, coords, dcoords)
+	Q = [Function('Qr1')(t), Function('Qr2')(t), Function('Qtheta1')(t), Function('Qtheta2')(t)]
+	return [Eq(simplify(diff(diff(L, diff(coords[i], t)), t) - diff(L, coords[i])), Q[i]) for i in range(len(coords))]
+
+coords_ddot_syms = symbols('r1_dd r2_dd theta1_dd theta2_dd')
+d2 = [diff(i, (t, 2)) for i in coords];
+equations = ELE(m, g, k, l, coords, dcoords)
+# Turn Eq(lhs, rhs) into lhs - rhs == 0
+residuals = [eq.lhs - eq.rhs for eq in equations]
+
+# Substitute second derivatives with dummy symbols (e.g. theta1_dd)
+residuals_subs = [res.subs(dict(zip(d2, coords_ddot_syms))) for res in residuals]
+from sympy.solvers.solveset import linear_eq_to_matrix
+
+A, RHS = linear_eq_to_matrix(residuals_subs, coords_ddot_syms)
+
+M1, M2, mu1, mu2, Delta = symbols("M1, M2, mu1, mu2, Delta")
 subs_dict = {
-    theta1 - theta2: -Delta,
-    theta2 - theta1: Delta,
+	theta1-theta2: -Delta,
+	theta2-theta1: Delta,
+	m1b + m1r/3 + m2b + m2r: M1,
+	(3*m1b + m1r + 3*m2b + 3*m2r)/3: M1,
+	3*m1b + m1r + 3*m2b + 3*m2r: 3*M1,
+	m1b + m1r/2 + m2b + m2r: mu1,
+	(2*m1b+m1r+2*m2b+2*m2r)/2: mu1,
+	2*m1b+m1r+2*m2b+2*m2r: 2*mu1,
+	m2b + m2r/3: M2,
+	(3*m2b+m2r)/3: M2,
+	3*m2b+m2r: 3*M2,
+	m2b + m2r/2: mu2,
+	(2*m2b + m2r)/2: mu2,
+	(2*m2b + m2r): 2*mu2
 }
-for i in range(len(coords)):
-	print(str(coords[i]) + " v1b_sq")
-	print("partial/partial " + str(coords[i]) + " v1b_sq = ")
-	dv1b_sq = diff(v1b_sq, coords[i])
-	print(simplify(dv1b_sq).subs(subs_dict))
-	print("partial/partial " + str(dcoords[i]) + " v1b_sq = ")
-	ddv1b_sq = diff(v1b_sq, dcoords[i])
-	print(simplify(ddv1b_sq).subs(subs_dict))
-	print("time deriv of partial/partial " + str(dcoords[i]) + " v1b_sq = ")
-	dddv1b_sq = diff(ddv1b_sq, t)
-	print(simplify(dddv1b_sq).subs(subs_dict))
-	print("delta'_" + str(coords[i]) + "v1b_sq=")
-	print(simplify(dddv1b_sq - dv1b_sq).subs(subs_dict))
-	print("\n")
-	
-print("Now for v2bI_sq")
 
-for i in range(len(coords)):
-	print(str(coords[i]) + " v2bI_sq")
-	print("partial/partial " + str(coords[i]) + " v2bI_sq = ")
-	dv2bI_sq = diff(v2bI_sq, coords[i])
-	print(simplify(dv2bI_sq).subs(subs_dict))
-	print("partial/partial " + str(dcoords[i]) + " v2bI_sq = ")
-	ddv2bI_sq = diff(v2bI_sq, dcoords[i])
-	print(simplify(ddv2bI_sq).subs(subs_dict))
-	print("time deriv of partial/partial " + str(dcoords[i]) + " v2bI_sq = ")
-	dddv2bI_sq = diff(ddv2bI_sq, t)
-	print(simplify(dddv2bI_sq).subs(subs_dict))
-	print("delta'_" + str(coords[i]) + "v2bI_sq=")
-	print(simplify(dddv2bI_sq - dv2bI_sq).subs(subs_dict))
-	print("\n")
-	
-print("Now for Delv21I_sq")
+A_simplified = A.applyfunc(lambda x: simplify(x).subs(subs_dict, simultaneous=True))
+RHS_simplified = RHS.applyfunc(lambda x: simplify(x).subs(subs_dict, simultaneous=True))
 
-for i in range(len(coords)):
-	print(str(coords[i]) + " Delv21I_sq")
-	print("partial/partial " + str(coords[i]) + " Delv21I_sq = ")
-	dDelv21I_sq = diff(Delv21I_sq, coords[i])
-	print(simplify(dDelv21I_sq.replace(lambda x: x == theta1 - theta2, lambda x: -Delta)).subs(subs_dict))
-	print("partial/partial " + str(dcoords[i]) + " Delv21I_sq = ")
-	ddDelv21I_sq = diff(Delv21I_sq, dcoords[i])
-	print(simplify(ddDelv21I_sq.replace(lambda x: x == theta1 - theta2, lambda x: -Delta)).subs(subs_dict))
-	print("time deriv of partial/partial " + str(dcoords[i]) + " Delv21I_sq = ")
-	dddDelv21I_sq = diff(ddDelv21I_sq, t)
-	print(simplify(dddDelv21I_sq.replace(lambda x: x == theta1- theta2, lambda x: -Delta)).subs(subs_dict))
-	print("delta'_" + str(coords[i]) + "Delv21I_sq=")
-	print(simplify(dddDelv21I_sq.replace(lambda x: x == theta1 - theta2, lambda x: -Delta) - dDelv21I_sq.replace(lambda x: x == theta1 - theta2, lambda x: -Delta)).subs(subs_dict))
-	print("\n")
+from sympy import shape
+for i in range(shape(A_simplified)[0]):
+	print("i = " + str(i) + ", A[i,:] = ")
+	print(A_simplified[i,:].subs(subs_dict, simultaneous=True))
+	print("b[i] = ")
+	print(RHS_simplified[i].subs(subs_dict, simultaneous=True))
